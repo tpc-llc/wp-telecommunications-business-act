@@ -1,0 +1,90 @@
+version: '3'
+
+services:
+  wp-tba-db:
+    container_name: "wp-tba-db"
+    image: mysql:8.0
+    networks:
+      wp-tba-net:
+    volumes:
+      - type: volume
+        source: db_storage
+        target: /var/lib/mysql
+    command:
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_general_ci"
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD
+      timeout: 3s
+      retries: 10
+    environment:
+      MYSQL_USER: test
+      MYSQL_DATABASE: test
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: test
+
+  wp-tba:
+    depends_on:
+      wp-tba-db:
+        condition: service_healthy
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: "wp-tba"
+    networks:
+      wp-tba-net:
+    extra_hosts:
+      - host.docker.internal:host-gateway # xdebug
+    volumes:
+      - type: bind
+        source: ./
+        target: /var/www/html/wp-content/plugins/wp-telecommunications-business-act/
+      - type: volume
+        source: wp_storage
+        target: /var/www/html/
+      - type: bind
+        source: php.ini
+        target: /usr/local/etc/php/php.ini
+    environment:
+      WORDPRESS_DB_HOST: wp-tba-db:3306
+      WORDPRESS_DB_USER: test
+      WORDPRESS_DB_PASSWORD: test
+      WORDPRESS_DB_NAME: test
+      WORDPRESS_TABLE_PREFIX: wp_tba_
+    ports:
+      - 8080:80
+
+  wp-tba-phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: "wp-tba-phpmyadmin"
+    depends_on:
+      wp-tba-db:
+        condition: service_healthy
+    networks:
+      wp-tba-net:
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: wp-tba-db
+      PMA_PORT: 3306
+      PMA_USER: test
+      PMA_PASSWORD: test
+    ports:
+      - 8081:80
+
+  wp-tba-swagger:
+    image: swaggerapi/swagger-ui
+    container_name: "wp-tba-swagger"
+    volumes:
+      - ./api.json:/api.json
+    environment:
+      SWAGGER_JSON: /api.json
+    ports:
+      - 8082:8080
+
+volumes:
+  db_storage:
+  wp_storage:
+
+
+networks:
+  wp-tba-net:

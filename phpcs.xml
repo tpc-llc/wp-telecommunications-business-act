@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ruleset name="WPTBA">
+    <rule ref="PSR2"></rule>
+    <rule ref="WordPress"></rule>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+</ruleset>

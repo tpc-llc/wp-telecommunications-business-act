@@ -10,9 +10,13 @@
  * Author URI: https://tori-piyo.com
  * Text Domain: WPTBA
  * Domain Path: /languages
+ * 
+ * @package WPTBA
  */
 
  // Require autoloader.
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require __DIR__ . '/vendor/autoload.php';
 }
+
+require_once __DIR__ . '/page/require-once.php';

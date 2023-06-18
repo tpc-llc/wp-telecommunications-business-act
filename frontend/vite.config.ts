@@ -12,7 +12,8 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: [
-        'src/providers/ServiceSelect.tsx'
+        'src/providers/ServiceSelect.tsx',
+        'src/providers/TBAWidget.tsx'
       ],
       output: {
         entryFileNames: `assets/[name].js`,

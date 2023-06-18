@@ -1,0 +1,1 @@
+import{R as t,_ as o,c as a,j as e}from"./module-client-c682019c.js";const c=t.lazy(async()=>await o(()=>import("./module-ServiceSelectPage-edb289ef.js"),["assets/module-ServiceSelectPage-edb289ef.js","assets/module-client-c682019c.js"]));a.createRoot(document.getElementById("wpbody-content")).render(e.jsx(t.StrictMode,{children:e.jsx(c,{})}));

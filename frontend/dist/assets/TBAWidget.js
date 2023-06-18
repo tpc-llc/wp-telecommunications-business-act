@@ -1,0 +1,1 @@
+import{R as e,_ as o,c as a,j as t}from"./module-client-c682019c.js";const r=e.lazy(async()=>await o(()=>import("./module-TBAWidget-819926b1.js"),["assets/module-TBAWidget-819926b1.js","assets/module-client-c682019c.js"]));a.createRoot(document.getElementById("wptba-root")).render(t.jsx(e.StrictMode,{children:t.jsx(r,{})}));

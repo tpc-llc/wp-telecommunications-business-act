@@ -21,8 +21,11 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require __DIR__ . '/vendor/autoload.php';
 }
 
-require_once __DIR__ . '/filters/require-once.php';
+require_once __DIR__ . '/filter/require-once.php';
 add_filter('script_loader_tag', 'wptba_script_loader_tag', 10, 3);
+
+require_once __DIR__ . '/shortcode/require-once.php';
+add_shortcode( '電気通信事業法', 'wptba_shortcode' );
 
 require_once __DIR__ . '/page/require-once.php';
 new ServiceSelectPage();

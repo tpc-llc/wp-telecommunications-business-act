@@ -3,6 +3,7 @@
     <arg name="extensions" value="php" />
     <arg value="ps" />
     <rule ref="PSR2"></rule>
+    <exclude-pattern>/frontend/</exclude-pattern>
     <exclude-pattern>/vendor/</exclude-pattern>
     <exclude-pattern>tests/bootstrap.php</exclude-pattern>
 </ruleset>

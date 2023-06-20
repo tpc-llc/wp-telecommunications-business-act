@@ -32,3 +32,11 @@ $ composer install --dev
 ```
 $ ./vendor/bin/phpcs --config-set installed_paths ./vendor/wp-coding-standards/wpcs,./vendor/phpcompatibility/php-compatibility,./vendor/phpcompatibility/phpcompatibility-paragonie,./vendor/phpcompatibility/phpcompatibility-wp
 ```
+
+3. Orvalの利用
+
+```
+$ npm i -g orval
+$ cd frontend
+$ npm run openapi
+```

@@ -12,6 +12,7 @@ use WPTBA\Repository\ServicePoliciesRepository;
 use WPTBA\Repository\ServicePoliciesRepositoryTest;
 
 use WPTBA\Application\Admin\AdminApplication;
+use WPTBA\Application\Public\PublicApplication;
 
 /**
  * DIコンテナ.
@@ -46,5 +47,13 @@ class Container
     public function getAdminApplication()
     {
         return new AdminApplication($this->service_policies_repository);
+    }
+
+    /**
+     * Get Public Application.
+    */
+    public function getPublicApplication()
+    {
+        return new PublicApplication($this->service_policies_repository);
     }
 }

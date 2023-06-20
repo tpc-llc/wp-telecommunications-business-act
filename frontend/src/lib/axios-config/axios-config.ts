@@ -1,15 +1,15 @@
-import { AxiosRequestConfig } from "axios";
+import { type AxiosRequestConfig } from 'axios'
 
-declare const wptba: WPTBA;
+declare const wptba: WPTBA
 
 export interface WPTBA {
-    _wpnonce?: string
+  _wpnonce?: string
 }
 
 const axiosBaseConfig: AxiosRequestConfig = {
-    baseURL: window.location.origin + '/wp-json/wptba',
-    headers: {
-        'X-WP-Nonce': wptba._wpnonce,
-    }
+  baseURL: window.location.origin + '/wp-json/wptba',
+  headers: {
+    'X-WP-Nonce': wptba._wpnonce
+  }
 }
-export default axiosBaseConfig;
+export default axiosBaseConfig

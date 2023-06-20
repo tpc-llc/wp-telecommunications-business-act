@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
 const TBAWidget: React.FC = () => {
-    return (
+  return (
         <div>
             <h1>TBA Widget</h1>
         </div>
-    );
+  )
 }
 
-export default TBAWidget;
+export default TBAWidget

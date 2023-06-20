@@ -29,5 +29,12 @@ module.exports = {
     'react'
   ],
   rules: {
-  }
+  },
+  ignorePatterns: [
+    'client.msw.ts',
+    'client.schemas.ts',
+    'client.ts',
+    '*.config.ts',
+    '*.d.ts',
+  ]
 }

@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
 const ServiceSelectPage: React.FC = () => {
-    return (
+  return (
         <div>
             <h1>Service Select Page</h1>
         </div>
-    );
+  )
 }
 
-export default ServiceSelectPage;
+export default ServiceSelectPage

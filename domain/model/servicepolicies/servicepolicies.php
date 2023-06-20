@@ -34,6 +34,8 @@ class ServicePolicies
 
     /**
      * Get all service official policies.
+     * 
+     * @return array All service official policies.
     */
     public function getAllServiceOfficialPolicies()
     {
@@ -43,5 +45,16 @@ class ServicePolicies
             $service_official_policies[] = new ServiceOfficialPolicy($service_unique_id);
         }
         return $service_official_policies;
+    }
+
+    /** 
+     * Update all service and policies.
+     * 
+     * @param array $service_and_policies_uids Service and policies unique ids.
+     * @return void
+    */
+    public function updateAllServiceAndPolicies($service_and_policies_uids)
+    {
+        $this->service_policies_repository->saveAllServiceOfficialPolicies($service_and_policies_uids);
     }
 }

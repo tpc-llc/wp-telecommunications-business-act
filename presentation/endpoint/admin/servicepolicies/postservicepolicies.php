@@ -1,21 +1,20 @@
 <?php
 /**
- * Get Admin Page Info.
+ * Post service policies.
 */
 
-namespace WPTBA\Presentation\Endpoint\Admin\PageInfo;
+namespace WPTBA\Presentation\Endpoint\Admin\ServicePolicies;
 
 use WP_REST_Response;
 
 use WPTBA\Presentation\Endpoint\Endpoint;
-use WPTBA\Presentation\Endpoint\Admin\PageInfo\GetAdminPageInfoResponse;
 
 use WPTBA\Application\Admin\AdminApplication;
 
 /**
- * Get Admin Page Info.
+ * Post Service Policies.
 */
-class GetAdminPageInfo
+class PostServicePolicies
 {
     /**
      * Admin Application.
@@ -33,15 +32,13 @@ class GetAdminPageInfo
     {
         $this->admin_application = $admin_application;
 
-        $callback_function = function () {
-            $admin_page_info = $this->admin_application->getAdminPageInfo();
-            $response = new GetAdminPageInfoResponse($admin_page_info['service_official_policies_uids']);
-            return new WP_REST_Response(
-                array(
-                    'service_official_policies_uids' => $response->getServiceOfficialUids()
-                ),
-                200
+        $callback_function = function ($request) {
+            $service_policies_request = new PostServicePoliciesRequest(
+                $request->get_params()['service_official_policies_uids']
             );
+            $service_official_policies_uids = $service_policies_request->getServiceOfficialUids();
+            $this->admin_application->updateServiceAndPolicies($service_official_policies_uids);
+            return new WP_REST_Response(null, 200);
         };
 
         $permission_callback_function = function () {
@@ -49,8 +46,8 @@ class GetAdminPageInfo
         };
 
         new Endpoint(
-            'admin/pageinfo',
-            'GET',
+            'admin/service-policies',
+            'POST',
             $callback_function,
             $permission_callback_function
         );

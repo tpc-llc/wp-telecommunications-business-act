@@ -3,12 +3,12 @@
  * Admin Application Request and Response.
 */
 
-namespace WPTBA\Presentation\Endpoint\Admin\PageInfo;
+namespace WPTBA\Presentation\Endpoint\Admin\ServicePolicies;
 
 /**
- * Get Admin Page Info response.
+ * Post service and policies request.
 */
-class GetAdminPageInfoResponse
+class PostServicePoliciesRequest
 {
     /**
      * Service and policies.

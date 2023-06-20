@@ -9,3 +9,4 @@
 <?php
 
 require_once __DIR__ . '/pageinfo/require-once.php';
+require_once __DIR__ . '/servicepolicies/require-once.php';

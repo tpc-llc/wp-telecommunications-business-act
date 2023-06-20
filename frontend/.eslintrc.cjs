@@ -3,40 +3,25 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended'
-  ],
-  overrides: [
-    {
-      env: {
-        node: true
-      },
-      files: [
-        '.eslintrc.{js,cjs}'
-      ],
-      parserOptions: {
-        sourceType: 'script'
-      }
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:storybook/recommended'],
+  overrides: [{
+    env: {
+      node: true
+    },
+    files: ['.eslintrc.{js,cjs}'],
+    parserOptions: {
+      sourceType: 'script'
     }
-  ],
+  }],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
+    project: './tsconfig.json'
   },
-  plugins: [
-    'react'
-  ],
+  plugins: ['react'],
   rules: {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off"
   },
-  ignorePatterns: [
-    'client.msw.ts',
-    'client.schemas.ts',
-    'client.ts',
-    '*.config.ts',
-    '*.d.ts',
-  ]
-}
+  ignorePatterns: ['client.msw.ts', 'client.schemas.ts', 'client.ts', '*.config.ts', '*.d.ts']
+};

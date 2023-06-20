@@ -11,7 +11,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    setupFiles: './vitest.setup.tsx'
+    setupFiles: '../vitest.setup.tsx'
   },
   build: {
     outDir: '../dist',

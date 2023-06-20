@@ -40,3 +40,9 @@ $ npm i -g orval
 $ cd frontend
 $ npm run openapi
 ```
+
+4. Storybookの利用
+
+```
+$ npm run storybook
+```

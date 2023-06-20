@@ -1,5 +1,10 @@
 {
     "name": "tpc-llc/wp-telecommunications-business-act",
+    "autoload": {
+        "psr-4": {
+            "WPTBA\\": "./"
+        }
+    },
     "authors": [
         {
             "name": "Tori Takashi",
@@ -24,6 +29,7 @@
     "scripts": {
         "phpcs": "./vendor/bin/phpcs --standard=phpcs.xml ./",
         "phpcbf": "./vendor/bin/phpcbf --standard=./phpcs.xml ./",
-        "phpunit": "./vendor/bin/phpunit --testsuite testing"
+        "phpunit": "./vendor/bin/phpunit --testsuite testing",
+        "openapi": "./vendor/bin/openapi ./presentation/endpoint -o api.json -b vendor/autoload.php"
     }
 }

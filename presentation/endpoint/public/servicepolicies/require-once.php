@@ -8,5 +8,5 @@
 ?>
 <?php
 
-require_once __DIR__ . '/getservicepolicies.php';
-require_once __DIR__ . '/getservicepoliciesresponse.php';
+require_once __DIR__ . '/getpublicservicepolicies.php';
+require_once __DIR__ . '/getpublicservicepoliciesresponse.php';

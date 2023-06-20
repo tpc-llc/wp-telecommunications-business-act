@@ -1,6 +1,8 @@
 <?php
 /**
  * Get Service Policies for shortcode.
+ *
+ * @package WPTBA
 */
 
 namespace WPTBA\Presentation\Endpoint\Public\ServicePolicies;
@@ -14,6 +16,17 @@ use WPTBA\Application\Public\PublicApplication;
 
 /**
  * Get Service Policies for shortcode.
+ *
+ * @OA\Get(
+ *   path="/public/service-policies",
+ *   summary="サービスとポリシー取得",
+ *   @OA\Response(
+ *     response=200,
+ *     description="取得成功",
+ *       @OA\JsonContent(ref="#/components/schemas/GetPublicServicePoliciesResponse")
+ *     )
+ *   )
+ * )
 */
 class GetPublicServicePolicies
 {

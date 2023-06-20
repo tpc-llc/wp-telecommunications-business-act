@@ -1,3 +1,124 @@
 {
-    "openapi": "3.0.0"
+    "openapi": "3.0.0",
+    "info": {
+        "title": "電気通信事業法プラグインのPHPバックエンド",
+        "description": "電気通信事業法プラグインのPHPバックエンド",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/wp-json/wptba/"
+        }
+    ],
+    "paths": {
+        "/admin/pageinfo": {
+            "get": {
+                "summary": "管理者ページ情報取得",
+                "description": "Get Admin Page Info.",
+                "responses": {
+                    "200": {
+                        "description": "取得成功",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAdminPageInfoResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/service-policies": {
+            "post": {
+                "summary": "サービスとポリシー更新",
+                "description": "Post Service Policies.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostServicePoliciesRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "更新成功"
+                    }
+                }
+            }
+        },
+        "/public/service-policies": {
+            "get": {
+                "summary": "サービスとポリシー取得",
+                "description": "Get Service Policies for shortcode.",
+                "responses": {
+                    "200": {
+                        "description": "取得成功",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetPublicServicePoliciesResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "GetAdminPageInfoResponse": {
+                "description": "Get Admin Page Info response.",
+                "required": [
+                    "service_official_policies_uids"
+                ],
+                "properties": {
+                    "service_official_policies_uids": {
+                        "description": "Service and policies.",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "PostServicePoliciesRequest": {
+                "description": "Post service and policies request.",
+                "required": [
+                    "service_official_policies_uids"
+                ],
+                "properties": {
+                    "service_official_policies_uids": {
+                        "description": "Service and policies.",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "GetPublicServicePoliciesResponse": {
+                "description": "Get Service Policies for shortcode.",
+                "required": [
+                    "service_official_policies_uids"
+                ],
+                "properties": {
+                    "service_official_policies_uids": {
+                        "description": "Service and policies.",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
 }

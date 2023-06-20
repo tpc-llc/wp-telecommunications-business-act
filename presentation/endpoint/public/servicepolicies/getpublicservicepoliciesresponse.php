@@ -1,12 +1,18 @@
 <?php
 /**
  * Public Service Policies for shortcode.
+ *
+ * @package WPTBA
 */
 
 namespace WPTBA\Presentation\Endpoint\Public\ServicePolicies;
 
 /**
  * Get Service Policies for shortcode.
+ *
+ * @OA\Schema(
+ *  required={"service_official_policies_uids"}
+ * )
 */
 class GetPublicServicePoliciesResponse
 {
@@ -14,6 +20,13 @@ class GetPublicServicePoliciesResponse
      * Service and policies.
      *
      * @var array $service_official_policies_uids Service official uids.
+     *
+     * @OA\Property(
+     *   type="array",
+     *   @OA\Items(
+     *     type="string"
+     *   )
+     * )
     */
     private $service_official_policies_uids;
 

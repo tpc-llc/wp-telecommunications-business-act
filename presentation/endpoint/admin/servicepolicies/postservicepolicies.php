@@ -1,6 +1,8 @@
 <?php
 /**
  * Post service policies.
+ *
+ * @package WPTBA
 */
 
 namespace WPTBA\Presentation\Endpoint\Admin\ServicePolicies;
@@ -13,6 +15,19 @@ use WPTBA\Application\Admin\AdminApplication;
 
 /**
  * Post Service Policies.
+ *
+ * @OA\Post(
+ *   path="/admin/service-policies",
+ *   summary="サービスとポリシー更新",
+ *   @OA\RequestBody(
+ *     required=true,
+ *     @OA\JsonContent(ref="#/components/schemas/PostServicePoliciesRequest")
+ *   ),
+ *   @OA\Response(
+ *     response=200,
+ *     description="更新成功",
+ *   ),
+ * )
 */
 class PostServicePolicies
 {

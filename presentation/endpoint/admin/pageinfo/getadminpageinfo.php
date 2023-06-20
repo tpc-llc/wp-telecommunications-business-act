@@ -1,6 +1,8 @@
 <?php
 /**
  * Get Admin Page Info.
+ *
+ * @package WPTBA
 */
 
 namespace WPTBA\Presentation\Endpoint\Admin\PageInfo;
@@ -14,6 +16,17 @@ use WPTBA\Application\Admin\AdminApplication;
 
 /**
  * Get Admin Page Info.
+ *
+ * @OA\Get(
+ *   path="/admin/pageinfo",
+ *   summary="管理者ページ情報取得",
+ *   @OA\Response(
+ *     response=200,
+ *     description="取得成功",
+ *       @OA\JsonContent(ref="#/components/schemas/GetAdminPageInfoResponse")
+ *     )
+ *   )
+ * )
 */
 class GetAdminPageInfo
 {

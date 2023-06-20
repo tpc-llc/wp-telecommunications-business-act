@@ -7,6 +7,10 @@ namespace WPTBA\Presentation\Endpoint\Admin\ServicePolicies;
 
 /**
  * Post service and policies request.
+ *
+ * @OA\Schema(
+ *  required={"service_official_policies_uids"}
+ * )
 */
 class PostServicePoliciesRequest
 {
@@ -14,6 +18,13 @@ class PostServicePoliciesRequest
      * Service and policies.
      *
      * @var array $service_official_policies_uids Service official uids.
+     *
+     * @OA\Property(
+     *   type="array",
+     *   @OA\Items(
+     *     type="string"
+     *   )
+     * )
     */
     private $service_official_policies_uids;
 

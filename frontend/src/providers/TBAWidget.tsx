@@ -1,4 +1,5 @@
 import React from 'react'
+import { MantineProvider } from '@mantine/core'
 import ReactDOM from 'react-dom/client'
 
 const TBAWidget = React.lazy(
@@ -8,7 +9,9 @@ const TBAWidget = React.lazy(
 ReactDOM.createRoot(
   document.getElementById('wptba-root') as HTMLElement
 ).render(
-    <React.StrictMode>
-        <TBAWidget />
-    </React.StrictMode>
+  <React.StrictMode>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <TBAWidget />
+    </MantineProvider>
+  </React.StrictMode>
 )

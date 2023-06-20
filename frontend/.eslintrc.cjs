@@ -13,6 +13,11 @@ module.exports = {
       sourceType: 'script'
     }
   }],
+  settings: {
+    react: {
+      "version": "detect"
+    },
+  },
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',

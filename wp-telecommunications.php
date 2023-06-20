@@ -35,10 +35,14 @@ require_once __DIR__ . '/container.php';
 
 $container = new Container();
 
+// Filter.
 add_filter('script_loader_tag', 'wptba_script_loader_tag', 10, 3);
 
+// Shortcode.
 add_shortcode('電気通信事業法', 'wptba_shortcode');
 
+// Endpoint.
 new GetAdminPageInfo($container->getAdminApplication());
 
+// Page.
 new ServiceSelectPage();

@@ -36,16 +36,12 @@ class ServiceSelectPage
     /**
      * Constructorで表示するかどうか切り替え、どこに表示するかを設定する.
      * 読み込むファイルを設定する.
-     *
-     * @param string $page_title 同上.
-     * @param string $page_slug 同上.
-     * @param string $js_name 同上.
      */
     public function __construct()
     {
         $this->page_title = "電気通信事業法";
         $this->page_slug  = "telecommunications-business-act";
-        $this->js_name    = "ServiceSelectPage";
+        $this->js_name    = "ServiceSelect";
 
         if (is_admin()) {
             add_action(
@@ -122,7 +118,7 @@ class ServiceSelectPage
     {
         wp_enqueue_script(
             'wptba-page-' . $this->page_slug . 'js',
-            plugins_url('/frontend/dist/assets/' . $this->js_name . '.js', dirname(__FILE__)),
+            plugins_url('../frontend/dist/assets/' . $this->js_name . '.js', dirname(__FILE__)),
             array(
                 'jquery',
                 'wp-element',

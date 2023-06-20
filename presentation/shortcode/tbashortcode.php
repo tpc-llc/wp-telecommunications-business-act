@@ -12,7 +12,7 @@ function wptba_shortcode()
 {
     wp_enqueue_script(
         'wptba-page-TBAWidget.js',
-        plugins_url('/frontend/dist/assets/TBAWidget.js', dirname(__FILE__)),
+        plugins_url('../frontend/dist/assets/TBAWidget.js', dirname(__FILE__)),
         array(
             'jquery',
             'wp-element',

@@ -50,4 +50,15 @@ class AdminApplication
             'service_official_policies_uids' => $service_official_policies_uids
         );
     }
+
+    /** 
+     * 利用しているサービスとポリシーを更新する.
+     * 
+     * @param array $service_and_policies_uids サービスとポリシーのUnique IDの配列.
+    */
+    public function updateServiceAndPolicies($service_and_policies_uids)
+    {
+        $service_policies = new ServicePolicies($this->service_policies_repository);
+        $service_policies->updateAllServiceAndPolicies($service_and_policies_uids);
+    }
 }

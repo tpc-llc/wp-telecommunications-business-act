@@ -1,14 +1,14 @@
 <?php
-/** 
+/**
  * Service Policiesの単体テスト.
 */
 
 namespace WPTBA\Test\Unit\ServicePolicies;
 
 use PHPUnit\Framework\TestCase;
-
 use WPTBA\Container\Container;
 use WPTBA\Domain\Model\ServicePolicies;
+use WPTBA\Domain\Model\ServiceOfficialPolicy;
 
 /**
  * Service Policiesの単体テスト.
@@ -16,11 +16,35 @@ use WPTBA\Domain\Model\ServicePolicies;
 class TestServicePolicies extends TestCase
 {
     /**
-     * @test
-     */
-    public function getAllServiceOfficialPolicies()
+     * Service Policies Repository Test.
+     *
+     * @var ServicePoliciesRepositoryTest $service_policies_repository Service Policies Repository Test.
+    */
+    private $service_policies_repository;
+
+    /**
+     * Constructor.
+    */
+    public function __construct()
     {
-        $service_policies = new ServicePolicies(Container::getServicePoliciesRepository());
-        $this->assertEquals(array(), $service_policies->getAllServiceOfficialPolicies());
+        parent::__construct();
+        $this->service_policies_repository = Container::getServicePoliciesRepository();
+    }
+
+    /**
+     * Service Official Policiesが適切な型で取得できるか.
+     */
+    public function testGetAllServiceOfficialPolicies()
+    {
+        $this->service_policies_repository->saveAllServiceOfficialPolicies(array(
+            'google-analytics',
+        ));
+
+        $service_policies = new ServicePolicies($this->service_policies_repository);
+        $service_official_policies = $service_policies->getAllServiceOfficialPolicies();
+        
+        $this->assertEquals($service_official_policies, array(
+            new ServiceOfficialPolicy('google-analytics'),
+        ));
     }
 }

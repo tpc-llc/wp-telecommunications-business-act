@@ -5,7 +5,7 @@
  * @package WPTBA
  */
 
-namespace WPTBA\Page;
+namespace WPTBA\Presentation\Page;
 
 /**
  * 管理画面にベースとなるdivを作成する.

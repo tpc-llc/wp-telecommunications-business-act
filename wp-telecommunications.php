@@ -14,7 +14,13 @@
  * @package WPTBA
  */
 
-use WPTBA\Page\ServiceSelectPage;
+define('WPTBA_VERSION', '0.0.1');
+define('WPTBA_ENV', 'production');
+
+use WPTBA\Presentation\Endpoint\Admin\PageInfo\GetAdminPageInfo;
+use WPTBA\Presentation\Page\ServiceSelectPage;
+
+use WPTBA\Container\Container;
 
 // Require autoloader.
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
@@ -27,8 +33,12 @@ require_once __DIR__ . '/application/require-once.php';
 require_once __DIR__ . '/presentation/require-once.php';
 require_once __DIR__ . '/container.php';
 
+$container = new Container();
+
 add_filter('script_loader_tag', 'wptba_script_loader_tag', 10, 3);
 
 add_shortcode('電気通信事業法', 'wptba_shortcode');
+
+new GetAdminPageInfo($container->getAdminApplication());
 
 new ServiceSelectPage();

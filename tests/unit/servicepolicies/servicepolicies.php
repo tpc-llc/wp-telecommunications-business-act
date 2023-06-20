@@ -6,7 +6,7 @@
 namespace WPTBA\Test\Unit\ServicePolicies;
 
 use PHPUnit\Framework\TestCase;
-use WPTBA\Container\Container;
+use WPTBA\Repository\ServicePoliciesRepositoryTest;
 use WPTBA\Domain\Model\ServicePolicies;
 use WPTBA\Domain\Model\ServiceOfficialPolicy;
 
@@ -28,7 +28,7 @@ class TestServicePolicies extends TestCase
     public function __construct()
     {
         parent::__construct();
-        $this->service_policies_repository = Container::getServicePoliciesRepository();
+        $this->service_policies_repository = new ServicePoliciesRepositoryTest();
     }
 
     /**

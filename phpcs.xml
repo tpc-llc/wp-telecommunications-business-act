@@ -2,7 +2,11 @@
 <ruleset name="WPTBA">
     <arg name="extensions" value="php" />
     <arg value="ps" />
-    <rule ref="PSR2"></rule>
+    <rule ref="PSR2" />
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols" >
+        <exclude-pattern>wp-telecommunications.php</exclude-pattern>
+    </rule>
+
     <exclude-pattern>/frontend/</exclude-pattern>
     <exclude-pattern>/vendor/</exclude-pattern>
     <exclude-pattern>tests/bootstrap.php</exclude-pattern>

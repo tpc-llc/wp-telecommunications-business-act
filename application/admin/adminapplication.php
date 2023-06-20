@@ -34,11 +34,11 @@ class AdminApplication
     }
 
     /**
-     * サービスとポリシーを取得する.
+     * 管理画面で必要な情報を取得する.
      *
-     * @return array サービスとポリシー.
+     * @return array 管理画面で必要な情報.
     */
-    public function getServiceAndPolicies()
+    public function getAdminPageInfo()
     {
         $service_policies = new ServicePolicies($this->service_policies_repository);
         $service_official_policies = $service_policies->getAllServiceOfficialPolicies();
@@ -46,6 +46,8 @@ class AdminApplication
         foreach ($service_official_policies as $service_official_policy) {
             $service_official_policies_uids[] = $service_official_policy->getServiceUniqueId();
         }
-        return $service_official_policies_uids;
+        return array(
+            'service_official_policies_uids' => $service_official_policies_uids
+        );
     }
 }

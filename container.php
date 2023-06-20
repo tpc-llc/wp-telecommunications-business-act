@@ -11,21 +11,40 @@ use WPTBA\Repository\IServicePoliciesRepository;
 use WPTBA\Repository\ServicePoliciesRepository;
 use WPTBA\Repository\ServicePoliciesRepositoryTest;
 
+use WPTBA\Application\Admin\AdminApplication;
+
 /**
  * DIコンテナ.
 */
 class Container
 {
     /**
-     * サービスとポリシーの保存と取得を行う.
+     * Service Policies Repository.
      *
-     * @return IServicePoliciesRepository サービスとポリシーの保存と取得を行う.
+     * @var IServicePoliciesRepository Service Policies Repository.
     */
-    public static function getServicePoliciesRepository()
+    private $service_policies_repository;
+
+    /**
+     * Constructor.
+    */
+    public function __construct()
     {
-        if (WPTBA_ENV === 'test') {
-            return new ServicePoliciesRepositoryTest();
+        switch (WPTBA_ENV) {
+            case 'test':
+                $this->service_policies_repository = new ServicePoliciesRepositoryTest();
+                break;
+            default:
+                $this->service_policies_repository = new ServicePoliciesRepository();
+                break;
         }
-        return new ServicePoliciesRepository();
+    }
+
+    /**
+     * Get Admin Application.
+    */
+    public function getAdminApplication()
+    {
+        return new AdminApplication($this->service_policies_repository);
     }
 }

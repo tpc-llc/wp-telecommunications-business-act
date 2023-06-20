@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import dynamicImport from 'vite-plugin-dynamic-import';
@@ -7,6 +8,11 @@ export default defineConfig({
   publicDir: '../public',
   base: '/wp-content/plugins/wp-telecommunications-business-act/frontend/dist/',
   plugins: [react(), dynamicImport()],
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    setupFiles: './vitest.setup.tsx'
+  },
   build: {
     outDir: '../dist',
     emptyOutDir: true,

@@ -1,11 +1,10 @@
 <?php
+/** 
+ * テストに必要なファイルをrequire_onceする.
+*/
 
-/**
- * Manually load the plugin being tested.
- */
-function _manually_load_plugin()
-{
-    // require dirname(dirname(__FILE__)) . '/wp-telecommunications.php';
-}
+define('WPTBA_ENV', 'test');
 
-_manually_load_plugin();
+require_once __DIR__ . '/../infrastructure/require-once.php';
+require_once __DIR__ . '/../domain/require-once.php';
+require_once __DIR__ . '/../container.php';

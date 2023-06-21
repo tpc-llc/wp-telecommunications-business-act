@@ -5,7 +5,7 @@ import { Box, Text } from '@mantine/core'
 import ServicePolicyRow from './ServicePolicyRow'
 
 test('全ての要素が存在する', () => {
-    render(
+  render(
         <MantineProvider withGlobalStyles withNormalizeCSS>
             <ServicePolicyRow
                 uid="google-analytics"
@@ -23,20 +23,20 @@ test('全ての要素が存在する', () => {
                     </Box>
                 }
                 sendInfoExamples={[
-                    'デバイス識別子',
-                    'IPアドレス',
-                    '画面URL',
-                    '画面タイトル',
-                    '前画面URL',
-                    'アクセス日時',
-                    'ユーザーエージェント',
-                    '画面サイズ'
+                  'デバイス識別子',
+                  'IPアドレス',
+                  '画面URL',
+                  '画面タイトル',
+                  '前画面URL',
+                  'アクセス日時',
+                  'ユーザーエージェント',
+                  '画面サイズ'
                 ]}
             />
         </MantineProvider>
-    )
-    screen.debug()
-    expect(screen.getByText('アクセス解析')).toBeInTheDocument()
-    expect(screen.getByText('Google LLC')).toBeInTheDocument()
-    expect(screen.getByText('Google Analytics')).toBeInTheDocument()
+  )
+  screen.debug()
+  expect(screen.getByText('アクセス解析')).toBeInTheDocument()
+  expect(screen.getByText('Google LLC')).toBeInTheDocument()
+  expect(screen.getByText('Google Analytics')).toBeInTheDocument()
 })

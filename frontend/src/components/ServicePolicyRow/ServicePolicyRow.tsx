@@ -11,8 +11,11 @@ import {
   Group,
   Divider,
   List,
-  Card
+  Card,
+  ThemeIcon
 } from '@mantine/core'
+import { MdOutlineVerified as VerifiedIcon } from 'react-icons/md'
+
 import { useDisclosure } from '@mantine/hooks'
 
 export interface ServicePolicyRowProps {
@@ -37,18 +40,31 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
   return (
         <Card shadow="sm" radius="md" withBorder>
             <Stack>
-                <Flex>
+                <Flex
+                    justify="space-between"
+                >
                     <Group>
                         <Box>
                             <Text>{props.classification}</Text>
                         </Box>
                         <Divider orientation="vertical" />
                         <Box>
-                            <Text>{props.companyLink != null ? <Anchor href={props.companyLink}>{props.companyName}</Anchor> : props.companyName}</Text>
-                        </Box>
-                        <Divider orientation="vertical" />
-                        <Box>
-                            {props.verified ? <Text>公式</Text> : null}
+                            <Flex
+                                align="center"
+                            >
+                                <Text>{props.companyLink != null ? <Anchor href={props.companyLink}>{props.companyName}</Anchor> : props.companyName}</Text>
+                                {props.verified
+                                  ? <ThemeIcon
+                                        sx={{
+                                          marginLeft: 16,
+                                          color: 'white',
+                                          backgroundColor: '#50C878'
+                                        }}
+                                    >
+                                        <VerifiedIcon />
+                                    </ThemeIcon>
+                                  : null}
+                            </Flex>
                         </Box>
                         <Divider orientation="vertical" />
                         <Box>

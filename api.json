@@ -29,6 +29,27 @@
                 }
             }
         },
+        "/admin/register": {
+            "post": {
+                "summary": "管理者ページ情報を登録",
+                "description": "Post Service Policies.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostRegisterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "作成成功"
+                    }
+                }
+            }
+        },
         "/admin/service-policies": {
             "post": {
                 "summary": "サービスとポリシー更新",
@@ -87,6 +108,28 @@
                     },
                     "is_new_user": {
                         "description": "Is new user.",
+                        "type": "boolean"
+                    },
+                    "current_user_email": {
+                        "description": "Current user email.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "PostRegisterRequest": {
+                "description": "Register new user request.",
+                "required": [
+                    "email",
+                    "email_optin"
+                ],
+                "properties": {
+                    "email": {
+                        "description": "Email.",
+                        "type": "string"
+                    },
+                    "email_optin": {
+                        "description": "Email optin.",
                         "type": "boolean"
                     }
                 },

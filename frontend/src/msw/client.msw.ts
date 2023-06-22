@@ -5,6 +5,7 @@ import {
 export const getGetAdminPageinfoMock = () => ({
     service_official_policies_uids: ['google-analytics'],
     is_new_user: false,
+    current_user_email: 'example@example.com'
 })
 
 export const getGetPublicServicePoliciesMock = () => ({ service_official_policies_uids: ['google-analytics'] })

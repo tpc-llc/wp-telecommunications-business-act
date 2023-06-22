@@ -67,6 +67,16 @@ class UserInfo
     }
 
     /**
+     * Get Email.
+     *
+     * @return string Email.
+    */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
      * Plugin activated.
     */
     public function pluginActivated()

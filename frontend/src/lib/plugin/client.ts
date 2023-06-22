@@ -12,6 +12,7 @@ import type {
 } from 'axios'
 import type {
   GetAdminPageInfoResponse,
+  PostRegisterRequest,
   PostServicePoliciesRequest,
   GetPublicServicePoliciesResponse
 } from './client.schemas'
@@ -27,6 +28,19 @@ export const getAdminPageinfo = <TData = AxiosResponse<GetAdminPageInfoResponse>
  ): Promise<TData> => {
     return axios.default.get(
       `/admin/pageinfo`,options
+    );
+  }
+
+/**
+ * Post Service Policies.
+ * @summary 管理者ページ情報を登録
+ */
+export const postAdminRegister = <TData = AxiosResponse<void>>(
+    postRegisterRequest: PostRegisterRequest, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.post(
+      `/admin/register`,
+      postRegisterRequest,options
     );
   }
 
@@ -56,5 +70,6 @@ export const getPublicServicePolicies = <TData = AxiosResponse<GetPublicServiceP
   }
 
 export type GetAdminPageinfoResult = AxiosResponse<GetAdminPageInfoResponse>
+export type PostAdminRegisterResult = AxiosResponse<void>
 export type PostAdminServicePoliciesResult = AxiosResponse<void>
 export type GetPublicServicePoliciesResult = AxiosResponse<GetPublicServicePoliciesResponse>

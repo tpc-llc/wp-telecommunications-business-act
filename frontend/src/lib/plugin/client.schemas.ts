@@ -22,6 +22,16 @@ export interface PostServicePoliciesRequest {
 }
 
 /**
+ * Register new user request.
+ */
+export interface PostRegisterRequest {
+  /** Email. */
+  email: string;
+  /** Email optin. */
+  email_optin: boolean;
+}
+
+/**
  * Get Admin Page Info response.
  */
 export interface GetAdminPageInfoResponse {
@@ -29,5 +39,7 @@ export interface GetAdminPageInfoResponse {
   service_official_policies_uids: string[];
   /** Is new user. */
   is_new_user: boolean;
+  /** Current user email. */
+  current_user_email?: string;
 }
 

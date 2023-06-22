@@ -60,10 +60,12 @@ class AdminApplication
         }
 
         $user_info = new UserInfo($this->user_info_repository);
+        $user_info->fetchUserInfo();
 
         return array(
             'service_official_policies_uids' => $service_official_policies_uids,
-            'is_new_user' => $user_info->isNewUser()
+            'is_new_user' => $user_info->isNewUser(),
+            'current_user_email' => $user_info->getEmail(),
         );
     }
 

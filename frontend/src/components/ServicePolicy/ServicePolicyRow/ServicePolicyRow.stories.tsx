@@ -1,5 +1,5 @@
 import ServicePolicyRow from './ServicePolicyRow'
-import { ServiceOfficialPolicies } from '../../lib/service-policy/ServiceOfficialPolicies'
+import { ServiceOfficialPolicies } from '../../../lib/service-policy/ServiceOfficialPolicies'
 import { type Meta, type StoryObj } from '@storybook/react'
 
 const meta = {

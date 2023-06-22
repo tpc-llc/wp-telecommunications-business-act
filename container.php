@@ -10,6 +10,9 @@ namespace WPTBA\Container;
 use WPTBA\Repository\IServicePoliciesRepository;
 use WPTBA\Repository\ServicePoliciesRepository;
 use WPTBA\Repository\ServicePoliciesRepositoryTest;
+use WPTBA\Repository\IUserInfoRepository;
+use WPTBA\Repository\UserInfoRepository;
+use WPTBA\Repository\UserInfoRepositoryTest;
 
 use WPTBA\Application\Admin\AdminApplication;
 use WPTBA\Application\Public\PublicApplication;
@@ -27,6 +30,13 @@ class Container
     private $service_policies_repository;
 
     /**
+     * User Info Repository.
+     *
+     * @var IUserInfoRepository User Info Repository.
+    */
+    private $user_info_repository;
+
+    /**
      * Constructor.
     */
     public function __construct()
@@ -34,9 +44,11 @@ class Container
         switch (WPTBA_ENV) {
             case 'test':
                 $this->service_policies_repository = new ServicePoliciesRepositoryTest();
+                $this->user_info_repository = new UserInfoRepositoryTest();
                 break;
             default:
                 $this->service_policies_repository = new ServicePoliciesRepository();
+                $this->user_info_repository = new UserInfoRepository();
                 break;
         }
     }
@@ -46,7 +58,7 @@ class Container
     */
     public function getAdminApplication()
     {
-        return new AdminApplication($this->service_policies_repository);
+        return new AdminApplication($this->service_policies_repository, $this->user_info_repository);
     }
 
     /**

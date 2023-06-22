@@ -10,6 +10,7 @@ const ServiceSelectPage: React.FC = () => {
 
   useEffect(() => {
     getAdminPageinfo(axiosBaseConfig).then((res) => {
+      console.log(res)
       setSelectedServiceOfficialPoliciesUids(res.data.service_official_policies_uids)
     }).catch((err) => {
       console.log(err)

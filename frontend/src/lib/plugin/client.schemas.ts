@@ -27,5 +27,7 @@ export interface PostServicePoliciesRequest {
 export interface GetAdminPageInfoResponse {
   /** Service and policies. */
   service_official_policies_uids: string[];
+  /** Is new user. */
+  is_new_user: boolean;
 }
 

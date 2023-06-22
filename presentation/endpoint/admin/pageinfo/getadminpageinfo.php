@@ -48,10 +48,14 @@ class GetAdminPageInfo
 
         $callback_function = function () {
             $admin_page_info = $this->admin_application->getAdminPageInfo();
-            $response = new GetAdminPageInfoResponse($admin_page_info['service_official_policies_uids']);
+            $response = new GetAdminPageInfoResponse(
+                $admin_page_info['service_official_policies_uids'],
+                $admin_page_info['is_new_user']
+            );
             return new WP_REST_Response(
                 array(
-                    'service_official_policies_uids' => $response->getServiceOfficialUids()
+                    'service_official_policies_uids' => $response->getServiceOfficialUids(),
+                    'is_new_user' => $response->getIsNewUser()
                 ),
                 200
             );

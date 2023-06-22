@@ -2,7 +2,10 @@ import {
     rest
 } from 'msw'
 
-export const getGetAdminPageinfoMock = () => ({ service_official_policies_uids: ['google-analytics'] })
+export const getGetAdminPageinfoMock = () => ({
+    service_official_policies_uids: ['google-analytics'],
+    is_new_user: false,
+})
 
 export const getGetPublicServicePoliciesMock = () => ({ service_official_policies_uids: ['google-analytics'] })
 

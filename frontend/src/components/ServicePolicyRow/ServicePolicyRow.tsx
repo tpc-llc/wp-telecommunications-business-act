@@ -7,14 +7,13 @@ import {
   Title,
   Stack,
   Collapse,
-  Button,
   Group,
   Divider,
   List,
-  Card,
   ThemeIcon
 } from '@mantine/core'
 import { MdOutlineVerified as VerifiedIcon } from 'react-icons/md'
+import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
 import { useDisclosure } from '@mantine/hooks'
 
@@ -38,27 +37,39 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
   const [opened, { toggle }] = useDisclosure(false)
 
   return (
-        <Card shadow="sm" radius="md" withBorder>
-            <Stack>
+        <Box>
+            <Stack align='flex-start' justify='flex-start'>
                 <Flex
-                    justify="space-between"
+                    justify="space-around"
                 >
                     <Group>
-                        <Box>
+                        <Box
+                            sx={{
+                              width: '120px'
+                            }}
+                        >
                             <Text>{props.classification}</Text>
                         </Box>
                         <Divider orientation="vertical" />
-                        <Box>
+                        <Box
+                            sx={{
+                              width: '240px'
+                            }}
+                        >
                             <Flex
                                 align="center"
                             >
-                                <Text>{props.companyLink != null ? <Anchor href={props.companyLink}>{props.companyName}</Anchor> : props.companyName}</Text>
+                                <Text>
+                                    {props.companyLink != null
+                                      ? <Anchor href={props.companyLink} color={'#1E50B5'}>{props.companyName}</Anchor>
+                                      : props.companyName
+                                    }
+                                </Text>
                                 {props.verified
                                   ? <ThemeIcon
                                         sx={{
-                                          marginLeft: 16,
-                                          color: 'white',
-                                          backgroundColor: '#50C878'
+                                          color: '#50C878',
+                                          backgroundColor: 'transparent'
                                         }}
                                     >
                                         <VerifiedIcon />
@@ -67,25 +78,67 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                             </Flex>
                         </Box>
                         <Divider orientation="vertical" />
-                        <Box>
+                        <Box
+                            sx={{
+                              width: '240px'
+                            }}
+                        >
                             <Text>
-                                {props.serviceLink != null ? <Anchor href={props.serviceLink}>{props.serviceName}</Anchor> : props.serviceName}
+                                {props.serviceLink != null ? <Anchor href={props.serviceLink} color={'#1E50B5'}>{props.serviceName}</Anchor> : props.serviceName}
+                            </Text>
+                        </Box>
+                        <Divider orientation="vertical" />
+                        <Box
+                            sx={{
+                              width: '100px'
+                            }}
+                        >
+                            <Text>
+                                {props.optoutLink != null ? <Anchor href={props.optoutLink} color={'#1E50B5'}>オプトアウト</Anchor> : '提供なし'}
+                            </Text>
+                        </Box>
+                        <Divider orientation="vertical" />
+                        <Box
+                            sx={{
+                              width: '160px'
+                            }}
+                        >
+                            <Text>
+                                {props.privacyPolicyLink != null
+                                  ? <Anchor href={props.privacyPolicyLink} color={'#1E50B5'}>プライバシーポリシー</Anchor>
+                                  : '提供なし'}
                             </Text>
                         </Box>
                         <Divider orientation="vertical" />
                         <Box>
-                            <Text>
-                                {props.optoutLink != null ? <Anchor href={props.optoutLink}>オプトアウト</Anchor> : '提供なし'}
-                            </Text>
-                        </Box>
-                        <Divider orientation="vertical" />
-                        <Box>
-                            <Text>
-                                {props.privacyPolicyLink != null ? <Anchor href={props.privacyPolicyLink}>{props.privacyPolicyText}</Anchor> : '提供なし'}
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Button onClick={toggle}>詳細</Button>
+                            <Box onClick={toggle}>
+                                <Flex
+                                    align={'center'} justify={'center'}
+                                >
+                                    <Text
+                                        color={'#1E50B5'}
+                                    >
+                                        外部送信情報はこちら
+                                    </Text>
+                                    {opened
+                                      ? <ThemeIcon
+                                            sx={{
+                                              color: '#1E50B5',
+                                              backgroundColor: 'transparent'
+                                            }}
+                                        >
+                                            <AiOutlineMinus />
+                                        </ThemeIcon>
+                                      : <ThemeIcon
+                                            sx={{
+                                              color: '#1E50B5',
+                                              backgroundColor: 'transparent'
+                                            }}
+                                        >
+                                            <AiOutlinePlus />
+                                        </ThemeIcon>}
+                                </Flex>
+                            </Box>
                         </Box>
                     </Group>
                 </Flex>
@@ -118,7 +171,7 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     </Box>
                 </Collapse>
             </Stack>
-        </Card>
+        </Box>
   )
 }
 

@@ -8,7 +8,7 @@ const ServiceSelectPage: React.FC = () => {
     <Box>
       <Text>Service Select Page</Text>
       <Box
-        w={'60%'}
+        w={'100%'}
       >
         {Object.values(ServiceOfficialPolicies).map((policy) => (
           <ServicePolicyRow key={policy.uid} {...policy} />

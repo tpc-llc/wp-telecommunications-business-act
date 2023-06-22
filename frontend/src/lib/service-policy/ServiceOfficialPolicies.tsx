@@ -133,6 +133,9 @@ export const ServiceOfficialPolicies: Record<string, ServicePolicy> = {
     privacyPolicyLink: '',
     purpose: (
             <Box>
+                <Text>Adobe Experience Cloudは、企業がウェブサイト、アプリ、ソーシャルメディアの管理・最適化・パーソナライズを行うソリューションを提供します。</Text>
+                <Text>計測、パーソナライゼーション、コンテンツ管理、広告ソリューションのためにデータを収集し、顧客のウェブ利用を理解し、最適化するために使用されます。収集される情報は、閲覧履歴、デバイス情報、IPアドレス、位置情報などで、クッキーやモバイルアプリ、ソーシャルメディアを通じて収集されます。</Text>
+                <Text>これらの情報は、コンテンツ管理とパーソナライゼーションの改善に役立ちます。</Text>
             </Box>
     ),
     sendInfoExamples: [

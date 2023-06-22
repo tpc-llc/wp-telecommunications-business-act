@@ -11,7 +11,6 @@ export interface ServicePolicy {
   serviceName: string
   serviceLink?: string
   optoutLink?: string
-  privacyPolicyText?: string
   privacyPolicyLink?: string
   purpose: React.JSX.Element
   sendInfoExamples: SendInfoExample[]

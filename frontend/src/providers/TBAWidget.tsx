@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
 import { ChakraProvider } from '@chakra-ui/provider'
+import ReactDOM from 'react-dom/client'
 
 const TBAWidget = React.lazy(
   async () => await import('../shortcodes/TBAWidget')

@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import {
-  Box
+  Box,
+  Table,
+  Thead,
+  Tbody
 } from '@chakra-ui/react'
 import ServicePolicyHeader from '../components/ServicePolicy/ServicePolicyHeader/ServicePolicyHeader'
 import ServicePolicyRow from '../components/ServicePolicy/ServicePolicyRow/ServicePolicyRow'
 import { ServiceOfficialPolicies } from '../lib/service-policy/ServiceOfficialPolicies'
+
 import axiosBaseConfig from '../lib/axios-config/axios-config'
 import { getPublicServicePolicies } from '../lib/plugin/client'
+import { type ServicePolicy } from '../lib/service-policy/ServicePolicy'
 
 const TBAWidget: React.FC = () => {
   const [selectedServiceOfficialPoliciesUids, setSelectedServiceOfficialPoliciesUids] = useState<string[]>([]) // 選択されたサービスのuidを格納する配列
@@ -21,14 +26,24 @@ const TBAWidget: React.FC = () => {
 
   return (
     <Box>
-      <ServicePolicyHeader />
-      {selectedServiceOfficialPoliciesUids.map((uid) => {
-        return (
-          <ServicePolicyRow
-            key={uid}
-            {...ServiceOfficialPolicies[uid]} />)
-      })
-      }
+      <Table>
+        <Thead>
+          <ServicePolicyHeader useCheckbox={false} />
+        </Thead>
+        <Tbody>
+          {selectedServiceOfficialPoliciesUids.map((uid) => {
+            const policy: ServicePolicy = ServiceOfficialPolicies[uid]
+            return (
+              <ServicePolicyRow
+                key={uid}
+                {...policy}
+                useCheckbox={false}
+              />
+            )
+          })
+          }
+        </Tbody>
+      </Table>
     </Box>
   )
 }

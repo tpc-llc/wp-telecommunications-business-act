@@ -2,14 +2,14 @@ import React from 'react'
 import { Box, Text } from '@chakra-ui/react'
 
 export interface ServicePolicyOthersProps {
-    additionalInfo?: React.JSX.Element
+  additionalInfo?: React.JSX.Element
 }
 
 const ServicePolicyOthers: React.FC<ServicePolicyOthersProps> = (props: ServicePolicyOthersProps) => {
-    return (
+  return (
         <Box>
             {(props.additionalInfo != null)
-                ? (
+              ? (
                     <Box>
                         <Text
                             mb={2}
@@ -19,9 +19,9 @@ const ServicePolicyOthers: React.FC<ServicePolicyOthersProps> = (props: ServiceP
                         {props.additionalInfo}
                     </Box>
                 )
-                : null}
+              : null}
         </Box>
-    )
+  )
 }
 
 export default ServicePolicyOthers

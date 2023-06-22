@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import {
   Box,
-  Text,
-  Flex,
-  Checkbox,
-  HStack
+  Table,
+  Tbody,
+  Thead
 } from '@chakra-ui/react'
+import { ServiceOfficialPolicies } from '../lib/service-policy/ServiceOfficialPolicies'
 import ServicePolicyHeader from '../components/ServicePolicy/ServicePolicyHeader/ServicePolicyHeader'
 import ServicePolicyRow from '../components/ServicePolicy/ServicePolicyRow/ServicePolicyRow'
-import { ServiceOfficialPolicies } from '../lib/service-policy/ServiceOfficialPolicies'
+
 import axiosBaseConfig from '../lib/axios-config/axios-config'
 import { getAdminPageinfo, postAdminServicePolicies } from '../lib/plugin/client'
 import { type PostServicePoliciesRequest } from '../lib/plugin/client.schemas'
@@ -49,34 +49,22 @@ const ServiceSelectPage: React.FC = () => {
       <Box
         w={'100%'}
       >
-        <HStack
-          spacing={0}
-        >
-          <Box>
-            <Text>
-              選択
-            </Text>
-          </Box>
-          <ServicePolicyHeader />
-        </HStack>
-        {Object.values(ServiceOfficialPolicies).map((policy) => (
-          <Flex
-            key={policy.uid}
-          >
-            <Flex
-            >
-              <Flex
-              >
-                <Checkbox
-                  isChecked={selectedServiceOfficialPoliciesUids.includes(policy.uid)}
-                  value={policy.uid}
-                  onChange={handleChangeServiceOfficialPolicyUids} />
-              </Flex>
-            </Flex>
-            <ServicePolicyRow
-              {...policy} />
-          </Flex>
-        ))}
+
+        <Table>
+          <Thead>
+            <ServicePolicyHeader useCheckbox={true} />
+          </Thead>
+          <Tbody>
+            {Object.values(ServiceOfficialPolicies).map((policy) => (
+              <ServicePolicyRow
+                key={policy.uid}
+                {...policy}
+                useCheckbox={true}
+                selectedServiceOfficialPoliciesUids={selectedServiceOfficialPoliciesUids}
+                handleChangeServiceOfficialPolicyUids={handleChangeServiceOfficialPolicyUids} />
+            ))}
+          </Tbody>
+        </Table>
       </Box>
     </Box>
   )

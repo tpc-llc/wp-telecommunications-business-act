@@ -1,5 +1,5 @@
 import React from 'react'
-import { HStack, Text, Link } from '@chakra-ui/react'
+import { Box, HStack, Text, Link } from '@chakra-ui/react'
 
 import { MdOutlineVerified as VerifiedIcon } from 'react-icons/md'
 
@@ -11,19 +11,28 @@ export interface ServicePolicyCompanyNameProps {
 
 const ServicePolicyCompanyName: React.FC<ServicePolicyCompanyNameProps> = (props: ServicePolicyCompanyNameProps) => {
   return (
-    <HStack>
+    <HStack
+      spacing={0}
+    >
       <Text>
         {props.companyLink != null
           ? <Link
             href={props.companyLink}
-            color={'#1E50B5'}
+            color={'#1E50B5 !important'}
           >
             {props.companyName}
           </Link>
           : props.companyName
         }
       </Text>
-      {props.verified && <VerifiedIcon color={'green'} />}
+      {props.verified && (
+        <Box
+          w={'1rem'}
+          h={'1rem'}
+        >
+          <VerifiedIcon color={'green'} />
+        </Box>
+      )}
     </HStack>
   )
 }

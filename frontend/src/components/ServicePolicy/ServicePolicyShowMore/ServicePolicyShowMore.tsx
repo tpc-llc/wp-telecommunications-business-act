@@ -3,18 +3,18 @@ import { Text, HStack } from '@chakra-ui/react'
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
 export interface ServicePolicyShowMoreProps {
-    opened: boolean
-    toggle: () => void
+  opened: boolean
+  toggle: () => void
 }
 
 const ServicePolicyShowMore: React.FC<ServicePolicyShowMoreProps> = (props: ServicePolicyShowMoreProps) => {
-    return (
+  return (
         <HStack
             spacing={0}
             onClick={props.toggle}
             _hover={
                 {
-                    cursor: 'pointer'
+                  cursor: 'pointer'
                 }
             }
         >
@@ -24,11 +24,11 @@ const ServicePolicyShowMore: React.FC<ServicePolicyShowMoreProps> = (props: Serv
                 外部送信情報はこちら
             </Text>
             {props.opened
-                ? <AiOutlineMinus color={'#1E50B5'} />
-                : <AiOutlinePlus color={'#1E50B5'} />
+              ? <AiOutlineMinus color={'#1E50B5'} />
+              : <AiOutlinePlus color={'#1E50B5'} />
             }
         </HStack>
-    )
+  )
 }
 
 export default ServicePolicyShowMore

@@ -1,46 +1,37 @@
 import React from 'react'
 import {
-  HStack,
-  Box,
-  Text
+  Tr,
+  Th,
+  Text,
+  Flex
 } from '@chakra-ui/react'
 
-export const ServicePolicyHeader: React.FC = () => {
+export interface ServicePolicyHeaderProps {
+  useCheckbox: boolean
+}
+
+export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: ServicePolicyHeaderProps) => {
   return (
-    <HStack
-    >
-      <Box
-      >
-        <Text>分類</Text>
-      </Box>
-      <Box
-      >
-        <Text>
-          企業名
-        </Text>
-      </Box>
-      <Box
-      >
-        <Text>
-          サービス名
-        </Text>
-      </Box>
-      <Box
-      >
-        <Text>
-          オプトアウト
-        </Text>
-      </Box>
-      <Box
-      >
-        <Text>
-          プライバシーポリシー
-        </Text>
-      </Box>
-      <Box>
-        <Text>外部送信情報など</Text>
-      </Box>
-    </HStack>
+    <>
+      <Tr>
+        {props.useCheckbox && (
+          <Th>
+            <Flex
+              justify={'center'}
+              align={'center'}
+            >
+              <Text>利用中</Text>
+            </Flex>
+          </Th>
+        )}
+        <Th><Text>分類</Text></Th>
+        <Th><Text>企業名</Text></Th>
+        <Th><Text>サービス名</Text></Th>
+        <Th><Text>オプトアウト</Text></Th>
+        <Th><Text>プライバシーポリシー</Text></Th>
+        <Th><Text>外部送信情報など</Text></Th>
+      </Tr>
+    </>
   )
 }
 

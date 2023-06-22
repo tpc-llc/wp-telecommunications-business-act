@@ -7,19 +7,19 @@ export interface ServicePolicyOptoutProps {
 
 const ServicePolicyOptout: React.FC<ServicePolicyOptoutProps> = (props: ServicePolicyOptoutProps) => {
   return (
-        <Box>
-            <Text>
-                {props.optoutLink != null
-                  ? (
-                    <Link href={props.optoutLink} color={'#1E50B5'}>
-                        オプトアウト
-                    </Link>
-                    )
-                  : (
-                      '提供なし'
-                    )}
-            </Text>
-        </Box>
+    <Box>
+      <Text>
+        {props.optoutLink != null
+          ? (
+            <Link href={props.optoutLink} color={'#1E50B5 !important;'}>
+              オプトアウト
+            </Link>
+            )
+          : (
+              '提供なし'
+            )}
+      </Text>
+    </Box>
   )
 }
 

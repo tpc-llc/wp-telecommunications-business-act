@@ -8,17 +8,17 @@ export interface ServicePolicyServiceNameProps {
 
 const ServicePolicyServiceName: React.FC<ServicePolicyServiceNameProps> = (props: ServicePolicyServiceNameProps) => {
   return (
-        <Text>
-            {props.serviceLink != null
-              ? <Link
-                    href={props.serviceLink}
-                    color={'#1E50B5'}
-                >
-                    {props.serviceName}
-                </Link>
-              : props.serviceName
-            }
-        </Text>
+    <Text>
+      {props.serviceLink != null
+        ? <Link
+          href={props.serviceLink}
+          color={'#1E50B5 !important'}
+        >
+          {props.serviceName}
+        </Link>
+        : props.serviceName
+      }
+    </Text>
   )
 }
 

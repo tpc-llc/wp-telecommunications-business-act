@@ -77,7 +77,7 @@ class UserInfoRepositoryTest implements IUserInfoRepository
     */
     public function loadSiteUrl()
     {
-        return 'http://example.com';
+        return 'https://example.com';
     }
 
     /** 

@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import ServicePolicyRow from './ServicePolicyRow'
 import { ChakraProvider } from '@chakra-ui/provider'
-import { ServiceOfficialPolicies } from '../../lib/service-policy/ServiceOfficialPolicies'
+import { ServiceOfficialPolicies } from '../../../lib/service-policy/ServiceOfficialPolicies'
 
 test('全ての要素が存在する', () => {
   render(

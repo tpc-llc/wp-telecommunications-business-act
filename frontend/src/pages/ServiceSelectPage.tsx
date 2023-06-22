@@ -4,8 +4,8 @@ import {
   Flex,
   Checkbox
 } from '@chakra-ui/react'
-import ServicePolicyHeader from '../components/ServicePolicyHeader/ServicePolicyHeader'
-import ServicePolicyRow from '../components/ServicePolicyRow/ServicePolicyRow'
+import ServicePolicyHeader from '../components/ServicePolicy/ServicePolicyHeader/ServicePolicyHeader'
+import ServicePolicyRow from '../components/ServicePolicy/ServicePolicyRow/ServicePolicyRow'
 import { ServiceOfficialPolicies } from '../lib/service-policy/ServiceOfficialPolicies'
 import axiosBaseConfig from '../lib/axios-config/axios-config'
 import { getAdminPageinfo, postAdminServicePolicies } from '../lib/plugin/client'

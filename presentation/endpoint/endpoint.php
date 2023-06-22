@@ -11,8 +11,8 @@ namespace WPTBA\Presentation\Endpoint;
  * エンドポイント.
  *
  * @OA\Info(
- *   title="電気通信事業法プラグインのPHPバックエンド",
- *   description="電気通信事業法プラグインのPHPバックエンド",
+ *   title="PluginEndpoints",
+ *   description="PluginEndpoints",
  *   version="1.0.0",
  * )
  *

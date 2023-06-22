@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {
   Box,
+  Text,
   Flex,
-  Checkbox
+  Checkbox,
+  HStack
 } from '@chakra-ui/react'
 import ServicePolicyHeader from '../components/ServicePolicy/ServicePolicyHeader/ServicePolicyHeader'
 import ServicePolicyRow from '../components/ServicePolicy/ServicePolicyRow/ServicePolicyRow'
@@ -47,7 +49,16 @@ const ServiceSelectPage: React.FC = () => {
       <Box
         w={'100%'}
       >
-        <ServicePolicyHeader />
+        <HStack
+          spacing={0}
+        >
+          <Box>
+            <Text>
+              選択
+            </Text>
+          </Box>
+          <ServicePolicyHeader />
+        </HStack>
         {Object.values(ServiceOfficialPolicies).map((policy) => (
           <Flex
             key={policy.uid}

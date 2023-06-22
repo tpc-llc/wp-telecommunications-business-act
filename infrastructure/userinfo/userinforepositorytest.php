@@ -30,14 +30,37 @@ class UserInfoRepositoryTest implements IUserInfoRepository
     }
 
     /**
-     * サービスの利用者情報を保存する
+     * サービスの利用者情報を登録する
+     *
      *
      * @param string $client_version クライアントのバージョン.
      * @param string $site_url サイトのURL.
      * @param string $email メールアドレス.
      * @param bool $email_optin メールアドレスのオプトイン.
     */
-    public function saveUserInfo($client_version, $site_url, $email, $email_optin)
+    public function registerUserInfo($client_version, $site_url, $email, $email_optin)
+    {
+        $this->saveUserInfo(
+            $client_version,
+            $site_url,
+            $email,
+            $email_optin,
+            'active'
+        );
+        $this->createSecretKey();
+    }
+
+
+    /**
+     * サービスの利用者情報を保存する
+     *
+     * @param string $client_version クライアントのバージョン.
+     * @param string $site_url サイトのURL.
+     * @param string $email メールアドレス.
+     * @param bool $email_optin メールアドレスのオプトイン.
+     * @param string $plugin_status プラグインのステータス.
+    */
+    public function saveUserInfo($client_version, $site_url, $email, $email_optin, $plugin_status)
     {
         $this->wp_options['wptba_user_info'] = array(
             'client_version' => $client_version,
@@ -102,5 +125,43 @@ class UserInfoRepositoryTest implements IUserInfoRepository
             return $user_info['email_optin'] === true;
         }
         return false;
+    }
+
+    /**
+     * プラグインの状態を読み込む.
+     *
+     * @return bool プラグインの状態.
+    */
+    public function loadIsPluginActive()
+    {
+        return true;
+    }
+
+    /**
+     * プラグインのシークレットキーを作成する.
+    */
+    private function createSecretKey()
+    {
+        $secret_key = wp_generate_uuid4();
+        $this->wp_options['wptba_secret_key'] = $secret_key;
+    }
+
+    /**
+     * プラグインのシークレットキーを取得する.
+    */
+    private function getSecretKey()
+    {
+        if (isset($this->wp_options['wptba_secret_key'])) {
+            return $this->wp_options['wptba_secret_key'];
+        }
+    }
+
+    /**
+     * プラグインをクリーンアップする.
+    */
+    public function cleanupPlugin()
+    {
+        unset($this->wp_options['wptba_secret_key']);
+        unset($this->wp_options['wptba_user_info']);
     }
 }

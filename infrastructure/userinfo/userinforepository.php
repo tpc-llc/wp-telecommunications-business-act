@@ -22,14 +22,36 @@ class UserInfoRepository implements IUserInfoRepository
     }
 
     /**
-     * サービスの利用者情報を保存する
+     * サービスの利用者情報を登録する
+     *
      *
      * @param string $client_version クライアントのバージョン.
      * @param string $site_url サイトのURL.
      * @param string $email メールアドレス.
      * @param bool $email_optin メールアドレスのオプトイン.
     */
-    public function saveUserInfo($client_version, $site_url, $email, $email_optin)
+    public function registerUserInfo($client_version, $site_url, $email, $email_optin)
+    {
+        $this->saveUserInfo(
+            $client_version,
+            $site_url,
+            $email,
+            $email_optin,
+            'active'
+        );
+        $this->createSecretKey();
+    }
+
+    /**
+     * サービスの利用者情報を保存する
+     *
+     * @param string $client_version クライアントのバージョン.
+     * @param string $site_url サイトのURL.
+     * @param string $email メールアドレス.
+     * @param bool $email_optin メールアドレスのオプトイン.
+     * @param string $plugin_status プラグインのステータス.
+    */
+    public function saveUserInfo($client_version, $site_url, $email, $email_optin, $plugin_status)
     {
         update_option('wptba_user_info', array(
             'client_version' => $client_version,
@@ -95,5 +117,41 @@ class UserInfoRepository implements IUserInfoRepository
             return $user_info['email_optin'] === true;
         }
         return false;
+    }
+
+    /**
+     * プラグインの状態を読み込む.
+     *
+     * @return bool プラグインの状態.
+    */
+    public function loadIsPluginActive()
+    {
+        is_plugin_active(__DIR__ . '/../../wp-telecommunications.php');
+    }
+
+    /**
+     * プラグインのシークレットキーを作成する.
+    */
+    private function createSecretKey()
+    {
+        $secret_key = wp_generate_uuid4();
+        update_option('wptba_secret_key', $secret_key);
+    }
+
+    /**
+     * プラグインのシークレットキーを読み込む.
+    */
+    private function getSecretKey()
+    {
+        return get_option('wptba_secret_key', null);
+    }
+
+    /**
+     * プラグインをクリーンアップする.
+    */
+    public function cleanupPlugin()
+    {
+        delete_option('wptba_user_info');
+        delete_option('wptba_secret_key');
     }
 }

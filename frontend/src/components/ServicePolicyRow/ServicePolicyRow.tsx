@@ -40,7 +40,7 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
         <Box>
             <Stack align='flex-start' justify='flex-start'>
                 <Flex
-                    justify="space-around"
+                    justify="space-between"
                 >
                     <Group>
                         <Box

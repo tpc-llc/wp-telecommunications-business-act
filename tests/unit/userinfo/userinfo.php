@@ -46,7 +46,7 @@ class TestUserInfo extends TestCase
     public function testNotNewUser()
     {
         $this->user_info_repository->wp_options = array(
-            'wptba_userinfo' => array(
+            'wptba_user_info' => array(
                 'client_version' => '1.0.0',
                 'site_url' => 'https://example.com',
                 'email' => 'admin@admin.com',
@@ -64,9 +64,9 @@ class TestUserInfo extends TestCase
         $user_info = new UserInfo($this->user_info_repository);
         $user_info->fetchUserInfo();
         $user_info->saveUserInfo();
-        $this->assertEquals($this->user_info_repository->wp_options['wptba_userinfo']['client_version'], '0.0.1');
-        $this->assertEquals($this->user_info_repository->wp_options['wptba_userinfo']['site_url'], 'https://example.com');
-        $this->assertEquals($this->user_info_repository->wp_options['wptba_userinfo']['email'], 'admin@admin.com');
-        $this->assertEquals($this->user_info_repository->wp_options['wptba_userinfo']['email_optin'], false);
+        $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['client_version'], '0.0.1');
+        $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['site_url'], 'https://example.com');
+        $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['email'], 'admin@admin.com');
+        $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['email_optin'], false);
     }
 }

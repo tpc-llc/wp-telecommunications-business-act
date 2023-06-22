@@ -31,7 +31,7 @@ class UserInfoRepository implements IUserInfoRepository
     */
     public function saveUserInfo($client_version, $site_url, $email, $email_optin)
     {
-        update_option('wptba_userinfo', array(
+        update_option('wptba_user_info', array(
             'client_version' => $client_version,
             'site_url' => $site_url,
             'email' => $email,
@@ -46,7 +46,7 @@ class UserInfoRepository implements IUserInfoRepository
     */
     public function getUserInfo()
     {
-        return get_option('wptba_userinfo', array());
+        return get_option('wptba_user_info', array());
     }
 
     /**

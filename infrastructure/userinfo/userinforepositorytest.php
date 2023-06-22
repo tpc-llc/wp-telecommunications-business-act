@@ -39,7 +39,7 @@ class UserInfoRepositoryTest implements IUserInfoRepository
     */
     public function saveUserInfo($client_version, $site_url, $email, $email_optin)
     {
-        $this->wp_options['wptba_userinfo'] = array(
+        $this->wp_options['wptba_user_info'] = array(
             'client_version' => $client_version,
             'site_url' => $site_url,
             'email' => $email,
@@ -54,8 +54,8 @@ class UserInfoRepositoryTest implements IUserInfoRepository
     */
     public function getUserInfo()
     {
-        if (isset($this->wp_options['wptba_userinfo'])) {
-            return $this->wp_options['wptba_userinfo'];
+        if (isset($this->wp_options['wptba_user_info'])) {
+            return $this->wp_options['wptba_user_info'];
         }
         return array();
     }

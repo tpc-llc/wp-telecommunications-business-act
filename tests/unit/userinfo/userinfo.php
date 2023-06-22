@@ -56,7 +56,7 @@ class TestUserInfo extends TestCase
         $this->assertEquals($user_info->isNewUser(), false);
     }
 
-    /** 
+    /**
      * 適切に登録されるか.
     */
     public function testRegisterUserInfo()
@@ -84,5 +84,20 @@ class TestUserInfo extends TestCase
         $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['site_url'], 'https://example.com');
         $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['email'], 'admin@admin.com');
         $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['email_optin'], false);
+    }
+
+    /**
+     * 適切に削除されるか.
+    */
+    public function testDeleteUserInfo()
+    {
+        $user_info = new UserInfo($this->user_info_repository);
+        $user_info->fetchUserInfo();
+        $user_info->registerUserInfo("admin@admin.com", true);
+
+        $user_info->deleteUserInfo();
+        $user_info->fetchUserInfo();
+        
+        $this->assertTrue($user_info->isNewUser());
     }
 }

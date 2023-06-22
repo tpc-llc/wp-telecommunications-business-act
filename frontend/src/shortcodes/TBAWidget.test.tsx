@@ -1,13 +1,13 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import { MantineProvider } from '@mantine/styles'
 import TBAWidget from './TBAWidget'
+import { ChakraProvider } from '@chakra-ui/provider'
 
 test('選択済みの行が生成されているか', () => {
   render(
-        <MantineProvider withGlobalStyles withNormalizeCSS>
-            <TBAWidget />
-        </MantineProvider>
+    <ChakraProvider>
+      <TBAWidget />
+    </ChakraProvider>
   )
   screen.debug()
   const googleAnalyticsRow = screen.queryByText('Google Analytics')
@@ -16,9 +16,9 @@ test('選択済みの行が生成されているか', () => {
 
 test('選択されていない行が生成されていないか', () => {
   render(
-        <MantineProvider withGlobalStyles withNormalizeCSS>
-            <TBAWidget />
-        </MantineProvider>
+    <ChakraProvider>
+      <TBAWidget />
+    </ChakraProvider>
   )
   screen.debug()
   const notExistsRow = screen.queryByText('Not Exist Service')

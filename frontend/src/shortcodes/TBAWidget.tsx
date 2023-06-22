@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
   Box
-} from '@mantine/core'
+} from '@chakra-ui/react'
 import ServicePolicyHeader from '../components/ServicePolicyHeader/ServicePolicyHeader'
 import ServicePolicyRow from '../components/ServicePolicyRow/ServicePolicyRow'
 import { ServiceOfficialPolicies } from '../lib/service-policy/ServiceOfficialPolicies'

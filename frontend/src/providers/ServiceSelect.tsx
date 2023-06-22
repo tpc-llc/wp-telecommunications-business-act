@@ -1,5 +1,5 @@
 import React from 'react'
-import { MantineProvider } from '@mantine/core'
+import { ChakraProvider } from '@chakra-ui/react'
 import ReactDOM from 'react-dom/client'
 
 const ServiceSelectPage = React.lazy(
@@ -10,8 +10,8 @@ ReactDOM.createRoot(
   document.getElementById('wpbody-content') as HTMLElement
 ).render(
   <React.StrictMode>
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <ChakraProvider>
       <ServiceSelectPage />
-    </MantineProvider>
+    </ChakraProvider>
   </React.StrictMode>
 )

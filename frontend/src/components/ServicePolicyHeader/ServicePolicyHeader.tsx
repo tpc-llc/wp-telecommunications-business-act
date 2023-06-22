@@ -2,10 +2,8 @@ import React from 'react'
 import {
   Flex,
   Box,
-  Text,
-  Group,
-  Divider
-} from '@mantine/core'
+  Text
+} from '@chakra-ui/react'
 
 export interface ServicePolicyHeaderProps {
   showCheckboxHeader: boolean
@@ -14,89 +12,49 @@ export interface ServicePolicyHeaderProps {
 export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: ServicePolicyHeaderProps) => {
   return (
     <Flex
-      sx={{
-        borderBottom: '1px solid #E0E0E0',
-        marginBottom: '8px'
-      }}
     >
       {props.showCheckboxHeader && (
         <Flex
-          sx={{
-            marginBottom: '8px',
-            marginRight: '12px'
-          }}
         >
           <Flex
-            sx={{
-              width: '48px'
-            }}
-            justify={'center'}
           >
             <Text>選択</Text>
           </Flex>
-          <Divider orientation="vertical" />
         </Flex>
       )}
       <Flex
-        justify="space-between"
       >
-        <Group
-          sx={{
-            marginBottom: '8px'
-          }}
+        <Box
         >
-          <Box
-            sx={{
-              width: '120px'
-            }}
-          >
-            <Text>分類</Text>
-          </Box>
-          <Divider orientation="vertical" />
-          <Box
-            sx={{
-              width: '240px'
-            }}
-          >
-            <Text>
-              企業名
-            </Text>
-          </Box>
-          <Divider orientation="vertical" />
-          <Box
-            sx={{
-              width: '240px'
-            }}
-          >
-            <Text>
-              サービス名
-            </Text>
-          </Box>
-          <Divider orientation="vertical" />
-          <Box
-            sx={{
-              width: '100px'
-            }}
-          >
-            <Text>
-              オプトアウト
-            </Text>
-          </Box>
-          <Divider orientation="vertical" />
-          <Box
-            sx={{
-              width: '160px'
-            }}
-          >
-            <Text>
-              プライバシーポリシー
-            </Text>
-          </Box>
-          <Divider orientation="vertical" />
-          <Box>
-            <Text>外部送信情報など</Text>
-          </Box>
-        </Group>
+          <Text>分類</Text>
+        </Box>
+        <Box
+        >
+          <Text>
+            企業名
+          </Text>
+        </Box>
+        <Box
+        >
+          <Text>
+            サービス名
+          </Text>
+        </Box>
+        <Box
+        >
+          <Text>
+            オプトアウト
+          </Text>
+        </Box>
+        <Box
+        >
+          <Text>
+            プライバシーポリシー
+          </Text>
+        </Box>
+        <Box>
+          <Text>外部送信情報など</Text>
+        </Box>
       </Flex>
     </Flex>
   )

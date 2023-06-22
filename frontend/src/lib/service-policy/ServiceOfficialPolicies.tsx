@@ -1,4 +1,4 @@
-import { Anchor, Box, Text } from '@mantine/core'
+import { Link, Box, Text } from '@chakra-ui/react'
 import { ServiceClassification } from './ServiceClassification'
 import { type ServicePolicy } from './ServicePolicy'
 import { SendInfoExample } from './SendInfoExample'
@@ -83,7 +83,7 @@ export const ServiceOfficialPolicies: Record<string, ServicePolicy> = {
     privacyPolicyLink: 'https://www.facebook.com/privacy/policy/?entry_point=data_policy_redirect&entry=0',
     purpose: (
       <Box>
-        <Text>Facebook広告は、広告などパーソナライズされたエクスペリエンスを提供する目的などで、また、<Anchor href="https://www.facebook.com/privacy/policy">こちら</Anchor>に詳細を記載するその他の目的で、取得した情報を使用します。</Text>
+        <Text>Facebook広告は、広告などパーソナライズされたエクスペリエンスを提供する目的などで、また、<Link href="https://www.facebook.com/privacy/policy">こちら</Link>に詳細を記載するその他の目的で、取得した情報を使用します。</Text>
       </Box>
     ),
     sendInfoExamples: [

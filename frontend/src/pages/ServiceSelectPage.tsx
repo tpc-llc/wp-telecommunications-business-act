@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {
   Box,
   Flex,
-  Checkbox,
-  Divider
-} from '@mantine/core'
+  Checkbox
+} from '@chakra-ui/react'
 import ServicePolicyHeader from '../components/ServicePolicyHeader/ServicePolicyHeader'
 import ServicePolicyRow from '../components/ServicePolicyRow/ServicePolicyRow'
 import { ServiceOfficialPolicies } from '../lib/service-policy/ServiceOfficialPolicies'
@@ -54,19 +53,14 @@ const ServiceSelectPage: React.FC = () => {
             key={policy.uid}
           >
             <Flex
-              sx={{
-                marginRight: '12px'
-              }}
             >
               <Flex
-                w={'48px'}
-                justify={'center'}>
+              >
                 <Checkbox
                   checked={selectedServiceOfficialPoliciesUids.includes(policy.uid)}
                   value={policy.uid}
                   onChange={handleChangeServiceOfficialPolicyUids} />
               </Flex>
-              <Divider orientation="vertical" />
             </Flex>
             <ServicePolicyRow
               {...policy} />

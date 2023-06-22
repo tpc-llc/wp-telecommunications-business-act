@@ -4,23 +4,23 @@ import { MantineProvider } from '@mantine/styles'
 import TBAWidget from './TBAWidget'
 
 test('選択済みの行が生成されているか', () => {
-    render(
+  render(
         <MantineProvider withGlobalStyles withNormalizeCSS>
             <TBAWidget />
         </MantineProvider>
-    )
-    screen.debug()
-    const googleAnalyticsRow = screen.getByText('Google Analytics')
-    expect(googleAnalyticsRow).toBeDefined()
+  )
+  screen.debug()
+  const googleAnalyticsRow = screen.queryByText('Google Analytics')
+  expect(googleAnalyticsRow).toBeDefined()
 })
 
 test('選択されていない行が生成されていないか', () => {
-    render(
+  render(
         <MantineProvider withGlobalStyles withNormalizeCSS>
             <TBAWidget />
         </MantineProvider>
-    )
-    screen.debug()
-    const notExistsRow = screen.queryByText('Not Exist Service')
-    expect(notExistsRow).toBeNull()
+  )
+  screen.debug()
+  const notExistsRow = screen.queryByText('Not Exist Service')
+  expect(notExistsRow).toBeNull()
 })

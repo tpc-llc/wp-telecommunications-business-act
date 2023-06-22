@@ -23,19 +23,24 @@ const ServiceSelectPage: React.FC = () => {
     })
   }, [])
 
-  const syncSelectedServiceOfficialPoliciesUids = (): void => {
-    const params: PostServicePoliciesRequest = { service_official_policies_uids: selectedServiceOfficialPoliciesUids }
-    postAdminServicePolicies(params, axiosBaseConfig).then(() => { }).catch((err) => {
+  const syncSelectedServiceOfficialPoliciesUids = (updatedSelectedServiceOfficialPoliciesUids: string[]): void => {
+    const params: PostServicePoliciesRequest = { service_official_policies_uids: updatedSelectedServiceOfficialPoliciesUids }
+    postAdminServicePolicies(params, axiosBaseConfig).then(() => {
+      setSelectedServiceOfficialPoliciesUids(updatedSelectedServiceOfficialPoliciesUids)
+    }).catch((err) => {
       console.log(err)
     })
   }
 
   const handleChangeServiceOfficialPolicyUids = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const uid = e.target.value
-    selectedServiceOfficialPoliciesUids.includes(uid)
-      ? setSelectedServiceOfficialPoliciesUids(selectedServiceOfficialPoliciesUids.filter((item) => item !== uid))
-      : setSelectedServiceOfficialPoliciesUids([...selectedServiceOfficialPoliciesUids, uid])
-    syncSelectedServiceOfficialPoliciesUids()
+    if (selectedServiceOfficialPoliciesUids.includes(uid)) {
+      const updatedSelectedServiceOfficialPoliciesUids = selectedServiceOfficialPoliciesUids.filter((item) => item !== uid)
+      syncSelectedServiceOfficialPoliciesUids(updatedSelectedServiceOfficialPoliciesUids)
+    } else {
+      const updatedSelectedServiceOfficialPoliciesUids = [...selectedServiceOfficialPoliciesUids, uid]
+      syncSelectedServiceOfficialPoliciesUids(updatedSelectedServiceOfficialPoliciesUids)
+    }
   }
 
   return (

@@ -1,5 +1,4 @@
 /vendor/
 *.cache
 node_modules/
-frontend/.storybook
 frontend/dist/

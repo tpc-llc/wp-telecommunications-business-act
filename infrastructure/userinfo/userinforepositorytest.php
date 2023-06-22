@@ -142,7 +142,7 @@ class UserInfoRepositoryTest implements IUserInfoRepository
     */
     private function createSecretKey()
     {
-        $secret_key = wp_generate_uuid4();
+        $secret_key = crc32( serialize( array( microtime( true ), 'USER_IP', 'ETC' ) ) );
         $this->wp_options['wptba_secret_key'] = $secret_key;
     }
 

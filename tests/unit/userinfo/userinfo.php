@@ -56,6 +56,21 @@ class TestUserInfo extends TestCase
         $this->assertEquals($user_info->isNewUser(), false);
     }
 
+    /** 
+     * 適切に登録されるか.
+    */
+    public function testRegisterUserInfo()
+    {
+        $user_info = new UserInfo($this->user_info_repository);
+        $user_info->fetchUserInfo();
+        $user_info->registerUserInfo("admin@admin.com", true);
+        $this->assertNotEmpty($this->user_info_repository->wp_options['wptba_secret_key']);
+        $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['client_version'], '0.0.1');
+        $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['site_url'], 'https://example.com');
+        $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['email'], 'admin@admin.com');
+        $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['email_optin'], true);
+    }
+
     /**
      * 適切に保存されるか.
     */
@@ -63,6 +78,7 @@ class TestUserInfo extends TestCase
     {
         $user_info = new UserInfo($this->user_info_repository);
         $user_info->fetchUserInfo();
+        $user_info->pluginActivated();
         $user_info->saveUserInfo();
         $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['client_version'], '0.0.1');
         $this->assertEquals($this->user_info_repository->wp_options['wptba_user_info']['site_url'], 'https://example.com');

@@ -47,7 +47,7 @@ const ServiceSelectPage: React.FC = () => {
       <Box
         w={'100%'}
       >
-        <ServicePolicyHeader showCheckboxHeader={true} />
+        <ServicePolicyHeader />
         {Object.values(ServiceOfficialPolicies).map((policy) => (
           <Flex
             key={policy.uid}

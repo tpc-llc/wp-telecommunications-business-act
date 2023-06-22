@@ -21,7 +21,7 @@ const TBAWidget: React.FC = () => {
 
   return (
     <Box>
-      <ServicePolicyHeader showCheckboxHeader={false} />
+      <ServicePolicyHeader />
       {selectedServiceOfficialPoliciesUids.map((uid) => {
         return (
           <ServicePolicyRow

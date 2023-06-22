@@ -1,39 +1,38 @@
 import React, { useState } from 'react'
 import {
-    Flex,
-    Box,
-    Text,
-    Stack,
-    Link,
-    Heading,
-    UnorderedList,
-    ListItem
+  Flex,
+  Box,
+  Text,
+  Stack,
+  Link,
+  Heading,
+  UnorderedList,
+  ListItem
 } from '@chakra-ui/react'
 import { MdOutlineVerified as VerifiedIcon } from 'react-icons/md'
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
 export interface ServicePolicyRowProps {
-    uid: string
-    classification: string
-    companyName: string
-    companyLink?: string
-    verified: boolean
-    serviceName: string
-    serviceLink?: string
-    optoutLink?: string
-    privacyPolicyText?: string
-    privacyPolicyLink?: string
-    purpose: React.JSX.Element
-    sendInfoExamples: string[]
-    additionalInfo?: React.JSX.Element
+  uid: string
+  classification: string
+  companyName: string
+  companyLink?: string
+  verified: boolean
+  serviceName: string
+  serviceLink?: string
+  optoutLink?: string
+  privacyPolicyText?: string
+  privacyPolicyLink?: string
+  purpose: React.JSX.Element
+  sendInfoExamples: string[]
+  additionalInfo?: React.JSX.Element
 }
 
 export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: ServicePolicyRowProps) => {
-    const [opened, setOpened] = useState(false)
+  const [opened, setOpened] = useState(false)
+  const toggle = (): void => { setOpened(!opened) }
 
-    const toggle = () => setOpened(!opened)
-
-    return (
+  return (
         <Box>
             <Stack>
                 <Flex
@@ -48,8 +47,8 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                         >
                             <Text>
                                 {props.companyLink != null
-                                    ? <Link href={props.companyLink} color={'#1E50B5'}>{props.companyName}</Link>
-                                    : props.companyName
+                                  ? <Link href={props.companyLink} color={'#1E50B5'}>{props.companyName}</Link>
+                                  : props.companyName
                                 }
                             </Text>
                             {props.verified && <VerifiedIcon />}
@@ -71,8 +70,8 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     >
                         <Text>
                             {props.privacyPolicyLink != null
-                                ? <Link href={props.privacyPolicyLink} color={'#1E50B5'}>プライバシーポリシー</Link>
-                                : '提供なし'}
+                              ? <Link href={props.privacyPolicyLink} color={'#1E50B5'}>プライバシーポリシー</Link>
+                              : '提供なし'}
                         </Text>
                     </Box>
                     <Box>
@@ -108,18 +107,18 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                             </UnorderedList>
                         </Box>
                         {(props.additionalInfo != null)
-                            ? (
+                          ? (
                                 <Box>
                                     <Heading size='md'>その他</Heading>
                                     {props.additionalInfo}
                                 </Box>
                             )
-                            : null}
+                          : null}
                     </Box>
                 )}
             </Stack>
         </Box>
-    )
+  )
 }
 
 export default ServicePolicyRow

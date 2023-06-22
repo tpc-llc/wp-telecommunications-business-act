@@ -6,7 +6,7 @@ import { ChakraProvider } from '@chakra-ui/provider'
 test('チェックボックス用ヘッダの表示切り替えができるか', () => {
   render(
     <ChakraProvider>
-      <ServicePolicyHeader showCheckboxHeader={true} />
+      <ServicePolicyHeader />
     </ChakraProvider>
   )
   screen.debug()

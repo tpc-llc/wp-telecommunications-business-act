@@ -13,6 +13,5 @@ type Story = StoryObj<typeof ServicePolicyHeader>
 
 export const Default: Story = {
   args: {
-    showCheckboxHeader: false
   }
 }

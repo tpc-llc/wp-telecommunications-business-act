@@ -5,23 +5,9 @@ import {
   Text
 } from '@chakra-ui/react'
 
-export interface ServicePolicyHeaderProps {
-  showCheckboxHeader: boolean
-}
-
-export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: ServicePolicyHeaderProps) => {
+export const ServicePolicyHeader: React.FC = () => {
   return (
-    <Flex
-    >
-      {props.showCheckboxHeader && (
-        <Flex
-        >
-          <Flex
-          >
-            <Text>選択</Text>
-          </Flex>
-        </Flex>
-      )}
+    <Flex>
       <Flex
       >
         <Box

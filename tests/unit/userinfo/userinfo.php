@@ -16,7 +16,7 @@ class TestUserInfo extends TestCase
 {
     /**
      * User Info Repository Test.
-     * 
+     *
      * @var UserInfoRepositoryTest $user_info_repository User Info Repository Test.
     */
     private $user_info_repository;
@@ -30,19 +30,21 @@ class TestUserInfo extends TestCase
         $this->user_info_repository = new UserInfoRepositoryTest();
     }
 
-    /** 
+    /**
      * 新しいユーザーの場合.
     */
-    public function testNewUser() {
+    public function testNewUser()
+    {
         $this->user_info_repository->wp_options = array();
         $user_info = new UserInfo($this->user_info_repository);
         $this->assertEquals($user_info->isNewUser(), true);
     }
 
-    /** 
+    /**
      * 新しくないユーザーの場合.
     */
-    public function testNotNewUser() {
+    public function testNotNewUser()
+    {
         $this->user_info_repository->wp_options = array(
             'wptba_userinfo' => array(
                 'client_version' => '1.0.0',
@@ -54,10 +56,11 @@ class TestUserInfo extends TestCase
         $this->assertEquals($user_info->isNewUser(), false);
     }
 
-    /** 
+    /**
      * 適切に保存されるか.
     */
-    public function testSaveUserInfo() {
+    public function testSaveUserInfo()
+    {
         $user_info = new UserInfo($this->user_info_repository);
         $user_info->fetchUserInfo();
         $user_info->saveUserInfo();

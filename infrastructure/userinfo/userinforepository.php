@@ -49,21 +49,21 @@ class UserInfoRepository implements IUserInfoRepository
         return get_option('wptba_userinfo', array());
     }
 
-    /** 
+    /**
      * クライアントバージョンを読み込む.
-     * 
+     *
      * @return string クライアントバージョン.
     */
     public function loadPluginVersion()
     {
-        $plugin_data = get_plugin_data( __FILE__ );
+        $plugin_data = get_plugin_data(__FILE__);
         $plugin_version = $plugin_data['Version'];
         return $plugin_version;
     }
 
-    /** 
+    /**
      * サイトURLを読み込む.
-     * 
+     *
      * @return string サイトURL.
     */
     public function loadSiteUrl()
@@ -71,9 +71,9 @@ class UserInfoRepository implements IUserInfoRepository
         return get_site_url();
     }
 
-    /** 
+    /**
      * メールアドレスを読み込む.
-     * 
+     *
      * @return string メールアドレス.
     */
     public function loadEmail()
@@ -83,17 +83,17 @@ class UserInfoRepository implements IUserInfoRepository
         return $email;
     }
 
-    /** 
+    /**
      * メールアドレスのオプトインを読み込む.
-     * 
+     *
      * @return bool メールアドレスのオプトイン.
     */
     public function loadEmailOptin()
     {
         $user_info = $this->getUserInfo();
-        if (isset($user_info['email_optin']))
+        if (isset($user_info['email_optin'])) {
             return $user_info['email_optin'] === true;
+        }
         return false;
     }
-
 }

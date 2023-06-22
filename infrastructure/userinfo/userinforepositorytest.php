@@ -60,9 +60,9 @@ class UserInfoRepositoryTest implements IUserInfoRepository
         return array();
     }
 
-    /** 
+    /**
      * クライアントバージョンを読み込む.
-     * 
+     *
      * @return string クライアントバージョン.
     */
     public function loadPluginVersion()
@@ -70,9 +70,9 @@ class UserInfoRepositoryTest implements IUserInfoRepository
         return '0.0.1';
     }
 
-    /** 
+    /**
      * サイトURLを読み込む.
-     * 
+     *
      * @return string サイトURL.
     */
     public function loadSiteUrl()
@@ -80,9 +80,9 @@ class UserInfoRepositoryTest implements IUserInfoRepository
         return 'https://example.com';
     }
 
-    /** 
+    /**
      * メールアドレスを読み込む.
-     * 
+     *
      * @return string メールアドレス.
     */
     public function loadEmail()
@@ -90,16 +90,17 @@ class UserInfoRepositoryTest implements IUserInfoRepository
         return 'admin@admin.com';
     }
 
-    /** 
+    /**
      * メールアドレスのオプトインを読み込む.
-     * 
+     *
      * @return bool メールアドレスのオプトイン.
     */
     public function loadEmailOptin()
     {
         $user_info = $this->getUserInfo();
-        if (isset($user_info['email_optin']))
+        if (isset($user_info['email_optin'])) {
             return $user_info['email_optin'] === true;
+        }
         return false;
     }
 }

@@ -34,30 +34,30 @@ interface IUserInfoRepository
     */
     public function getUserInfo();
 
-    /** 
+    /**
      * クライアントバージョンを読み込む.
-     * 
+     *
      * @return string クライアントバージョン.
     */
     public function loadPluginVersion();
 
-    /** 
+    /**
      * サイトURLを読み込む.
-     * 
+     *
      * @return string サイトURL.
     */
     public function loadSiteUrl();
 
-    /** 
+    /**
      * メールアドレスを読み込む.
-     * 
+     *
      * @return string メールアドレス.
     */
     public function loadEmail();
 
-    /** 
+    /**
      * メールアドレスのオプトインを読み込む.
-     * 
+     *
      * @return bool メールアドレスのオプトイン.
     */
     public function loadEmailOptin();

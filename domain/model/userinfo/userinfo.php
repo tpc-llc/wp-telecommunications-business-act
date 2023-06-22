@@ -36,18 +36,25 @@ class UserInfo
     private $site_url;
 
     /**
+     * Plugin Status.
+     *
+     * @var string $plugin_status Plugin Status.
+    */
+    private $plugin_status;
+
+    /**
      * Email.
      *
      * @var string $email Email.
     */
-    public $email;
+    private $email;
 
     /**
      * Email Optin.
      *
      * @var bool $email_optin Email Optin.
     */
-    public $email_optin;
+    private $email_optin;
 
     /**
      * Constructor.
@@ -57,6 +64,22 @@ class UserInfo
     public function __construct($user_info_repository)
     {
         $this->user_info_repository = $user_info_repository;
+    }
+
+    /**
+     * Plugin activated.
+    */
+    public function pluginActivated()
+    {
+        $this->plugin_status = 'active';
+    }
+
+    /**
+     * Plugin deactivated.
+    */
+    public function pluginDeactivated()
+    {
+        $this->plugin_status = 'inactive';
     }
 
     /**
@@ -83,6 +106,24 @@ class UserInfo
     }
 
     /**
+     * Register user info.
+     *
+     * @param string $email Email.
+     * @param bool $email_optin Email Optin.
+    */
+    public function registerUserInfo($email, $email_optin)
+    {
+        $this->email = $email;
+        $this->email_optin = $email_optin;
+        $this->user_info_repository->registerUserInfo(
+            $this->client_version,
+            $this->site_url,
+            $this->email,
+            $this->email_optin
+        );
+    }
+
+    /**
      * Save user info.
     */
     public function saveUserInfo()
@@ -91,7 +132,8 @@ class UserInfo
             $this->client_version,
             $this->site_url,
             $this->email,
-            $this->email_optin
+            $this->email_optin,
+            $this->plugin_status
         );
     }
 
@@ -107,6 +149,16 @@ class UserInfo
     }
 
     /**
+     * Is User Info existed.
+     *
+     * @return bool Is User Info existed.
+    */
+    public function isUserInfoExisted()
+    {
+        return !$this->isNewUser();
+    }
+
+    /**
      * Has update user info.
      *
      * @return bool Has update.
@@ -118,5 +170,13 @@ class UserInfo
             || $user_info['site_url'] !== $this->site_url
             || $user_info['email'] !== $this->email
             || $user_info['email_optin'] !== $this->email_optin;
+    }
+
+    /**
+     * Delete user info.
+    */
+    public function deleteUserInfo()
+    {
+        $this->user_info_repository->cleanupPlugin();
     }
 }

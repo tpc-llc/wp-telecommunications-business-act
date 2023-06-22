@@ -88,18 +88,59 @@ class AdminApplication
     {
         $user_info = new UserInfo($this->user_info_repository);
         $user_info->fetchUserInfo();
-        $user_info->email = $email;
-        $user_info->email_optin = $email_optin;
+        $user_info->registerUserInfo($email, $email_optin);
+    }
+
+    /**
+     * ユーザー情報をプラグイン更新時に更新する.
+    */
+    public function updateUserInfoOnPluginUpdated()
+    {
+        $user_info = new UserInfo($this->user_info_repository);
+        if ($user_info->isNewUser()) {
+            return;
+        }
+        $user_info->fetchUserInfo();
         $user_info->saveUserInfo();
     }
 
     /**
-     * ユーザー情報を更新する.
+     * ユーザー情報をプラグイン有効化時に更新する.
     */
-    public function updateUserInfo()
+    public function updateUserInfoOnPluginActivated()
     {
         $user_info = new UserInfo($this->user_info_repository);
+        if ($user_info->isNewUser()) {
+            return;
+        }
         $user_info->fetchUserInfo();
+        $user_info->pluginActivated();
         $user_info->saveUserInfo();
+    }
+
+    /**
+     * ユーザー情報をプラグイン無効化時に更新する.
+    */
+    public function updateUserInfoOnPluginDeactivated()
+    {
+        $user_info = new UserInfo($this->user_info_repository);
+        if ($user_info->isNewUser()) {
+            return;
+        }
+        $user_info->fetchUserInfo();
+        $user_info->pluginDeactivated();
+        $user_info->saveUserInfo();
+    }
+
+    /**
+     * ユーザー情報をプラグイン削除時に更新する.
+    */
+    public function deleteUserInfoOnPluginDeleted()
+    {
+        $user_info = new UserInfo($this->user_info_repository);
+        if ($user_info->isNewUser()) {
+            return;
+        }
+        $user_info->deleteUserInfo();
     }
 }

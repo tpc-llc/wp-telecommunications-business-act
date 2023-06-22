@@ -57,7 +57,7 @@ class PostServicePolicies
         };
 
         $permission_callback_function = function () {
-            return true;
+            return current_user_can('manage_options');
         };
 
         new Endpoint(

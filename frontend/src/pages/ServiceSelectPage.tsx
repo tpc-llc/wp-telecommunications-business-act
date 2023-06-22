@@ -57,7 +57,7 @@ const ServiceSelectPage: React.FC = () => {
               <Flex
               >
                 <Checkbox
-                  checked={selectedServiceOfficialPoliciesUids.includes(policy.uid)}
+                  isChecked={selectedServiceOfficialPoliciesUids.includes(policy.uid)}
                   value={policy.uid}
                   onChange={handleChangeServiceOfficialPolicyUids} />
               </Flex>

@@ -8,7 +8,9 @@
 namespace WPTBA\Application\Admin;
 
 use WPTBA\Repository\IServicePoliciesRepository;
+use WPTBA\Repository\IUserInfoRepository;
 use WPTBA\Domain\Model\ServicePolicies;
+use WPTBA\Domain\Model\UserInfo;
 
 /**
  * Admin Application.
@@ -23,14 +25,24 @@ class AdminApplication
     private $service_policies_repository;
 
     /**
+     * ユーザー情報の保存と取得を行う.
+     *
+     * @var IUserInfoRepository ユーザー情報の保存と取得を行う.
+    */
+    private $user_info_repository;
+
+    /**
      * コンストラクタ.
      *
      * @param IServicePoliciesRepository $service_policies_repository サービスとポリシーの保存と取得を行う.
+     * @param IUserInfoRepository $user_info_repository ユーザー情報の保存と取得を行う.
+     *
      * @return void
     */
-    public function __construct($service_policies_repository)
+    public function __construct($service_policies_repository, $user_info_repository)
     {
         $this->service_policies_repository = $service_policies_repository;
+        $this->user_info_repository = $user_info_repository;
     }
 
     /**
@@ -46,8 +58,12 @@ class AdminApplication
         foreach ($service_official_policies as $service_official_policy) {
             $service_official_policies_uids[] = $service_official_policy->getServiceUniqueId();
         }
+
+        $user_info = new UserInfo($this->user_info_repository);
+
         return array(
-            'service_official_policies_uids' => $service_official_policies_uids
+            'service_official_policies_uids' => $service_official_policies_uids,
+            'is_new_user' => $user_info->isNewUser()
         );
     }
 
@@ -60,5 +76,30 @@ class AdminApplication
     {
         $service_policies = new ServicePolicies($this->service_policies_repository);
         $service_policies->updateAllServiceOfficialPolicies($service_official_policies_uids);
+    }
+
+    /**
+     * ユーザー情報を登録する.
+     *
+     * @param string $email メールアドレス.
+     * @param bool $email_optin メールアドレスのオプトイン.
+    */
+    public function registerUserInfo($email, $email_optin)
+    {
+        $user_info = new UserInfo($this->user_info_repository);
+        $user_info->fetchUserInfo();
+        $user_info->email = $email;
+        $user_info->email_optin = $email_optin;
+        $user_info->saveUserInfo();
+    }
+
+    /**
+     * ユーザー情報を更新する.
+    */
+    public function updateUserInfo()
+    {
+        $user_info = new UserInfo($this->user_info_repository);
+        $user_info->fetchUserInfo();
+        $user_info->saveUserInfo();
     }
 }

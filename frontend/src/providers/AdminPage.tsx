@@ -2,8 +2,8 @@ import React from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 import ReactDOM from 'react-dom/client'
 
-const ServiceSelectPage = React.lazy(
-  async () => await import('../pages/ServiceSelectPage')
+const AdminPage = React.lazy(
+  async () => await import('../pages/AdminPage')
 )
 
 ReactDOM.createRoot(
@@ -11,7 +11,7 @@ ReactDOM.createRoot(
 ).render(
   <React.StrictMode>
     <ChakraProvider>
-      <ServiceSelectPage />
+      <AdminPage />
     </ChakraProvider>
   </React.StrictMode>
 )

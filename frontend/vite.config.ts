@@ -18,7 +18,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: [
-        'src/providers/ServiceSelect.tsx',
+        'src/providers/AdminPage.tsx',
         'src/providers/TBAWidget.tsx'
       ],
       output: {

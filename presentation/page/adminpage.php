@@ -10,7 +10,7 @@ namespace WPTBA\Presentation\Page;
 /**
  * 管理画面にベースとなるdivを作成する.
  */
-class ServiceSelectPage
+class AdminPage
 {
     /**
      * Constructorで設定
@@ -41,7 +41,7 @@ class ServiceSelectPage
     {
         $this->page_title = "電気通信事業法";
         $this->page_slug  = "telecommunications-business-act";
-        $this->js_name    = "ServiceSelect";
+        $this->js_name    = "AdminPage";
 
         if (is_admin()) {
             add_action(

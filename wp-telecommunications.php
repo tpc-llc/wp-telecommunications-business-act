@@ -21,7 +21,7 @@ use WPTBA\Presentation\Endpoint\Admin\PageInfo\GetAdminPageInfo;
 use WPTBA\Presentation\Endpoint\Admin\ServicePolicies\PostServicePolicies;
 use WPTBA\Presentation\Endpoint\Public\ServicePolicies\GetPublicServicePolicies;
 use WPTBA\Presentation\Endpoint\Admin\Register\PostRegister;
-use WPTBA\Presentation\Page\ServiceSelectPage;
+use WPTBA\Presentation\Page\AdminPage;
 
 use WPTBA\Container\Container;
 
@@ -52,4 +52,4 @@ new PostRegister($container->getAdminApplication());
 new GetPublicServicePolicies($container->getPublicApplication());
 
 // Page.
-new ServiceSelectPage();
+new AdminPage();

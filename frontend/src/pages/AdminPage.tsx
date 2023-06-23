@@ -5,7 +5,7 @@ import axiosBaseConfig from '../lib/axios-config/axios-config'
 import { getAdminPageinfo } from '../lib/plugin/client'
 import ServiceSelect from '../feature/ServiceSelect/ServiceSelect'
 
-const ServiceSelectPage: React.FC = () => {
+const AdminPage: React.FC = () => {
   const [selectedServiceOfficialPoliciesUids, setSelectedServiceOfficialPoliciesUids] = useState<string[]>([]) // 選択されたサービスのuidを格納する配列
 
   useEffect(() => {
@@ -29,4 +29,4 @@ const ServiceSelectPage: React.FC = () => {
   )
 }
 
-export default ServiceSelectPage
+export default AdminPage

@@ -12,5 +12,7 @@ export default meta
 type Story = StoryObj<typeof Register>
 
 export const Default: Story = {
-  args: {}
+  args: {
+    email: 'admin@admin.com'
+  }
 }

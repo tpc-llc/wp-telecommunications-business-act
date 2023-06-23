@@ -14,6 +14,7 @@ import { useForm } from 'react-hook-form'
 import axiosBaseConfig from '../../lib/axios-config/axios-config'
 import { postAdminRegister } from '../../lib/plugin/client'
 import { type PostRegisterRequest } from '../../lib/plugin/client.schemas'
+import TermsOfService from '../../components/TermsOfService/TermsOfService'
 
 export interface RegisterProps {
   email: string
@@ -59,6 +60,7 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
         (...args) => void handleSubmit(onSubmit)(...args)
       }>
         <VStack>
+          <TermsOfService />
           <FormControl>
             <HStack
               align={'center'}

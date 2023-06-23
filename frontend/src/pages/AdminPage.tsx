@@ -30,6 +30,7 @@ const AdminPage: React.FC = () => {
   return (
     <Box
       w={'100%'}
+      p={8}
     >
       {loading && (
         <Flex w={'100%'} justify={'center'}>

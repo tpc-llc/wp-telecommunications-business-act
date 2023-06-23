@@ -17,6 +17,11 @@ export const getPluginEndpointsMSW = () => [
             ctx.status(200, 'Mocked status'),
             ctx.json(getGetAdminPageinfoMock()),
         )
+    }), rest.post('*/admin/register', (_req, res, ctx) => {
+        return res(
+            ctx.delay(0),
+            ctx.status(200, 'Mocked status'),
+        )
     }), rest.post('*/admin/service-policies', (_req, res, ctx) => {
         return res(
             ctx.delay(0),

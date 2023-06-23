@@ -11,6 +11,9 @@ import {
   Text
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
+import axiosBaseConfig from '../../lib/axios-config/axios-config'
+import { postAdminRegister } from '../../lib/plugin/client'
+import { type PostRegisterRequest } from '../../lib/plugin/client.schemas'
 
 export interface RegisterProps {
   email: string
@@ -35,7 +38,17 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
   })
 
   const onSubmit: (formData: RegisterFormValues) => void = (formData: RegisterFormValues) => {
-    console.log(formData)
+    const params: PostRegisterRequest = {
+      email: formData.email,
+      email_optin: formData.emailOptin
+    }
+    postAdminRegister(params, axiosBaseConfig).then(() => {
+      window.location.reload()
+    }
+    ).catch((err) => {
+      console.log(err)
+    }
+    )
   }
 
   return (

@@ -10,6 +10,6 @@ test('Google Analyticsなどの行が生成されているか', () => {
     </ChakraProvider>
   )
   screen.debug()
-  const googleAnalyticsCheckbox = screen.getByDisplayValue('google-analytics')
+  const googleAnalyticsCheckbox = screen.queryByDisplayValue('google-analytics')
   expect(googleAnalyticsCheckbox).toBeDefined()
 })

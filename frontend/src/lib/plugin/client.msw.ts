@@ -12,7 +12,7 @@ import {
   faker
 } from '@faker-js/faker'
 
-export const getGetAdminPageinfoMock = () => ({service_official_policies_uids: Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.random.word())), is_new_user: faker.datatype.boolean(), current_user_email: faker.helpers.arrayElement([faker.random.word(), undefined])})
+export const getGetAdminPageinfoMock = () => ({service_official_policies_uids: Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.random.word())), is_new_user: faker.datatype.boolean(), current_user_email: faker.random.word()})
 
 export const getGetPublicServicePoliciesMock = () => ({service_official_policies_uids: Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.random.word()))})
 

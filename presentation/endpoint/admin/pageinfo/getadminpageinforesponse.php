@@ -11,7 +11,7 @@ namespace WPTBA\Presentation\Endpoint\Admin\PageInfo;
  * Get Admin Page Info response.
  *
  * @OA\Schema(
- *  required={"service_official_policies_uids", "is_new_user"}
+ *  required={"service_official_policies_uids", "is_new_user", "current_user_email"}
  * )
 */
 class GetAdminPageInfoResponse

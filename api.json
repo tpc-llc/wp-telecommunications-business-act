@@ -96,7 +96,8 @@
                 "description": "Get Admin Page Info response.",
                 "required": [
                     "service_official_policies_uids",
-                    "is_new_user"
+                    "is_new_user",
+                    "current_user_email"
                 ],
                 "properties": {
                     "service_official_policies_uids": {

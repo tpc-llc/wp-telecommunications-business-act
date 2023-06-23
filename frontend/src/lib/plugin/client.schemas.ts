@@ -40,6 +40,6 @@ export interface GetAdminPageInfoResponse {
   /** Is new user. */
   is_new_user: boolean;
   /** Current user email. */
-  current_user_email?: string;
+  current_user_email: string;
 }
 

@@ -2,7 +2,7 @@ import ListSelectedService from './ListSelectedService'
 import { type Meta, type StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Shortcodes/ListSelectedService',
+  title: 'Features/ListSelectedService',
   component: ListSelectedService,
   tags: ['autodocs']
 } satisfies Meta<typeof ListSelectedService>

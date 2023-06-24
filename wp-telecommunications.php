@@ -22,6 +22,7 @@ use WPTBA\Presentation\Endpoint\Admin\ServicePolicies\PostServicePolicies;
 use WPTBA\Presentation\Endpoint\Public\ServicePolicies\GetPublicServicePolicies;
 use WPTBA\Presentation\Endpoint\Admin\Register\PostRegister;
 use WPTBA\Presentation\Page\AdminPage;
+use WPTBA\Presentation\ShortCode\RegisterWPTBAShortCode;
 
 use WPTBA\Container\Container;
 
@@ -42,7 +43,7 @@ $container = new Container();
 add_filter('script_loader_tag', 'wptba_script_loader_tag', 10, 3);
 
 // Shortcode.
-add_shortcode('電気通信事業法', 'wptba_shortcode');
+new RegisterWPTBAShortCode();
 
 // Endpoint.
 new GetAdminPageInfo($container->getAdminApplication());

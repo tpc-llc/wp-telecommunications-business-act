@@ -8,4 +8,4 @@
 ?>
 <?php
 
-require_once __DIR__ . '/tbashortcode.php';
+require_once __DIR__ . '/registertbashortcode.php';

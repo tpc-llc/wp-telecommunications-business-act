@@ -116,6 +116,16 @@ class UserInfo
     }
 
     /**
+     * Email Switch Optin.
+     *
+     * @param bool $email_optin Email Optin.
+    */
+    public function emailSwitchOptin($email_optin)
+    {
+        $this->email_optin = $email_optin;
+    }
+
+    /**
      * Register user info.
      *
      * @param string $email Email.

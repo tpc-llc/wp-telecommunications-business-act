@@ -17,7 +17,12 @@ export const getGetAdminPageinfoMock = () => ({service_official_policies_uids: A
 export const getGetPublicServicePoliciesMock = () => ({service_official_policies_uids: Array.from({ length: faker.datatype.number({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => (faker.random.word()))})
 
 export const getPluginEndpointsMSW = () => [
-rest.get('*/admin/pageinfo', (_req, res, ctx) => {
+rest.patch('*/admin/email-optin', (_req, res, ctx) => {
+        return res(
+          ctx.delay(0),
+          ctx.status(200, 'Mocked status'),
+        )
+      }),rest.get('*/admin/pageinfo', (_req, res, ctx) => {
         return res(
           ctx.delay(0),
           ctx.status(200, 'Mocked status'),

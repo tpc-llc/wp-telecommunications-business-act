@@ -11,6 +11,30 @@
         }
     ],
     "paths": {
+        "/admin/email-optin": {
+            "patch": {
+                "summary": "メールのオプトインを更新する",
+                "description": "Patch Email Optin.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchEmailOptinRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "更新成功"
+                    },
+                    "404": {
+                        "description": "ユーザー情報が存在しない場合"
+                    }
+                }
+            }
+        },
         "/admin/pageinfo": {
             "get": {
                 "summary": "管理者ページ情報取得",
@@ -92,6 +116,19 @@
     },
     "components": {
         "schemas": {
+            "PatchEmailOptinRequest": {
+                "description": "Email Optin Request.",
+                "required": [
+                    "email_optin"
+                ],
+                "properties": {
+                    "email_optin": {
+                        "description": "Email optin.",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
             "GetAdminPageInfoResponse": {
                 "description": "Get Admin Page Info response.",
                 "required": [

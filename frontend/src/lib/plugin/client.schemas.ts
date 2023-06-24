@@ -43,3 +43,11 @@ export interface GetAdminPageInfoResponse {
   current_user_email: string;
 }
 
+/**
+ * Email Optin Request.
+ */
+export interface PatchEmailOptinRequest {
+  /** Email optin. */
+  email_optin: boolean;
+}
+

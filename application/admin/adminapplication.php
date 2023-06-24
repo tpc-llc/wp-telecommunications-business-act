@@ -70,6 +70,19 @@ class AdminApplication
     }
 
     /**
+     * Email Switch Optin, Optout.
+     *
+     * @param boolean $email_optin Email Optin.
+    */
+    public function emailSwitchOptin($email_optin)
+    {
+        $user_info = new UserInfo($this->user_info_repository);
+        $user_info->fetchUserInfo();
+        $user_info->emailSwitchOptin($email_optin);
+        $user_info->saveUserInfo();
+    }
+
+    /**
      * 利用しているサービスとポリシーを更新する.
      *
      * @param array $service_official_policies_uids サービスとポリシーのUnique IDの配列.

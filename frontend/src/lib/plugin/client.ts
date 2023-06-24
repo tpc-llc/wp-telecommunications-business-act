@@ -11,6 +11,7 @@ import type {
   AxiosResponse
 } from 'axios'
 import type {
+  PatchEmailOptinRequest,
   GetAdminPageInfoResponse,
   PostRegisterRequest,
   PostServicePoliciesRequest,
@@ -20,6 +21,19 @@ import type {
 
 
   /**
+ * Patch Email Optin.
+ * @summary メールのオプトインを更新する
+ */
+export const patchAdminEmailOptin = <TData = AxiosResponse<void>>(
+    patchEmailOptinRequest: PatchEmailOptinRequest, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.patch(
+      `/admin/email-optin`,
+      patchEmailOptinRequest,options
+    );
+  }
+
+/**
  * Get Admin Page Info.
  * @summary 管理者ページ情報取得
  */
@@ -69,6 +83,7 @@ export const getPublicServicePolicies = <TData = AxiosResponse<GetPublicServiceP
     );
   }
 
+export type PatchAdminEmailOptinResult = AxiosResponse<void>
 export type GetAdminPageinfoResult = AxiosResponse<GetAdminPageInfoResponse>
 export type PostAdminRegisterResult = AxiosResponse<void>
 export type PostAdminServicePoliciesResult = AxiosResponse<void>

@@ -9,4 +9,5 @@
 <?php
 
 require_once __DIR__ . '/admin/require-once.php';
+require_once __DIR__ . '/pluginstatemanagement/require-once.php';
 require_once __DIR__ . '/public/require-once.php';

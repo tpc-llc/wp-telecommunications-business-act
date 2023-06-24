@@ -5,11 +5,20 @@
 
 namespace WPTBA\Presentation\Action;
 
+use WPTBA\Application\PluginStateManagementApplication;
+
 /**
  * Deactivated Plugin.
 */
 class DectivatedPlugin
 {
+    /**
+     * Plugin State Management Application.
+     *
+     * @var PluginStateManagementApplication $plugin_state_management_application Plugin State Management Application.
+    */
+    private $plugin_state_management_application;
+
     /**
      * Plugin Basename.
      *
@@ -35,5 +44,8 @@ class DectivatedPlugin
     */
     private function deactivatedPlugin($plugin)
     {
+        if ($plugin == $this->plugin_basename) {
+            $this->plugin_state_management_application->deactivated();
+        }
     }
 }

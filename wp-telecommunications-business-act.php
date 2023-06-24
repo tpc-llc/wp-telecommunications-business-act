@@ -31,6 +31,9 @@ use WPTBA\Presentation\Endpoint\Admin\Register\PostRegister;
 use WPTBA\Presentation\Page\AdminPage;
 
 use WPTBA\Presentation\Action\ActivatedPlugin;
+use WPTBA\Presentation\Action\DectivatedPlugin;
+use WPTBA\Presentation\Action\PreUninstallPlugin;
+use WPTBA\Presentation\Action\UpgraderProcessComplete;
 
 use WPTBA\Container\Container;
 
@@ -68,4 +71,7 @@ new AdminPage($page_name, $settings_page_slug, $js_name);
 
 // Action.
 $plugin_basename = plugin_basename(__FILE__);
-new ActivatedPlugin($plugin_basename, $settings_page_slug);
+new ActivatedPlugin($container->getPluginStateManagementApplication(), $plugin_basename, $settings_page_slug);
+new DectivatedPlugin($container->getPluginStateManagementApplication(), $plugin_basename);
+new PreUninstallPlugin($container->getPluginStateManagementApplication(), $plugin_basename);
+new UpgraderProcessComplete($container->getPluginStateManagementApplication(), $plugin_basename);

@@ -16,6 +16,7 @@ use WPTBA\Repository\UserInfoRepositoryTest;
 
 use WPTBA\Application\Admin\AdminApplication;
 use WPTBA\Application\Public\PublicApplication;
+use WPTBA\Application\PluginStateManagementApplication;
 
 /**
  * DIコンテナ.
@@ -59,6 +60,14 @@ class Container
     public function getAdminApplication()
     {
         return new AdminApplication($this->service_policies_repository, $this->user_info_repository);
+    }
+
+    /**
+     * Get Plugin State Management Application.
+    */
+    public function getPluginStateManagementApplication()
+    {
+        return new PluginStateManagementApplication($this->user_info_repository);
     }
 
     /**

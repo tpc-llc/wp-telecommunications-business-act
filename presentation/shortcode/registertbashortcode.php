@@ -17,7 +17,7 @@ class RegisterWPTBAShortCode
         add_shortcode('電気通信事業法', array($this, 'wptbaShortcode'));
     }
 
-    private function wptbaShortcode()
+    public function wptbaShortcode()
     {
         wp_enqueue_script(
             'wptba-page-TBAWidget.js',

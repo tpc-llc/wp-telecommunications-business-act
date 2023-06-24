@@ -27,7 +27,7 @@ class AddModuleTypeWithScriptLoaderTag
     * @param string $handle wp_enqueue_scriptで読み込まれるタグ.
     * @param string $src URL.
     */
-    private function scriptLoaderTag($tag, $handle, $src)
+    public function scriptLoaderTag($tag, $handle, $src)
     {
         if (strpos($handle, 'wptba-page') === 0) {
             $tag = '<script type="module" src="' . esc_url($src) . '"></script>';

@@ -1,14 +1,16 @@
 <?php
 /**
- * Dectivated Plugin.
+ * Upgeader Process Complete.
 */
 
 namespace WPTBA\Presentation\Action;
 
+use WP_Upgrader;
+
 /**
- * Deactivated Plugin.
+ * Upgeader Process Complete.
 */
-class DectivatedPlugin
+class UpgraderProcessComplete
 {
     /**
      * Plugin Basename.
@@ -25,15 +27,16 @@ class DectivatedPlugin
     public function __construct($plugin_basename)
     {
         $this->plugin_basename = $plugin_basename;
-        add_action('deactivated_plugin', array($this, 'deactivatedPlugin'));
+        add_action('upgrader_process_complete', array($this, 'upgraderProcessComplete'));
     }
 
     /**
-     * Deactivated Plugin.
+     * Upgrader Process Complete.
      *
-     * @param string $plugin Plugin.
+     * @param WP_Upgrader $upgrader WP_Upgrader.
+     * @param array $hook_extra Hook Extra.
     */
-    private function deactivatedPlugin($plugin)
+    private function upgraderProcessComplete($upgrader, $hook_extra)
     {
     }
 }

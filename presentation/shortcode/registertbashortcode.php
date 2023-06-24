@@ -14,10 +14,10 @@ class RegisterWPTBAShortCode
 {
     public function __construct()
     {
-        add_shortcode('電気通信事業法', array($this, 'wptba_shortcode'));
+        add_shortcode('電気通信事業法', array($this, 'wptbaShortcode'));
     }
 
-    function wptba_shortcode()
+    private function wptbaShortcode()
     {
         wp_enqueue_script(
             'wptba-page-TBAWidget.js',

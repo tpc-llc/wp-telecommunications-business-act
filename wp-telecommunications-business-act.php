@@ -14,6 +14,8 @@
  * @package WPTBA
  */
 
+namespace WPTBA;
+
 define('WPTBA_VERSION', '0.0.1');
 define('WPTBA_ENV', 'production');
 
@@ -21,14 +23,14 @@ use WPTBA\Presentation\Filter\AddModuleTypeWithScriptLoaderTag;
 
 use WPTBA\Presentation\ShortCode\RegisterWPTBAShortCode;
 
-use WPTBA\Presentation\Action\ActivatedPlugin;
-
 use WPTBA\Presentation\Endpoint\Admin\PageInfo\GetAdminPageInfo;
 use WPTBA\Presentation\Endpoint\Admin\ServicePolicies\PostServicePolicies;
 use WPTBA\Presentation\Endpoint\Public\ServicePolicies\GetPublicServicePolicies;
 use WPTBA\Presentation\Endpoint\Admin\Register\PostRegister;
 
 use WPTBA\Presentation\Page\AdminPage;
+
+use WPTBA\Presentation\Action\ActivatedPlugin;
 
 use WPTBA\Container\Container;
 
@@ -51,9 +53,6 @@ new AddModuleTypeWithScriptLoaderTag();
 // Shortcode.
 new RegisterWPTBAShortCode();
 
-// Action.
-new ActivatedPlugin();
-
 // Endpoint.
 new GetAdminPageInfo($container->getAdminApplication());
 new PostServicePolicies($container->getAdminApplication());
@@ -62,4 +61,11 @@ new PostRegister($container->getAdminApplication());
 new GetPublicServicePolicies($container->getPublicApplication());
 
 // Page.
-new AdminPage();
+$page_name = '電気通信事業法';
+$settings_page_slug = 'telecommunications-business-act';
+$js_name = 'AdminPage';
+new AdminPage($page_name, $settings_page_slug, $js_name);
+
+// Action.
+$plugin_basename = plugin_basename(__FILE__);
+new ActivatedPlugin($plugin_basename, $settings_page_slug);

@@ -17,7 +17,7 @@ class AddModuleTypeWithScriptLoaderTag
     */
     public function __construct()
     {
-        add_filter('script_loader_tag', array($this, 'wptba_script_loader_tag'), 10, 3);
+        add_filter('script_loader_tag', array($this, 'scriptLoaderTag'), 10, 3);
     }
 
     /**
@@ -27,7 +27,7 @@ class AddModuleTypeWithScriptLoaderTag
     * @param string $handle wp_enqueue_scriptで読み込まれるタグ.
     * @param string $src URL.
     */
-    function wptba_script_loader_tag($tag, $handle, $src)
+    private function scriptLoaderTag($tag, $handle, $src)
     {
         if (strpos($handle, 'wptba-page') === 0) {
             $tag = '<script type="module" src="' . esc_url($src) . '"></script>';

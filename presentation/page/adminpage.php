@@ -36,12 +36,16 @@ class AdminPage
     /**
      * Constructorで表示するかどうか切り替え、どこに表示するかを設定する.
      * 読み込むファイルを設定する.
+     *
+     * @param string $page_title ページタイトル.
+     * @param string $page_slug URLのpage=の後ろのslug.
+     * @param string $js_name 生成したjsファイルの名前.
      */
-    public function __construct()
+    public function __construct($page_title, $page_slug, $js_name)
     {
-        $this->page_title = "電気通信事業法";
-        $this->page_slug  = "telecommunications-business-act";
-        $this->js_name    = "AdminPage";
+        $this->page_title = $page_title;
+        $this->page_slug = $page_slug;
+        $this->js_name = $js_name;
 
         if (is_admin()) {
             add_action(

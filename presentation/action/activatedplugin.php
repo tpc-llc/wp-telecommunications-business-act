@@ -15,21 +15,26 @@ class ActivatedPlugin
      *
      * @var string $plugin_basename Plugin Basename.
     */
-    private $plugin_basename = 'wp-telecommunications-business-act/wp-telecommunications-business-act.php';
+    private $plugin_basename;
 
     /**
-     * WPTBA Setting Page Path.
+     * WPTBA Setting Page Slug.
      *
-     * @var string $wptba_setting_page_path WPTBA Setting Page Path.
+     * @var string $redirect_page_path WPTBA Setting Page Slug.
     */
-    private $wptba_setting_page_path = 'options-general.php?page=telecommunications-business-act';
+    private $redirect_page_slug;
 
     /**
      * Constructor.
+     *
+     * @param string $plugin_basename Plugin Basename.
+     * @param string $redirect_page_slug WPTBA Setting Page Slug.
     */
-    public function __construct()
+    public function __construct($plugin_basename, $redirect_page_slug)
     {
-        add_action('activated_plugin', array($this, 'wptba_activated_plugin'));
+        $this->plugin_basename = $plugin_basename;
+        $this->redirect_page_slug = $redirect_page_slug;
+        add_action('activated_plugin', array($this, 'activatedPlugin'));
     }
 
     /**
@@ -37,19 +42,19 @@ class ActivatedPlugin
      *
      * @param string $plugin Plugin.
     */
-    private function wptba_activated_plugin($plugin)
+    private function activatedPlugin($plugin)
     {
         if ($plugin == $this->plugin_basename) {
-            $this->wptba_redirect_to_plugin_setting_page();
+            $this->redirectToPluginSettingPage();
         }
     }
 
     /**
      * Redirect to Plugin Setting Page.
     */
-    private function wptba_redirect_to_plugin_setting_page()
+    private function redirectToPluginSettingPage()
     {
-        wp_safe_redirect(admin_url($this->wptba_setting_page_path));
+        wp_safe_redirect(admin_url('options-general.php?page=' . $this->redirect_page_slug));
         exit;
     }
 }

@@ -4,7 +4,7 @@
     <arg value="ps" />
     <rule ref="PSR2" />
     <rule ref="PSR1.Files.SideEffects.FoundWithSymbols" >
-        <exclude-pattern>wp-telecommunications.php</exclude-pattern>
+        <exclude-pattern>wp-telecommunications-business-act.php</exclude-pattern>
     </rule>
 
     <exclude-pattern>/frontend/</exclude-pattern>

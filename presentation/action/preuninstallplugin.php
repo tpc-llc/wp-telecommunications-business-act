@@ -44,7 +44,7 @@ class PreUninstallPlugin
      *
      * @param string $plugin Plugin.
     */
-    private function preUninstallPlugin($plugin)
+    public function preUninstallPlugin($plugin)
     {
         if ($plugin == $this->plugin_basename) {
             $this->plugin_state_management_application->uninstalled();

@@ -53,7 +53,7 @@ class ActivatedPlugin
      *
      * @param string $plugin Plugin.
     */
-    private function activatedPlugin($plugin)
+    public function activatedPlugin($plugin)
     {
         if ($plugin == $this->plugin_basename) {
             $this->plugin_state_management_application->activated();

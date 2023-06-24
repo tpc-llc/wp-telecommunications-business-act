@@ -46,7 +46,7 @@ class UpgraderProcessComplete
      * @param WP_Upgrader $upgrader WP_Upgrader.
      * @param array $hook_extra Hook Extra.
     */
-    private function upgraderProcessComplete($upgrader, $hook_extra)
+    public function upgraderProcessComplete($upgrader, $hook_extra)
     {
         // https://developer.wordpress.org/reference/hooks/upgrader_process_complete/
         if ($hook_extra['action'] == 'update' && $hook_extra['type'] == 'plugin') {

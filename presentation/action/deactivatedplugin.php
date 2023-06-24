@@ -29,10 +29,12 @@ class DectivatedPlugin
     /**
      * Constructor.
      *
+     * @param PluginStateManagementApplication $plugin_state_management_application Plugin State Management Application.
      * @param string $plugin_basename Plugin Basename.
     */
-    public function __construct($plugin_basename)
+    public function __construct($plugin_state_management_application, $plugin_basename)
     {
+        $this->plugin_state_management_application = $plugin_state_management_application;
         $this->plugin_basename = $plugin_basename;
         add_action('deactivated_plugin', array($this, 'deactivatedPlugin'));
     }
@@ -42,7 +44,7 @@ class DectivatedPlugin
      *
      * @param string $plugin Plugin.
     */
-    private function deactivatedPlugin($plugin)
+    public function deactivatedPlugin($plugin)
     {
         if ($plugin == $this->plugin_basename) {
             $this->plugin_state_management_application->deactivated();

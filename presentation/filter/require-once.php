@@ -8,4 +8,4 @@
 ?>
 <?php
 
-require_once __DIR__ . '/scriptloadertag.php';
+require_once __DIR__ . 'addmoduletypewithscriptloadertag.php';

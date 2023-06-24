@@ -23,6 +23,7 @@ use WPTBA\Presentation\Endpoint\Public\ServicePolicies\GetPublicServicePolicies;
 use WPTBA\Presentation\Endpoint\Admin\Register\PostRegister;
 use WPTBA\Presentation\Page\AdminPage;
 use WPTBA\Presentation\ShortCode\RegisterWPTBAShortCode;
+use WPTBA\Presentation\Filter\AddModuleTypeWithScriptLoaderTag;
 
 use WPTBA\Container\Container;
 
@@ -40,7 +41,7 @@ require_once __DIR__ . '/container.php';
 $container = new Container();
 
 // Filter.
-add_filter('script_loader_tag', 'wptba_script_loader_tag', 10, 3);
+new AddModuleTypeWithScriptLoaderTag();
 
 // Shortcode.
 new RegisterWPTBAShortCode();

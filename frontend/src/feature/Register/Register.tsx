@@ -29,7 +29,7 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
   const {
     handleSubmit,
     register,
-    formState: { errors, isSubmitting, isDirty, isValid }
+    formState: { errors, isSubmitting }
   } = useForm<RegisterFormValues>({
     defaultValues: {
       email: props.email,
@@ -101,13 +101,26 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
           {(errors.email != null) && (
             <Text color={'red'}>{errors.email.message}</Text>
           )}
-          <Button
-            colorScheme='blue'
-            isLoading={isSubmitting}
-            isDisabled={!isDirty && !isValid}
-            type='submit'>
-            利用規約に同意して登録する
-          </Button>
+          { // isDisabledでスタイルが切り替わらないので表示を切り替えるようにした
+            (errors.email == null) && (
+              <Button
+                colorScheme='blue'
+                isLoading={isSubmitting}
+                isDisabled={false}
+                type='submit'>
+                利用規約に同意して登録する
+              </Button>
+            )}
+          {(errors.email != null) && (
+            <Button
+              colorScheme='blue'
+              isLoading={isSubmitting}
+              isDisabled={true}
+              type='submit'>
+              利用規約に同意して登録する
+            </Button>
+
+          )}
         </VStack>
       </form>
     </VStack >

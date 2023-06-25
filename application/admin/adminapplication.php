@@ -66,6 +66,7 @@ class AdminApplication
             'service_official_policies_uids' => $service_official_policies_uids,
             'is_new_user' => $user_info->isNewUser(),
             'current_user_email' => $user_info->getEmail(),
+            'email_optin' => $user_info->getEmailOptin()
         );
     }
 

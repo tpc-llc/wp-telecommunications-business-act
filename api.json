@@ -134,7 +134,8 @@
                 "required": [
                     "service_official_policies_uids",
                     "is_new_user",
-                    "current_user_email"
+                    "current_user_email",
+                    "email_optin"
                 ],
                 "properties": {
                     "service_official_policies_uids": {
@@ -151,6 +152,10 @@
                     "current_user_email": {
                         "description": "Current user email.",
                         "type": "string"
+                    },
+                    "email_optin": {
+                        "description": "Email optin.",
+                        "type": "boolean"
                     }
                 },
                 "type": "object"

@@ -41,6 +41,8 @@ export interface GetAdminPageInfoResponse {
   is_new_user: boolean;
   /** Current user email. */
   current_user_email: string;
+  /** Email optin. */
+  email_optin: boolean;
 }
 
 /**

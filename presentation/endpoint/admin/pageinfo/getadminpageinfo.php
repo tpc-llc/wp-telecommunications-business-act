@@ -51,13 +51,15 @@ class GetAdminPageInfo
             $response = new GetAdminPageInfoResponse(
                 $admin_page_info['service_official_policies_uids'],
                 $admin_page_info['is_new_user'],
-                $admin_page_info['current_user_email']
+                $admin_page_info['current_user_email'],
+                $admin_page_info['email_optin']
             );
             return new WP_REST_Response(
                 array(
                     'service_official_policies_uids' => $response->getServiceOfficialUids(),
                     'is_new_user' => $response->getIsNewUser(),
-                    'current_user_email' => $response->getCurrentUserEmail()
+                    'current_user_email' => $response->getCurrentUserEmail(),
+                    'email_optin' => $response->getEmailOptin()
                 ),
                 200
             );

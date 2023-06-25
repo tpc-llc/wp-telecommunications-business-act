@@ -77,6 +77,16 @@ class UserInfo
     }
 
     /**
+     * Get Email Optin.
+     *
+     * @return bool Email Optin.
+    */
+    public function getEmailOptin()
+    {
+        return $this->email_optin;
+    }
+
+    /**
      * Plugin activated.
     */
     public function pluginActivated()

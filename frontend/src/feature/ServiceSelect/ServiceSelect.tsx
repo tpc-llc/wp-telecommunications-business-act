@@ -2,7 +2,9 @@ import React from 'react'
 import {
   Table,
   Tbody,
-  Thead
+  Thead,
+  Stack,
+  Heading
 } from '@chakra-ui/react'
 import { ServiceOfficialPolicies } from '../../lib/service-policy/ServiceOfficialPolicies'
 import ServicePolicyHeader from '../../components/ServicePolicy/ServicePolicyHeader/ServicePolicyHeader'
@@ -39,21 +41,26 @@ const ServiceSelect: React.FC<ServiceSelectProps> = (props: ServiceSelectProps) 
   }
 
   return (
-    <Table>
-      <Thead>
-        <ServicePolicyHeader useCheckbox={true} />
-      </Thead>
-      <Tbody>
-        {Object.values(ServiceOfficialPolicies).map((policy) => (
-          <ServicePolicyRow
-            key={policy.uid}
-            {...policy}
-            useCheckbox={true}
-            selectedServiceOfficialPoliciesUids={props.selectedServiceOfficialPoliciesUids}
-            handleChangeServiceOfficialPolicyUids={handleChangeServiceOfficialPolicyUids} />
-        ))}
-      </Tbody>
-    </Table>
+    <Stack
+      spacing={4}
+    >
+      <Heading as="h3" size="lg">利用サービスを選択</Heading>
+      <Table>
+        <Thead>
+          <ServicePolicyHeader useCheckbox={true} />
+        </Thead>
+        <Tbody>
+          {Object.values(ServiceOfficialPolicies).map((policy) => (
+            <ServicePolicyRow
+              key={policy.uid}
+              {...policy}
+              useCheckbox={true}
+              selectedServiceOfficialPoliciesUids={props.selectedServiceOfficialPoliciesUids}
+              handleChangeServiceOfficialPolicyUids={handleChangeServiceOfficialPolicyUids} />
+          ))}
+        </Tbody>
+      </Table>
+    </Stack>
   )
 }
 

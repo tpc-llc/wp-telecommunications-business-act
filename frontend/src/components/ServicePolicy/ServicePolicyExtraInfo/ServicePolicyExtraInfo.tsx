@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Box
+  Stack
 } from '@chakra-ui/react'
 
 import ServicePolicyPurpose from './ServicePolicyPurpose/ServicePolicyPurpose'
@@ -15,17 +15,21 @@ export interface ServicePolicyExtraInfoProps {
 
 const ServicePolicyExtraInfo: React.FC<ServicePolicyExtraInfoProps> = (props: ServicePolicyExtraInfoProps) => {
   return (
-        <Box>
-            <ServicePolicyPurpose
-                purpose={props.purpose}
-            />
-            <ServicePolicyExamples
-                sendInfoExamples={props.sendInfoExamples}
-            />
-            <ServicePolicyOthers
-                additionalInfo={props.additionalInfo}
-            />
-        </Box>
+    <Stack
+      spacing={4}
+    >
+      <ServicePolicyPurpose
+        purpose={props.purpose}
+      />
+      <ServicePolicyExamples
+        sendInfoExamples={props.sendInfoExamples}
+      />
+      {(props.additionalInfo != null) && (
+        <ServicePolicyOthers
+          additionalInfo={props.additionalInfo}
+        />
+      )}
+    </Stack>
   )
 }
 

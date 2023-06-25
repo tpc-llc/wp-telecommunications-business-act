@@ -8,7 +8,6 @@ export interface ServicePolicyPurposeProps {
 const ServicePolicyPurpose: React.FC<ServicePolicyPurposeProps> = (props: ServicePolicyPurposeProps) => {
   return (
     <Box
-      mb={4}
     >
       <Heading
         mb={4}

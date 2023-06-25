@@ -9,5 +9,6 @@
 
     <exclude-pattern>/frontend/</exclude-pattern>
     <exclude-pattern>/vendor/</exclude-pattern>
+    <exclude-pattern>/lib/client/</exclude-pattern>
     <exclude-pattern>tests/bootstrap.php</exclude-pattern>
 </ruleset>

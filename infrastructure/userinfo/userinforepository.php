@@ -45,10 +45,10 @@ class UserInfoRepository implements IUserInfoRepository
         $this->createSecretKey();
         $client_secret = $this->getSecretKey();
         $base_config = new BaseConfig($client_secret);
-		$api         = new DefaultApi(
-			new Client(),
-			$base_config
-		);
+        $api         = new DefaultApi(
+            new Client(),
+            $base_config
+        );
         return $api->usersPostAsync(
             array(
                 'client_secret' => $client_secret,
@@ -56,7 +56,8 @@ class UserInfoRepository implements IUserInfoRepository
                 'site_url' => $site_url,
                 'email' => $email,
                 'email_optin' => $email_optin
-            ));
+            )
+        );
     }
 
     /**
@@ -78,10 +79,10 @@ class UserInfoRepository implements IUserInfoRepository
         ));
         $client_secret = $this->getSecretKey();
         $base_config = new BaseConfig($client_secret);
-		$api         = new DefaultApi(
-			new Client(),
-			$base_config
-		);
+        $api         = new DefaultApi(
+            new Client(),
+            $base_config
+        );
         return $api->usersPatchAsync(
             array(
                 'client_secret' => $client_secret,
@@ -90,7 +91,8 @@ class UserInfoRepository implements IUserInfoRepository
                 'email' => $email,
                 'email_optin' => $email_optin,
                 'plugin_status' => $plugin_status
-            ));
+            )
+        );
     }
 
     /**
@@ -190,10 +192,10 @@ class UserInfoRepository implements IUserInfoRepository
         delete_option('wptba_secret_key');
         $client_secret = $this->getSecretKey();
         $base_config = new BaseConfig($client_secret);
-		$api         = new DefaultApi(
-			new Client(),
-			$base_config
-		);
+        $api         = new DefaultApi(
+            new Client(),
+            $base_config
+        );
         return $api->usersDeleteAsync(array(
             'client_secret' => $client_secret
         ));

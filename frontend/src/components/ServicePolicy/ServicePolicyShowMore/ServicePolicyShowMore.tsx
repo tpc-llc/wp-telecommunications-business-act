@@ -26,24 +26,24 @@ const ServicePolicyShowMore: React.FC<ServicePolicyShowMoreProps> = (props: Serv
       {props.opened
         ? (
           <Flex
-            w={'1.5rem'}
-            h={'1.5rem'}
+            w={'1rem'}
+            h={'1rem'}
             justify={'center'}
             align={'center'}
           >
             <AiOutlineMinus color={'#1E50B5'} />
           </Flex>
-          )
+        )
         : (
           <Flex
-            w={'1.5rem'}
-            h={'1.5rem'}
+            w={'1rem'}
+            h={'1rem'}
             justify={'center'}
             align={'center'}
           >
             <AiOutlinePlus color={'#1E50B5'} />
           </Flex>
-          )
+        )
       }
     </HStack>
   )

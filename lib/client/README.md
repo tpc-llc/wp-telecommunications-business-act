@@ -55,12 +55,12 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$patch_users_request = new \OpenAPI\Client\Model\PatchUsersRequest(); // \OpenAPI\Client\Model\PatchUsersRequest
+$delete_users_request = new \OpenAPI\Client\Model\DeleteUsersRequest(); // \OpenAPI\Client\Model\DeleteUsersRequest
 
 try {
-    $apiInstance->usersPatch($patch_users_request);
+    $apiInstance->usersDelete($delete_users_request);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->usersPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->usersDelete: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -71,11 +71,13 @@ All URIs are relative to *http://localhost:8083/wp-json/wptbam*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**usersDelete**](docs/Api/DefaultApi.md#usersdelete) | **DELETE** /users | ユーザー情報を削除する
 *DefaultApi* | [**usersPatch**](docs/Api/DefaultApi.md#userspatch) | **PATCH** /users | ユーザー情報を更新する
 *DefaultApi* | [**usersPost**](docs/Api/DefaultApi.md#userspost) | **POST** /users | ユーザー情報を登録する
 
 ## Models
 
+- [DeleteUsersRequest](docs/Model/DeleteUsersRequest.md)
 - [PatchUsersRequest](docs/Model/PatchUsersRequest.md)
 - [PostUsersRequest](docs/Model/PostUsersRequest.md)
 

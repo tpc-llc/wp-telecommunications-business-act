@@ -9,6 +9,10 @@ namespace WPTBA\Repository;
 
 use WPTBA\Repository\IUserInfoRepository;
 
+use OpenAPI\Client\Api\DefaultApi;
+use GuzzleHttp\Client;
+use WPTBA\lib\BaseConfig;
+
 /**
  * User Info Repository.
  */
@@ -23,7 +27,6 @@ class UserInfoRepository implements IUserInfoRepository
 
     /**
      * サービスの利用者情報を登録する
-     *
      *
      * @param string $client_version クライアントのバージョン.
      * @param string $site_url サイトのURL.
@@ -40,6 +43,20 @@ class UserInfoRepository implements IUserInfoRepository
             'active'
         );
         $this->createSecretKey();
+        $client_secret = $this->getSecretKey();
+        $base_config = new BaseConfig($client_secret);
+		$api         = new DefaultApi(
+			new Client(),
+			$base_config
+		);
+        return $api->usersPostAsync(
+            array(
+                'client_secret' => $client_secret,
+                'client_version' => $client_version,
+                'site_url' => $site_url,
+                'email' => $email,
+                'email_optin' => $email_optin
+            ));
     }
 
     /**
@@ -59,6 +76,21 @@ class UserInfoRepository implements IUserInfoRepository
             'email' => $email,
             'email_optin' => $email_optin
         ));
+        $client_secret = $this->getSecretKey();
+        $base_config = new BaseConfig($client_secret);
+		$api         = new DefaultApi(
+			new Client(),
+			$base_config
+		);
+        return $api->usersPatchAsync(
+            array(
+                'client_secret' => $client_secret,
+                'client_version' => $client_version,
+                'site_url' => $site_url,
+                'email' => $email,
+                'email_optin' => $email_optin,
+                'plugin_status' => $plugin_status
+            ));
     }
 
     /**
@@ -156,5 +188,14 @@ class UserInfoRepository implements IUserInfoRepository
     {
         delete_option('wptba_user_info');
         delete_option('wptba_secret_key');
+        $client_secret = $this->getSecretKey();
+        $base_config = new BaseConfig($client_secret);
+		$api         = new DefaultApi(
+			new Client(),
+			$base_config
+		);
+        return $api->usersDeleteAsync(array(
+            'client_secret' => $client_secret
+        ));
     }
 }

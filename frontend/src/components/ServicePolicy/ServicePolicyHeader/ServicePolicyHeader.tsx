@@ -15,7 +15,12 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
     <>
       <Tr>
         {props.useCheckbox && (
-          <Th>
+          <Th
+            background={'tableHeader'}
+            px={4}
+            py={4}
+            verticalAlign={'middle'}
+          >
             <Flex
               justify={'center'}
               align={'center'}
@@ -24,12 +29,42 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
             </Flex>
           </Th>
         )}
-        <Th><Text>分類</Text></Th>
-        <Th><Text>企業名</Text></Th>
-        <Th><Text>サービス名</Text></Th>
-        <Th><Text>オプトアウト</Text></Th>
-        <Th><Text>プライバシーポリシー</Text></Th>
-        <Th><Text>外部送信情報など</Text></Th>
+        <Th
+          background={'tableHeader'}
+          px={4}
+          py={4}
+          verticalAlign={'middle'}
+        ><Text>分類</Text></Th>
+        <Th
+          background={'tableHeader'}
+          px={4}
+          py={4}
+          verticalAlign={'middle'}
+        ><Text>企業名</Text></Th>
+        <Th
+          background={'tableHeader'}
+          px={4}
+          py={4}
+          verticalAlign={'middle'}
+        ><Text>サービス名</Text></Th>
+        <Th
+          background={'tableHeader'}
+          px={4}
+          py={4}
+          verticalAlign={'middle'}
+        ><Text>オプトアウト</Text></Th>
+        <Th
+          background={'tableHeader'}
+          px={4}
+          py={4}
+          verticalAlign={'middle'}
+        ><Text>プライバシーポリシー</Text></Th>
+        <Th
+          background={'tableHeader'}
+          px={4}
+          py={4}
+          verticalAlign={'middle'}
+        ><Text>外部送信情報など</Text></Th>
       </Tr>
     </>
   )

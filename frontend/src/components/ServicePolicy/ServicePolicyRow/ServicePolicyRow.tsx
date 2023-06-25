@@ -44,8 +44,9 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
             <Tr>
                 {props.useCheckbox && props.selectedServiceOfficialPoliciesUids != null && (
                     <Td
-                        px={'4 important!'}
-                        py={'0 important!'}
+                        px={4}
+                        py={4}
+                        verticalAlign={'middle'}
                     >
                         <Flex
                             alignItems={'center'}
@@ -59,16 +60,18 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     </Td>
                 )}
                 <Td
-                    px={'4 important!'}
-                    py={'0 important!'}
+                    px={4}
+                    py={4}
+                    verticalAlign={'middle'}
                 >
                     <ServicePolicyClassification
                         classification={props.classification}
                     />
                 </Td>
                 <Td
-                    px={'4 important!'}
-                    py={'0 important!'}
+                    px={4}
+                    py={4}
+                    verticalAlign={'middle'}
                 >
                     <ServicePolicyCompanyName
                         companyName={props.companyName}
@@ -77,8 +80,9 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     />
                 </Td>
                 <Td
-                    px={'4 important!'}
-                    py={'0 important!'}
+                    px={4}
+                    py={4}
+                    verticalAlign={'middle'}
                 >
                     <ServicePolicyServiceName
                         serviceName={props.serviceName}
@@ -86,24 +90,27 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     />
                 </Td>
                 <Td
-                    px={'4 important!'}
-                    py={'0 important!'}
+                    px={4}
+                    py={4}
+                    verticalAlign={'middle'}
                 >
                     <ServicePolicyOptout
                         optoutLink={props.optoutLink}
                     />
                 </Td>
                 <Td
-                    px={'4 important!'}
-                    py={'0 important!'}
+                    px={4}
+                    py={4}
+                    verticalAlign={'middle'}
                 >
                     <ServicePolicyPrivacyPolicy
                         privacyPolicyLink={props.privacyPolicyLink}
                     />
                 </Td>
                 <Td
-                    px={'4 important!'}
-                    py={'0 important!'}
+                    px={4}
+                    py={4}
+                    verticalAlign={'middle'}
                 >
                     <ServicePolicyShowMore
                         opened={opened}
@@ -117,8 +124,9 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                 >
                     <Td
                         colSpan={colSpan}
-                        px={'4 important!'}
-                        py={'0 important!'}
+                        px={4}
+                        py={4}
+                        verticalAlign={'middle'}
                     >
                         <ServicePolicyExtraInfo
                             purpose={props.purpose}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 
 export interface ServicePolicyOthersProps {
   additionalInfo?: React.JSX.Element
@@ -7,20 +7,24 @@ export interface ServicePolicyOthersProps {
 
 const ServicePolicyOthers: React.FC<ServicePolicyOthersProps> = (props: ServicePolicyOthersProps) => {
   return (
-        <Box>
-            {(props.additionalInfo != null)
-              ? (
-                    <Box>
-                        <Text
-                            mb={2}
-                        >
-                            その他
-                        </Text>
-                        {props.additionalInfo}
-                    </Box>
-                )
-              : null}
-        </Box>
+    <Box
+      mb={4}
+    >
+      {(props.additionalInfo != null)
+        ? (
+          <Box>
+            <Heading
+              mb={4}
+              as={'h4'}
+              fontSize={'1.2rem'}
+            >
+              その他
+            </Heading>
+            {props.additionalInfo}
+          </Box>
+          )
+        : null}
+    </Box>
   )
 }
 

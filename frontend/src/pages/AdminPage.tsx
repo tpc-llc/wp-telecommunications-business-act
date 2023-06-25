@@ -32,7 +32,8 @@ const AdminPage: React.FC = () => {
 
   return (
     <Box
-      w={'100%'}
+      w={'87vw'}
+      bgColor={'white'}
       p={8}
     >
       {loading && (
@@ -49,7 +50,9 @@ const AdminPage: React.FC = () => {
         />
       )}
       {!loading && !isApiUnavailable && !isNewUser && (
-        <Stack>
+        <Stack
+          spacing={8}
+        >
           <ServiceSelect
             selectedServiceOfficialPoliciesUids={selectedServiceOfficialPoliciesUids}
             setSelectedServiceOfficialPoliciesUids={setSelectedServiceOfficialPoliciesUids}

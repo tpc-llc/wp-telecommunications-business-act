@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, HStack, Text, Link } from '@chakra-ui/react'
+import { Flex, HStack, Text, Link } from '@chakra-ui/react'
 
 import { MdOutlineVerified as VerifiedIcon } from 'react-icons/md'
 
@@ -26,12 +26,14 @@ const ServicePolicyCompanyName: React.FC<ServicePolicyCompanyNameProps> = (props
         }
       </Text>
       {props.verified && (
-        <Box
-          w={'1rem'}
-          h={'1rem'}
+        <Flex
+          w={'2rem'}
+          h={'2rem'}
+          justify={'center'}
+          align={'center'}
         >
           <VerifiedIcon color={'green'} />
-        </Box>
+        </Flex>
       )}
     </HStack>
   )

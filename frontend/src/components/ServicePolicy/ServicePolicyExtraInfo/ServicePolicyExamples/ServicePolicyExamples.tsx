@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text, UnorderedList, ListItem } from '@chakra-ui/react'
+import { Box, Text, UnorderedList, ListItem, Heading } from '@chakra-ui/react'
 
 export interface ServicePolicyExamplesProps {
   sendInfoExamples: string[]
@@ -8,16 +8,25 @@ export interface ServicePolicyExamplesProps {
 const ServicePolicyExamples: React.FC<ServicePolicyExamplesProps> = (props: ServicePolicyExamplesProps) => {
   return (
         <Box
-            mb={16}
         >
-            <Text
-                mb={2}
+            <Heading
+                mb={4}
+                as={'h4'}
+                fontSize={'1.2rem'}
             >
                 送信情報例
-            </Text>
-            <UnorderedList>
+            </Heading>
+            <UnorderedList
+                m={0}
+                ml={8}
+            >
                 {props.sendInfoExamples.map((example, index) => (
-                    <ListItem key={example + index.toString()}>{example}</ListItem>
+                    <ListItem
+                        key={example + index.toString()}
+                        m={0}
+                    >
+                        <Text>{example}</Text>
+                    </ListItem>
                 ))}
             </UnorderedList>
         </Box>

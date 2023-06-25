@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text, HStack } from '@chakra-ui/react'
+import { Flex, Text, HStack } from '@chakra-ui/react'
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
 export interface ServicePolicyShowMoreProps {
@@ -25,20 +25,24 @@ const ServicePolicyShowMore: React.FC<ServicePolicyShowMoreProps> = (props: Serv
       </Text>
       {props.opened
         ? (
-          <Box
-            w={'1rem'}
-            h={'1rem'}
+          <Flex
+            w={'1.5rem'}
+            h={'1.5rem'}
+            justify={'center'}
+            align={'center'}
           >
             <AiOutlineMinus color={'#1E50B5'} />
-          </Box>
+          </Flex>
           )
         : (
-          <Box
-            w={'1rem'}
-            h={'1rem'}
+          <Flex
+            w={'1.5rem'}
+            h={'1.5rem'}
+            justify={'center'}
+            align={'center'}
           >
             <AiOutlinePlus color={'#1E50B5'} />
-          </Box>
+          </Flex>
           )
       }
     </HStack>

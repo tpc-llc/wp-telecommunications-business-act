@@ -44,7 +44,7 @@ class PluginStateManagementApplication
             return;
         }
         $user_info->fetchUserInfo();
-        $user_info->saveUserInfo();
+        return $user_info->saveUserInfo();
     }
 
     /**
@@ -58,7 +58,7 @@ class PluginStateManagementApplication
         }
         $user_info->fetchUserInfo();
         $user_info->pluginActivated();
-        $user_info->saveUserInfo();
+        return $user_info->saveUserInfo();
     }
 
     /**
@@ -72,7 +72,7 @@ class PluginStateManagementApplication
         }
         $user_info->fetchUserInfo();
         $user_info->pluginDeactivated();
-        $user_info->saveUserInfo();
+        return $user_info->saveUserInfo();
     }
 
     /**
@@ -84,6 +84,6 @@ class PluginStateManagementApplication
         if ($user_info->isNewUser()) {
             return;
         }
-        $user_info->deleteUserInfo();
+        return $user_info->deleteUserInfo();
     }
 }

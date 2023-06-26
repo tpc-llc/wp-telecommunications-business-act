@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Heading,
   VStack,
@@ -8,7 +8,9 @@ import {
   Input,
   Button,
   Checkbox,
-  Text
+  Text,
+  Alert,
+  AlertIcon
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 import axiosBaseConfig from '../../lib/axios-config/axios-config'
@@ -26,6 +28,7 @@ interface RegisterFormValues {
 }
 
 const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
+  const [hasRegistrationError, setHasRegistrationError] = useState(false)
   const {
     handleSubmit,
     register,
@@ -39,6 +42,7 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
   })
 
   const onSubmit: (formData: RegisterFormValues) => void = (formData: RegisterFormValues) => {
+    setHasRegistrationError(false)
     const params: PostRegisterRequest = {
       email: formData.email,
       email_optin: formData.emailOptin
@@ -46,8 +50,8 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
     postAdminRegister(params, axiosBaseConfig).then(() => {
       window.location.reload()
     }
-    ).catch((err) => {
-      console.log(err)
+    ).catch(() => {
+      setHasRegistrationError(true)
     }
     )
   }
@@ -99,7 +103,16 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
             </HStack>
           </FormControl>
           {(errors.email != null) && (
-            <Text color={'red'}>{errors.email.message}</Text>
+            <Alert status='error'>
+              <AlertIcon />
+              <Text>{errors.email.message}</Text>
+            </Alert>
+          )}
+          {(hasRegistrationError) && (
+            <Alert status='error'>
+              <AlertIcon />
+              <Text>このメールアドレスはすでに使用されています。他のメールアドレスをご利用ください。</Text>
+            </Alert>
           )}
           { // isDisabledでスタイルが切り替わらないので表示を切り替えるようにした
             (errors.email == null) && (
@@ -119,7 +132,6 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
               type='submit'>
               利用規約に同意して登録する
             </Button>
-
           )}
         </VStack>
       </form>

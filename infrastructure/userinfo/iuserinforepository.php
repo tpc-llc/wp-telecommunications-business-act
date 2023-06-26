@@ -83,6 +83,13 @@ interface IUserInfoRepository
     public function loadIsPluginActive();
 
     /**
+     * プラグインの内部データを削除する.
+     *
+     * @return void
+     */
+    public function deletePluginData();
+
+    /**
      * プラグインをクリーンアップする.
     */
     public function cleanupPlugin();

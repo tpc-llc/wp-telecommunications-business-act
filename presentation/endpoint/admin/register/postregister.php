@@ -28,6 +28,10 @@ use WPTBA\Application\Admin\AdminApplication;
  *     response=200,
  *     description="作成成功",
  *   ),
+ *  @OA\Response(
+ *     response=400,
+ *     description="メールアドレスが登録済みの場合",
+ *  ),
  * )
 */
 class PostRegister
@@ -55,7 +59,11 @@ class PostRegister
             );
             $email = $register_request->getEmail();
             $email_optin = $register_request->getEmailOptin();
-            $this->admin_application->registerUserInfo($email, $email_optin);
+            $response = $this->admin_application->registerUserInfo($email, $email_optin);
+            if (is_wp_error($response)) {
+                $error_message = $response->get_error_message();
+                return new WP_REST_Response($error_message, 400);
+            }
             return new WP_REST_Response(null, 200);
         };
 

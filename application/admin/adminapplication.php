@@ -104,6 +104,6 @@ class AdminApplication
     {
         $user_info = new UserInfo($this->user_info_repository);
         $user_info->fetchUserInfo();
-        $user_info->registerUserInfo($email, $email_optin);
+        return $user_info->registerUserInfo($email, $email_optin);
     }
 }

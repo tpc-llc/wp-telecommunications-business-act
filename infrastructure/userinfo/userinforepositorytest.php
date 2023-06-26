@@ -157,11 +157,21 @@ class UserInfoRepositoryTest implements IUserInfoRepository
     }
 
     /**
+     * プラグインの内部データを削除する.
+     *
+     * @return void
+     */
+    public function deletePluginData()
+    {
+        unset($this->wp_options['wptba_secret_key']);
+        unset($this->wp_options['wptba_user_info']);
+    }
+
+    /**
      * プラグインをクリーンアップする.
     */
     public function cleanupPlugin()
     {
-        unset($this->wp_options['wptba_secret_key']);
-        unset($this->wp_options['wptba_user_info']);
+        $this->deletePluginData();
     }
 }

@@ -146,7 +146,7 @@ class UserInfo
         $this->email = $email;
         $this->email_optin = $email_optin;
         $this->client_version = $this->user_info_repository->loadPluginVersion();
-        $this->user_info_repository->registerUserInfo(
+        return $this->user_info_repository->registerUserInfo(
             $this->client_version,
             $this->site_url,
             $this->email,
@@ -159,7 +159,7 @@ class UserInfo
     */
     public function saveUserInfo()
     {
-        $this->user_info_repository->saveUserInfo(
+        return $this->user_info_repository->saveUserInfo(
             $this->client_version,
             $this->site_url,
             $this->email,

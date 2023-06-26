@@ -19,7 +19,7 @@ const theme = extendTheme({
     },
     Button: {
       baseStyle: {
-        border: '0 !important',
+        border: '0 !important'
       }
     }
   },

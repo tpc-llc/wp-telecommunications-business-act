@@ -33,7 +33,7 @@ const ServicePolicyShowMore: React.FC<ServicePolicyShowMoreProps> = (props: Serv
           >
             <AiOutlineMinus color={'#1E50B5'} />
           </Flex>
-        )
+          )
         : (
           <Flex
             w={'1rem'}
@@ -43,7 +43,7 @@ const ServicePolicyShowMore: React.FC<ServicePolicyShowMoreProps> = (props: Serv
           >
             <AiOutlinePlus color={'#1E50B5'} />
           </Flex>
-        )
+          )
       }
     </HStack>
   )

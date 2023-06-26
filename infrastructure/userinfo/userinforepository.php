@@ -115,7 +115,7 @@ class UserInfoRepository implements IUserInfoRepository
         if (!function_exists('get_plugin_data')) {
             require_once(ABSPATH . 'wp-admin/includes/plugin.php');
         }
-        $plugin_data = get_plugin_data(__DIR__ . '/../../wp-telecommunications.php');
+        $plugin_data = get_plugin_data(__DIR__ . '/../../wp-telecommunications-business-act.php');
         $plugin_version = $plugin_data['Version'];
         return $plugin_version;
     }

@@ -35,6 +35,7 @@ const AdminPage: React.FC = () => {
       w={'87vw'}
       bgColor={'white'}
       p={8}
+      minH={'100vh'}
     >
       {loading && (
         <Flex w={'100%'} justify={'center'}>

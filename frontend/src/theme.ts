@@ -16,6 +16,11 @@ const theme = extendTheme({
         margin: '0 !important',
         fontSize: '1rem !important'
       }
+    },
+    Button: {
+      baseStyle: {
+        border: '0 !important',
+      }
     }
   },
   colors: {

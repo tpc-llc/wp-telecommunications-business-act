@@ -35,7 +35,7 @@ class BaseConfig extends Configuration
                 $this->setHost($host);
                 break;
             default:
-                $host = 'http://wp-tba-management/wp-json/wptbam';
+                $host = 'https://xn--3kq65av47c4nci1az16mfck.jp/wp-json/wptbam';
                 $this->setHost($host);
                 break;
         }

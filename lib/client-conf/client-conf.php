@@ -27,15 +27,15 @@ class BaseConfig extends Configuration
         $env = getenv('WPTBA_ENV');
         switch ($env) {
             case 'test':
-                $host = 'https://localhost:8080';
+                $host = 'http://localhost:8083';
                 $this->setHost($host);
                 break;
-            case 'debug':
-                $host = 'http://localhost:8000';
+            case 'development':
+                $host = 'http://wp-tba-management/wp-json/wptbam';
                 $this->setHost($host);
                 break;
             default:
-                $host = 'https://localhost:8080';
+                $host = 'http://wp-tba-management/wp-json/wptbam';
                 $this->setHost($host);
                 break;
         }

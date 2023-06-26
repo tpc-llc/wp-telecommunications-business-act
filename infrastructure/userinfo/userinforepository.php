@@ -35,13 +35,6 @@ class UserInfoRepository implements IUserInfoRepository
     */
     public function registerUserInfo($client_version, $site_url, $email, $email_optin)
     {
-        $this->saveUserInfo(
-            $client_version,
-            $site_url,
-            $email,
-            $email_optin,
-            'active'
-        );
         $this->createSecretKey();
         $client_secret = $this->getSecretKey();
         $base_config = new BaseConfig($client_secret);
@@ -49,7 +42,7 @@ class UserInfoRepository implements IUserInfoRepository
             new Client(),
             $base_config
         );
-        return $api->usersPostAsync(
+        $api->usersPost(
             array(
                 'client_secret' => $client_secret,
                 'client_version' => $client_version,
@@ -57,6 +50,13 @@ class UserInfoRepository implements IUserInfoRepository
                 'email' => $email,
                 'email_optin' => $email_optin
             )
+        );
+        $this->saveUserInfo(
+            $client_version,
+            $site_url,
+            $email,
+            $email_optin,
+            'active'
         );
     }
 
@@ -83,7 +83,7 @@ class UserInfoRepository implements IUserInfoRepository
             new Client(),
             $base_config
         );
-        return $api->usersPatchAsync(
+        return $api->usersPatch(
             array(
                 'client_secret' => $client_secret,
                 'client_version' => $client_version,
@@ -196,7 +196,7 @@ class UserInfoRepository implements IUserInfoRepository
             new Client(),
             $base_config
         );
-        return $api->usersDeleteAsync(array(
+        return $api->usersDelete(array(
             'client_secret' => $client_secret
         ));
     }

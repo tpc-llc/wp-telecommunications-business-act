@@ -51,6 +51,7 @@ services:
       WORDPRESS_DB_PASSWORD: test
       WORDPRESS_DB_NAME: test
       WORDPRESS_TABLE_PREFIX: wp_tba_
+      WPTBA_ENV: development
     ports:
       - 8080:80
 
@@ -88,3 +89,4 @@ volumes:
 
 networks:
   wp-tba-net:
+    external: true

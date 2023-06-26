@@ -62,7 +62,8 @@ class PatchUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'client_version' => 'string',
         'site_url' => 'string',
         'email' => 'string',
-        'email_optin' => 'bool'
+        'email_optin' => 'bool',
+        'plugin_status' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class PatchUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'client_version' => null,
         'site_url' => null,
         'email' => null,
-        'email_optin' => null
+        'email_optin' => null,
+        'plugin_status' => null
     ];
 
     /**
@@ -90,7 +92,8 @@ class PatchUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'client_version' => false,
 		'site_url' => false,
 		'email' => false,
-		'email_optin' => false
+		'email_optin' => false,
+		'plugin_status' => false
     ];
 
     /**
@@ -183,7 +186,8 @@ class PatchUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'client_version' => 'client_version',
         'site_url' => 'site_url',
         'email' => 'email',
-        'email_optin' => 'email_optin'
+        'email_optin' => 'email_optin',
+        'plugin_status' => 'plugin_status'
     ];
 
     /**
@@ -196,7 +200,8 @@ class PatchUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'client_version' => 'setClientVersion',
         'site_url' => 'setSiteUrl',
         'email' => 'setEmail',
-        'email_optin' => 'setEmailOptin'
+        'email_optin' => 'setEmailOptin',
+        'plugin_status' => 'setPluginStatus'
     ];
 
     /**
@@ -209,7 +214,8 @@ class PatchUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'client_version' => 'getClientVersion',
         'site_url' => 'getSiteUrl',
         'email' => 'getEmail',
-        'email_optin' => 'getEmailOptin'
+        'email_optin' => 'getEmailOptin',
+        'plugin_status' => 'getPluginStatus'
     ];
 
     /**
@@ -274,6 +280,7 @@ class PatchUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('site_url', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('email_optin', $data ?? [], null);
+        $this->setIfExists('plugin_status', $data ?? [], null);
     }
 
     /**
@@ -317,6 +324,9 @@ class PatchUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         }
         if ($this->container['email_optin'] === null) {
             $invalidProperties[] = "'email_optin' can't be null";
+        }
+        if ($this->container['plugin_status'] === null) {
+            $invalidProperties[] = "'plugin_status' can't be null";
         }
         return $invalidProperties;
     }
@@ -464,6 +474,33 @@ class PatchUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable email_optin cannot be null');
         }
         $this->container['email_optin'] = $email_optin;
+
+        return $this;
+    }
+
+    /**
+     * Gets plugin_status
+     *
+     * @return string
+     */
+    public function getPluginStatus()
+    {
+        return $this->container['plugin_status'];
+    }
+
+    /**
+     * Sets plugin_status
+     *
+     * @param string $plugin_status Plugin status.
+     *
+     * @return self
+     */
+    public function setPluginStatus($plugin_status)
+    {
+        if (is_null($plugin_status)) {
+            throw new \InvalidArgumentException('non-nullable plugin_status cannot be null');
+        }
+        $this->container['plugin_status'] = $plugin_status;
 
         return $this;
     }

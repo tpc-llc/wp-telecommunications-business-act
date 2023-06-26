@@ -42,6 +42,7 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require __DIR__ . '/vendor/autoload.php';
 }
 
+require_once __DIR__ . '/lib/require-once.php';
 require_once __DIR__ . '/infrastructure/require-once.php';
 require_once __DIR__ . '/domain/require-once.php';
 require_once __DIR__ . '/application/require-once.php';

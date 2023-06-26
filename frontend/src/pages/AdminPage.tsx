@@ -7,6 +7,7 @@ import ServiceSelect from '../feature/ServiceSelect/ServiceSelect'
 import EnvironmentCheck from '../feature/EnvironmentCheck/EnvironmentCheck'
 import Register from '../feature/Register/Register'
 import SwitchOptin from '../feature/SwitchOptin/SwitchOptin'
+import Usage from '../feature/Usage/Usage'
 
 const AdminPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true) // ローディング中はtrueになる
@@ -54,6 +55,7 @@ const AdminPage: React.FC = () => {
         <Stack
           spacing={8}
         >
+          <Usage />
           <ServiceSelect
             selectedServiceOfficialPoliciesUids={selectedServiceOfficialPoliciesUids}
             setSelectedServiceOfficialPoliciesUids={setSelectedServiceOfficialPoliciesUids}

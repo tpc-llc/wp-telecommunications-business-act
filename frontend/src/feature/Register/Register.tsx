@@ -57,14 +57,17 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
   }
 
   return (
-    <VStack>
-      <Heading as={'h1'}>サービス利用登録</Heading>
+    <VStack
+      spacing={8}
+    >
+      <Heading as={'h1'}>「電気通信事業法.jp」ユーザー登録</Heading>
       <form onSubmit={
         /* eslint no-void: 0 */
         (...args) => void handleSubmit(onSubmit)(...args)
       }>
-        <VStack>
-          <TermsOfService />
+        <VStack
+          spacing={4}
+        >
           <FormControl>
             <HStack
               align={'center'}
@@ -114,6 +117,7 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
               <Text>このメールアドレスはすでに使用されています。他のメールアドレスをご利用ください。</Text>
             </Alert>
           )}
+          <TermsOfService />
           { // isDisabledでスタイルが切り替わらないので表示を切り替えるようにした
             (errors.email == null) && (
               <Button

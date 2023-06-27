@@ -2,16 +2,16 @@ import React from 'react'
 
 import {
   Box,
-  Text
+  Link
 } from '@chakra-ui/react'
 
 const TermsOfService: React.FC = () => {
   return (
-        <Box>
-            <Text>
-                利用規約
-            </Text>
-        </Box>
+    <Box>
+      <Link href={"https://xn--3kq65av47c4nci1az16mfck.jp/terms-of-use/"} >
+        利用規約を確認するにはこちらをクリックしてください
+      </Link>
+    </Box>
   )
 }
 

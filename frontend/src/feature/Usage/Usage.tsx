@@ -6,7 +6,7 @@ import {
     Button,
     HStack
 } from '@chakra-ui/react'
-import { FaTwitter } from 'react-icons/fa'
+import { FaTwitter, FaWpforms } from 'react-icons/fa'
 
 const Usage: React.FC = () => {
     return (
@@ -55,7 +55,7 @@ const Usage: React.FC = () => {
                 href="https://forms.gle/1ngSSaUidogXWGmDA"
             >
                 <HStack>
-                    <FaTwitter />
+                    <FaWpforms />
                     <Text>サービスの追加を依頼する</Text>
                 </HStack>
             </Button>

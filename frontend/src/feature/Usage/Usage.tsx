@@ -2,8 +2,11 @@ import React from 'react'
 import {
     Stack,
     Heading,
-    Text
+    Text,
+    Button,
+    HStack
 } from '@chakra-ui/react'
+import { FaTwitter } from 'react-icons/fa'
 
 const Usage: React.FC = () => {
     return (
@@ -20,7 +23,43 @@ const Usage: React.FC = () => {
             <Text>改正電気通信事業法は2023年6月16日に施行されたので、未対応サイトが依然として多いです。</Text>
             <Text>加えて、このプラグインは無料なので、サービスが維持できるかどうかは、あなたの拡散に懸かっています。</Text>
             <Text>ぜひこちらのボタン（ツイート画面が立ち上がります）をクリックして、拡散にご協力いただけましたら幸いです。</Text>
-            <Text>また、対応リストに追加して欲しいサービスがございましたら、こちらのフォームよりお問い合わせください。</Text>
+            <Button
+                colorScheme={'blue'}
+                w={'24vw'}
+                as={'a'}
+                target='_blank'
+                textDecoration={'none'}
+                _hover={{
+                    color: 'gray.400',
+                    textDecoration: 'none'
+                }}
+                href="https://twitter.com/intent/tweet?text=無料のWordPressプラグイン「https://改正電気通信事業法.jp」を使って、3分で改正電気通信事業法に対応完了しました！&hashtags=改正電気通信事業法"
+            >
+                <HStack>
+                    <FaTwitter />
+                    <Text>ツイートして拡散に協力する</Text>
+                </HStack>
+            </Button>
+            <Heading as="h4" size="md">4. 対応リストにサービスの追加を依頼する</Heading>
+            <Text>対応リストに追加して欲しいサービスがございましたら、こちらのフォームよりお問い合わせください。</Text>
+            <Button
+                colorScheme={'purple'}
+                w={'24vw'}
+                as={'a'}
+                target='_blank'
+                textDecoration={'none'}
+                _hover={{
+                    color: 'gray.400',
+                    textDecoration: 'none'
+                }}
+                href="https://forms.gle/1ngSSaUidogXWGmDA"
+            >
+                <HStack>
+                    <FaTwitter />
+                    <Text>サービスの追加を依頼する</Text>
+                </HStack>
+            </Button>
+
         </Stack>
     )
 }

@@ -7,6 +7,7 @@ docs/Api/DefaultApi.md
 docs/Model/DeleteUsersRequest.md
 docs/Model/PatchUsersRequest.md
 docs/Model/PostUsersRequest.md
+docs/Model/PostUsersResponse.md
 git_push.sh
 lib/Api/DefaultApi.php
 lib/ApiException.php
@@ -16,5 +17,6 @@ lib/Model/DeleteUsersRequest.php
 lib/Model/ModelInterface.php
 lib/Model/PatchUsersRequest.php
 lib/Model/PostUsersRequest.php
+lib/Model/PostUsersResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist

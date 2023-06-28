@@ -27,6 +27,7 @@ use WPTBA\Presentation\Endpoint\Admin\PageInfo\GetAdminPageInfo;
 use WPTBA\Presentation\Endpoint\Admin\ServicePolicies\PostServicePolicies;
 use WPTBA\Presentation\Endpoint\Public\ServicePolicies\GetPublicServicePolicies;
 use WPTBA\Presentation\Endpoint\Admin\Register\PostRegister;
+use WPTBA\Presentation\Endpoint\Admin\EmailOptin\PatchEmailOptin;
 
 use WPTBA\Presentation\Page\AdminPage;
 
@@ -61,6 +62,7 @@ new RegisterWPTBAShortCode();
 new GetAdminPageInfo($container->getAdminApplication());
 new PostServicePolicies($container->getAdminApplication());
 new PostRegister($container->getAdminApplication());
+new PatchEmailOptin($container->getAdminApplication());
 
 new GetPublicServicePolicies($container->getPublicApplication());
 

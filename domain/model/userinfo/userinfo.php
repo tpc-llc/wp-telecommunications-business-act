@@ -112,6 +112,7 @@ class UserInfo
         $this->site_url = $current_info['site_url'] ? (isset($current_info['site_url'])) : null;
         $this->email = $current_info['email'] ? (isset($current_info['email'])) : null;
         $this->email_optin = $current_info['email_optin'] ? (isset($current_info['email_optin'])) : null;
+        $this->plugin_status = $current_info['plugin_status'] ? (isset($current_info['plugin_status'])) : null;
     }
 
     /**
@@ -123,6 +124,7 @@ class UserInfo
         $this->site_url = $this->user_info_repository->loadSiteUrl();
         $this->email = $this->user_info_repository->loadEmail();
         $this->email_optin = $this->user_info_repository->loadEmailOptin();
+        $this->plugin_status = $this->user_info_repository->loadPluginStatus();
     }
 
     /**

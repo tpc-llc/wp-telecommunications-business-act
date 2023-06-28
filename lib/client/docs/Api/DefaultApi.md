@@ -122,7 +122,7 @@ No authorization required
 ## `usersPost()`
 
 ```php
-usersPost($post_users_request)
+usersPost($post_users_request): \OpenAPI\Client\Model\PostUsersResponse
 ```
 
 ユーザー情報を登録する
@@ -145,7 +145,8 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
 $post_users_request = new \OpenAPI\Client\Model\PostUsersRequest(); // \OpenAPI\Client\Model\PostUsersRequest
 
 try {
-    $apiInstance->usersPost($post_users_request);
+    $result = $apiInstance->usersPost($post_users_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->usersPost: ', $e->getMessage(), PHP_EOL;
 }
@@ -159,7 +160,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\OpenAPI\Client\Model\PostUsersResponse**](../Model/PostUsersResponse.md)
 
 ### Authorization
 
@@ -168,7 +169,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

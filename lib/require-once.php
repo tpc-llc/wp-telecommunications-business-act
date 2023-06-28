@@ -21,5 +21,6 @@ require_once __DIR__ . '/client/lib/Model/DeleteUsersRequest.php';
 require_once __DIR__ . '/client/lib/Model/ModelInterface.php';
 require_once __DIR__ . '/client/lib/Model/PatchUsersRequest.php';
 require_once __DIR__ . '/client/lib/Model/PostUsersRequest.php';
+require_once __DIR__ . '/client/lib/Model/PostUsersResponse.php';
 
 require_once __DIR__ . '/client-conf/require-once.php';

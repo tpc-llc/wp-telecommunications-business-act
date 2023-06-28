@@ -19,7 +19,7 @@ class BaseConfig extends Configuration
      *
      * @param string $client_secret Client secret.
      */
-    public function __construct($client_secret)
+    public function __construct($client_secret = '')
     {
         parent::__construct();
 

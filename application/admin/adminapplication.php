@@ -78,7 +78,7 @@ class AdminApplication
     public function emailSwitchOptin($email_optin)
     {
         $user_info = new UserInfo($this->user_info_repository);
-        $user_info->fetchUserInfo();
+        $user_info->getUserInfo();
         $user_info->emailSwitchOptin($email_optin);
         $user_info->saveUserInfo();
     }

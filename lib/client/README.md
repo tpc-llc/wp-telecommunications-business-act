@@ -80,6 +80,7 @@ Class | Method | HTTP request | Description
 - [DeleteUsersRequest](docs/Model/DeleteUsersRequest.md)
 - [PatchUsersRequest](docs/Model/PatchUsersRequest.md)
 - [PostUsersRequest](docs/Model/PostUsersRequest.md)
+- [PostUsersResponse](docs/Model/PostUsersResponse.md)
 
 ## Authorization
 All endpoints do not require authorization.

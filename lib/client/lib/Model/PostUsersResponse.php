@@ -1,6 +1,6 @@
 <?php
 /**
- * PostUsersRequest
+ * PostUsersResponse
  *
  * PHP version 7.4
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * PostUsersRequest Class Doc Comment
+ * PostUsersResponse Class Doc Comment
  *
  * @category Class
- * @description Register new user request.
+ * @description Register new user response.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PostUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PostUsersRequest';
+    protected static $openAPIModelName = 'PostUsersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,7 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'client_version' => 'string',
-        'site_url' => 'string',
-        'email' => 'string',
-        'email_optin' => 'bool'
+        'client_secret' => 'string'
     ];
 
     /**
@@ -72,10 +69,7 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'client_version' => null,
-        'site_url' => null,
-        'email' => null,
-        'email_optin' => null
+        'client_secret' => null
     ];
 
     /**
@@ -84,10 +78,7 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'client_version' => false,
-		'site_url' => false,
-		'email' => false,
-		'email_optin' => false
+        'client_secret' => false
     ];
 
     /**
@@ -176,10 +167,7 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'client_version' => 'client_version',
-        'site_url' => 'site_url',
-        'email' => 'email',
-        'email_optin' => 'email_optin'
+        'client_secret' => 'client_secret'
     ];
 
     /**
@@ -188,10 +176,7 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'client_version' => 'setClientVersion',
-        'site_url' => 'setSiteUrl',
-        'email' => 'setEmail',
-        'email_optin' => 'setEmailOptin'
+        'client_secret' => 'setClientSecret'
     ];
 
     /**
@@ -200,10 +185,7 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'client_version' => 'getClientVersion',
-        'site_url' => 'getSiteUrl',
-        'email' => 'getEmail',
-        'email_optin' => 'getEmailOptin'
+        'client_secret' => 'getClientSecret'
     ];
 
     /**
@@ -263,10 +245,7 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('client_version', $data ?? [], null);
-        $this->setIfExists('site_url', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('email_optin', $data ?? [], null);
+        $this->setIfExists('client_secret', $data ?? [], null);
     }
 
     /**
@@ -296,17 +275,8 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['client_version'] === null) {
-            $invalidProperties[] = "'client_version' can't be null";
-        }
-        if ($this->container['site_url'] === null) {
-            $invalidProperties[] = "'site_url' can't be null";
-        }
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
-        }
-        if ($this->container['email_optin'] === null) {
-            $invalidProperties[] = "'email_optin' can't be null";
+        if ($this->container['client_secret'] === null) {
+            $invalidProperties[] = "'client_secret' can't be null";
         }
         return $invalidProperties;
     }
@@ -324,109 +294,28 @@ class PostUsersRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets client_version
+     * Gets client_secret
      *
      * @return string
      */
-    public function getClientVersion()
+    public function getClientSecret()
     {
-        return $this->container['client_version'];
+        return $this->container['client_secret'];
     }
 
     /**
-     * Sets client_version
+     * Sets client_secret
      *
-     * @param string $client_version Client version.
+     * @param string $client_secret Client secret.
      *
      * @return self
      */
-    public function setClientVersion($client_version)
+    public function setClientSecret($client_secret)
     {
-        if (is_null($client_version)) {
-            throw new \InvalidArgumentException('non-nullable client_version cannot be null');
+        if (is_null($client_secret)) {
+            throw new \InvalidArgumentException('non-nullable client_secret cannot be null');
         }
-        $this->container['client_version'] = $client_version;
-
-        return $this;
-    }
-
-    /**
-     * Gets site_url
-     *
-     * @return string
-     */
-    public function getSiteUrl()
-    {
-        return $this->container['site_url'];
-    }
-
-    /**
-     * Sets site_url
-     *
-     * @param string $site_url Site URL.
-     *
-     * @return self
-     */
-    public function setSiteUrl($site_url)
-    {
-        if (is_null($site_url)) {
-            throw new \InvalidArgumentException('non-nullable site_url cannot be null');
-        }
-        $this->container['site_url'] = $site_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string $email Email.
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets email_optin
-     *
-     * @return bool
-     */
-    public function getEmailOptin()
-    {
-        return $this->container['email_optin'];
-    }
-
-    /**
-     * Sets email_optin
-     *
-     * @param bool $email_optin Email optin.
-     *
-     * @return self
-     */
-    public function setEmailOptin($email_optin)
-    {
-        if (is_null($email_optin)) {
-            throw new \InvalidArgumentException('non-nullable email_optin cannot be null');
-        }
-        $this->container['email_optin'] = $email_optin;
+        $this->container['client_secret'] = $client_secret;
 
         return $this;
     }

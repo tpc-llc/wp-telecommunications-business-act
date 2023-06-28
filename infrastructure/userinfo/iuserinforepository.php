@@ -83,6 +83,13 @@ interface IUserInfoRepository
     public function loadIsPluginActive();
 
     /**
+     * プラグインの状態を読み込んでstringを返す.
+     *
+     * @return string プラグインの状態.
+     */
+    public function loadPluginStatus();
+
+    /**
      * プラグインの内部データを削除する.
      *
      * @return void

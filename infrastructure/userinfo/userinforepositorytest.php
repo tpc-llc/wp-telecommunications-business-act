@@ -138,6 +138,19 @@ class UserInfoRepositoryTest implements IUserInfoRepository
     }
 
     /**
+     * プラグインの状態を読み込んでstringを返す.
+     *
+     * @return string プラグインの状態.
+     */
+    public function loadPluginStatus()
+    {
+        if ($this->loadIsPluginActive()) {
+            return 'active';
+        }
+        return 'inactive';
+    }
+
+    /**
      * プラグインのシークレットキーを作成する.
     */
     private function createSecretKey()

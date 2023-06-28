@@ -38,34 +38,32 @@ class UserInfoRepository implements IUserInfoRepository
     */
     public function registerUserInfo($client_version, $site_url, $email, $email_optin)
     {
-        $this->createSecretKey();
-        $client_secret = $this->getSecretKey();
-        $base_config = new BaseConfig($client_secret);
+        $base_config = new BaseConfig();
         $api         = new DefaultApi(
             new Client(),
             $base_config
         );
         try {
-            $api->usersPost(
+            $response = $api->usersPost(
                 array(
-                'client_secret' => $client_secret,
                 'client_version' => $client_version,
                 'site_url' => $site_url,
                 'email' => $email,
                 'email_optin' => $email_optin
                 )
             );
+            $this->saveSecretKey($response->getClientSecret());
+            $this->saveUserInfo(
+                $client_version,
+                $site_url,
+                $email,
+                $email_optin,
+                'active'
+            );
         } catch (\Exception $e) {
             $this->deletePluginData();
             return new WP_Error('error', $e->getMessage());
         }
-        $this->saveUserInfo(
-            $client_version,
-            $site_url,
-            $email,
-            $email_optin,
-            'active'
-        );
     }
 
     /**
@@ -85,7 +83,8 @@ class UserInfoRepository implements IUserInfoRepository
             'client_version' => $client_version,
             'site_url' => $site_url,
             'email' => $email,
-            'email_optin' => $email_optin
+            'email_optin' => $email_optin,
+            'plugin_status' => $plugin_status
         ));
         $client_secret = $this->getSecretKey();
         $base_config = new BaseConfig($client_secret);
@@ -181,12 +180,26 @@ class UserInfoRepository implements IUserInfoRepository
     }
 
     /**
-     * プラグインのシークレットキーを作成する.
-    */
-    private function createSecretKey()
+     * プラグインの状態を読み込んでstringを返す.
+     *
+     * @return string プラグインの状態.
+     */
+    public function loadPluginStatus()
     {
-        $secret_key = wp_generate_uuid4();
-        update_option('wptba_secret_key', $secret_key);
+        if ($this->loadIsPluginActive()) {
+            return 'active';
+        }
+        return 'inactive';
+    }
+
+    /**
+     * プラグインのシークレットキーを作成する.
+     *
+     * @param string $client_secret クライアントシークレット.
+    */
+    private function saveSecretKey($client_secret)
+    {
+        update_option('wptba_secret_key', $client_secret);
     }
 
     /**

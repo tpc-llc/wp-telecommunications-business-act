@@ -1,16 +1,13 @@
-name: Plugin Test
+name: Deploy
 
 on:
   push:
     branches:
-      - "main"
-  pull_request:
-    branches:
-      - "main"
+      - "release"
 
 jobs:
   phpunit:
-    name: PHPUnit on ${{ matrix.php-versions }})
+    name: PHPUnit on ${{ matrix.php-versions }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -44,7 +41,8 @@ jobs:
         if: always()
 
   vitest:
-    name: Vitest on node js
+    name: Vitest on (${{ matrix.node-versions }}
+    needs: phpunit
     runs-on: ubuntu-latest
 
     strategy:
@@ -69,6 +67,12 @@ jobs:
         working-directory: ./frontend
         run: npm run test
 
+  deploy:
+    name: Build and Deploy
+    needs: vitest
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Slackに結果を通知する
         id: slack
         uses: 8398a7/action-slack@v3

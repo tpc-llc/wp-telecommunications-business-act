@@ -3,3 +3,4 @@
 node_modules/
 frontend/dist/
 wp-telecommunications-business-act.zip
+.DS_Store

@@ -1,6 +1,6 @@
 <?php
 /**
- * DefaultApi
+ * UsersApi
  * PHP version 7.4
  *
  * @category Class
@@ -40,14 +40,14 @@ use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
 
 /**
- * DefaultApi Class Doc Comment
+ * UsersApi Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DefaultApi
+class UsersApi
 {
     /**
      * @var ClientInterface

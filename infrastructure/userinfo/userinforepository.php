@@ -10,7 +10,7 @@ namespace WPTBA\Repository;
 use WPTBA\Repository\IUserInfoRepository;
 use WPTBA\lib\BaseConfig;
 
-use OpenAPI\Client\Api\DefaultApi;
+use OpenAPI\Client\Api\UsersApi;
 use GuzzleHttp\Client;
 use WP_Error;
 
@@ -39,7 +39,7 @@ class UserInfoRepository implements IUserInfoRepository
     public function registerUserInfo($client_version, $site_url, $email, $email_optin)
     {
         $base_config = new BaseConfig();
-        $api         = new DefaultApi(
+        $api         = new UsersApi(
             new Client(),
             $base_config
         );
@@ -88,7 +88,7 @@ class UserInfoRepository implements IUserInfoRepository
         ));
         $client_secret = $this->getSecretKey();
         $base_config = new BaseConfig($client_secret);
-        $api         = new DefaultApi(
+        $api         = new UsersApi(
             new Client(),
             $base_config
         );
@@ -237,7 +237,7 @@ class UserInfoRepository implements IUserInfoRepository
     {
         $client_secret = $this->getSecretKey();
         $base_config = new BaseConfig($client_secret);
-        $api         = new DefaultApi(
+        $api         = new UsersApi(
             new Client(),
             $base_config
         );

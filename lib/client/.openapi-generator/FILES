@@ -3,13 +3,13 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/DefaultApi.md
+docs/Api/UsersApi.md
 docs/Model/DeleteUsersRequest.md
 docs/Model/PatchUsersRequest.md
 docs/Model/PostUsersRequest.md
 docs/Model/PostUsersResponse.md
 git_push.sh
-lib/Api/DefaultApi.php
+lib/Api/UsersApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php

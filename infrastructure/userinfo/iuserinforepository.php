@@ -62,6 +62,13 @@ interface IUserInfoRepository
     public function loadSiteUrl();
 
     /**
+     * 現在のユーザーのメールアドレスを読み込む.
+     *
+     * @return string メールアドレス.
+    */
+    public function loadCurrentUserEmail();
+
+    /**
      * メールアドレスを読み込む.
      *
      * @return string メールアドレス.

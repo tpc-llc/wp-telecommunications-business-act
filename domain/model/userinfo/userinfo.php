@@ -108,11 +108,11 @@ class UserInfo
     public function getUserInfo()
     {
         $current_info = $this->user_info_repository->getUserInfo();
-        $this->client_version = $current_info['client_version'] ? (isset($current_info['client_version'])) : null;
-        $this->site_url = $current_info['site_url'] ? (isset($current_info['site_url'])) : null;
-        $this->email = $current_info['email'] ? (isset($current_info['email'])) : null;
-        $this->email_optin = $current_info['email_optin'] ? (isset($current_info['email_optin'])) : null;
-        $this->plugin_status = $current_info['plugin_status'] ? (isset($current_info['plugin_status'])) : null;
+        $this->client_version = isset($current_info['client_version']) ? $current_info['client_version'] : null;
+        $this->site_url = isset($current_info['site_url']) ? $current_info['site_url'] : null;
+        $this->email = isset($current_info['email']) ? $current_info['email'] : null;
+        $this->email_optin = isset($current_info['email_optin']) ? $current_info['email_optin'] : null;
+        $this->plugin_status = isset($current_info['plugin_status']) ? $current_info['plugin_status'] : null;
     }
 
     /**
@@ -120,12 +120,16 @@ class UserInfo
     */
     public function fetchUserInfo()
     {
+        $email = $this->user_info_repository->loadEmail();
+
+        $this->email = empty($email) ? $this->user_info_repository->loadCurrentUserEmail() : $email;
         $this->client_version = $this->user_info_repository->loadPluginVersion();
         $this->site_url = $this->user_info_repository->loadSiteUrl();
-        $this->email = $this->user_info_repository->loadEmail();
         $this->email_optin = $this->user_info_repository->loadEmailOptin();
         $this->plugin_status = $this->user_info_repository->loadPluginStatus();
     }
+
+
 
     /**
      * Email Switch Optin.

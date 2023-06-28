@@ -144,15 +144,26 @@ class UserInfoRepository implements IUserInfoRepository
     }
 
     /**
-     * メールアドレスを読み込む.
+     * 現在のユーザーのメールアドレスを読み込む.
+     *
+     * @return string メールアドレス.
+    */
+    public function loadCurrentUserEmail()
+    {
+        $current_user = wp_get_current_user();
+        $email = $current_user->user_email;
+        return $email;
+    }
+
+    /**
+     * メールアドレスを読み込む
      *
      * @return string メールアドレス.
     */
     public function loadEmail()
     {
-        $current_user = wp_get_current_user();
-        $email = $current_user->user_email;
-        return $email;
+        $user_info = $this->getUserInfo();
+        return isset($user_info['email']) ? $user_info['email'] : '';
     }
 
     /**
@@ -163,10 +174,7 @@ class UserInfoRepository implements IUserInfoRepository
     public function loadEmailOptin()
     {
         $user_info = $this->getUserInfo();
-        if (isset($user_info['email_optin'])) {
-            return $user_info['email_optin'] === true;
-        }
-        return false;
+        return isset($user_info['email_optin']) ? $user_info['email_optin'] : false;
     }
 
     /**
@@ -176,7 +184,8 @@ class UserInfoRepository implements IUserInfoRepository
     */
     public function loadIsPluginActive()
     {
-        is_plugin_active(__DIR__ . '/../../wp-telecommunications.php');
+        include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+        is_plugin_active(__DIR__ . '/../../wp-telecommunications-business-act.php');
     }
 
     /**

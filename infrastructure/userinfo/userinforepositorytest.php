@@ -104,6 +104,16 @@ class UserInfoRepositoryTest implements IUserInfoRepository
     }
 
     /**
+     * 現在のユーザーのメールアドレスを読み込む.
+     *
+     * @return string メールアドレス.
+    */
+    public function loadCurrentUserEmail()
+    {
+        return 'admin@admin.com';
+    }
+
+    /**
      * メールアドレスを読み込む.
      *
      * @return string メールアドレス.

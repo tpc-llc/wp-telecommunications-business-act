@@ -1,15 +1,15 @@
 import React from 'react'
 import {
-    Stack,
-    Heading,
-    Text,
-    Button,
-    HStack
+  Stack,
+  Heading,
+  Text,
+  Button,
+  HStack
 } from '@chakra-ui/react'
 import { FaTwitter, FaWpforms } from 'react-icons/fa'
 
 const Usage: React.FC = () => {
-    return (
+  return (
         <Stack
             spacing={4}
         >
@@ -30,8 +30,8 @@ const Usage: React.FC = () => {
                 target='_blank'
                 textDecoration={'none'}
                 _hover={{
-                    color: 'gray.400',
-                    textDecoration: 'none'
+                  color: 'gray.400',
+                  textDecoration: 'none'
                 }}
                 href="https://twitter.com/intent/tweet?text=無料のWordPressプラグイン「https://改正電気通信事業法.jp」を使って、3分で改正電気通信事業法に対応完了しました！&hashtags=改正電気通信事業法"
             >
@@ -49,8 +49,8 @@ const Usage: React.FC = () => {
                 target='_blank'
                 textDecoration={'none'}
                 _hover={{
-                    color: 'gray.400',
-                    textDecoration: 'none'
+                  color: 'gray.400',
+                  textDecoration: 'none'
                 }}
                 href="https://forms.gle/1ngSSaUidogXWGmDA"
             >
@@ -61,7 +61,7 @@ const Usage: React.FC = () => {
             </Button>
 
         </Stack>
-    )
+  )
 }
 
 export default Usage

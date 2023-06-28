@@ -22,18 +22,18 @@ const SwitchOptin: React.FC<SwitchOptinProps> = (props: SwitchOptinProps) => {
   }
 
   return (
-        <Stack
-            spacing={4}
-        >
-            <Heading as="h3" size="lg">メール配信設定</Heading>
-            <HStack>
-                <Switch
-                    onChange={handleChange}
-                    checked={emailOptin}
-                />
-                <Text>当社からのお役立ち情報を受け取る</Text>
-            </HStack>
-        </Stack>
+    <Stack
+      spacing={4}
+    >
+      <Heading as="h3" size="lg">メール配信設定</Heading>
+      <HStack>
+        <Switch
+          onChange={handleChange}
+          isChecked={emailOptin}
+        />
+        <Text>当社からのお役立ち情報を受け取る</Text>
+      </HStack>
+    </Stack>
   )
 }
 

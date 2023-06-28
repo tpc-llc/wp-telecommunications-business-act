@@ -23,7 +23,7 @@ class BaseConfig extends Configuration
     {
         parent::__construct();
 
-        $this->setUserAgent('WPTBA Plugin OAS Client : ' . $client_secret);
+        $this->setUserAgent('WPTBA Plugin OAS Client: ' . home_url());
         $env = getenv('WPTBA_ENV');
         switch ($env) {
             case 'test':

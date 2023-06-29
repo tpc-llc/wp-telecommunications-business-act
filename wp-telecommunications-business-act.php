@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/tpc-llc/wp-telecommunications-business-act
  * Description: 3分で電気通信事業法に対応しましょう。サイトで使用中のサービスにチェックを入れるだけで対応完了です！
  * Author: 合同会社TPC
- * Version: 0.0.1
+ * Version: 0.0.9
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author URI: https://tori-piyo.com
@@ -16,7 +16,7 @@
 
 namespace WPTBA;
 
-define('WPTBA_VERSION', '0.0.1');
+define('WPTBA_VERSION', '0.0.9');
 define('WPTBA_ENV', 'production');
 
 use WPTBA\Presentation\Filter\AddModuleTypeWithScriptLoaderTag;
@@ -33,8 +33,9 @@ use WPTBA\Presentation\Page\AdminPage;
 
 use WPTBA\Presentation\Action\ActivatedPlugin;
 use WPTBA\Presentation\Action\DectivatedPlugin;
-use WPTBA\Presentation\Action\PreUninstallPlugin;
 use WPTBA\Presentation\Action\UpgraderProcessComplete;
+
+use WPTBA\Presentation\Hook\RegisterUninstallHook;
 
 use WPTBA\Container\Container;
 
@@ -76,5 +77,11 @@ new AdminPage($page_name, $settings_page_slug, $js_name);
 $plugin_basename = plugin_basename(__FILE__);
 new ActivatedPlugin($container->getPluginStateManagementApplication(), $plugin_basename, $settings_page_slug);
 new DectivatedPlugin($container->getPluginStateManagementApplication(), $plugin_basename);
-new PreUninstallPlugin($container->getPluginStateManagementApplication(), $plugin_basename);
 new UpgraderProcessComplete($container->getPluginStateManagementApplication(), $plugin_basename);
+
+// Hook.
+register_uninstall_hook(
+    __FILE__,
+    array(new RegisterUninstallHook($container->getPluginStateManagementApplication()),
+    'registerUninstallHook'
+));

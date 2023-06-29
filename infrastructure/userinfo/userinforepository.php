@@ -241,7 +241,7 @@ class UserInfoRepository implements IUserInfoRepository
             new Client(),
             $base_config
         );
-        return $api->usersDelete(array(
+        $api->usersDelete(array(
             'client_secret' => $client_secret
         ));
         $this->deletePluginData();

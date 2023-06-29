@@ -11,12 +11,13 @@ export interface ServicePolicyHeaderProps {
 }
 
 export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: ServicePolicyHeaderProps) => {
+  const tableHeader: string = '#EDF2F7 !important;'
   return (
     <>
       <Tr>
         {props.useCheckbox && (
           <Th
-            background={'tableHeader'}
+            background={tableHeader}
             px={4}
             py={4}
             verticalAlign={'middle'}
@@ -30,37 +31,37 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
           </Th>
         )}
         <Th
-          background={'tableHeader'}
+          background={tableHeader}
           px={4}
           py={4}
           verticalAlign={'middle'}
         ><Text>分類</Text></Th>
         <Th
-          background={'tableHeader'}
+          background={tableHeader}
           px={4}
           py={4}
           verticalAlign={'middle'}
         ><Text>企業名</Text></Th>
         <Th
-          background={'tableHeader'}
+          background={tableHeader}
           px={4}
           py={4}
           verticalAlign={'middle'}
         ><Text>サービス名</Text></Th>
         <Th
-          background={'tableHeader'}
+          background={tableHeader}
           px={4}
           py={4}
           verticalAlign={'middle'}
         ><Text>オプトアウト</Text></Th>
         <Th
-          background={'tableHeader'}
+          background={tableHeader}
           px={4}
           py={4}
           verticalAlign={'middle'}
         ><Text>プライバシーポリシー</Text></Th>
         <Th
-          background={'tableHeader'}
+          background={tableHeader}
           px={4}
           py={4}
           verticalAlign={'middle'}

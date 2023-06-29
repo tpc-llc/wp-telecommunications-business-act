@@ -19,6 +19,7 @@ const ServicePolicyExamples: React.FC<ServicePolicyExamplesProps> = (props: Serv
             <UnorderedList
                 m={'0 !important'}
                 ml={'8 !important'}
+                paddingInlineStart={'0 !important'}
             >
                 {props.sendInfoExamples.map((example, index) => (
                     <ListItem

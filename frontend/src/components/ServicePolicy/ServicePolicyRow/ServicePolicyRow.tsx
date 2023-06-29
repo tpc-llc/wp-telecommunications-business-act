@@ -41,9 +41,13 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
 
   return (
         <>
-            <Tr>
+            <Tr
+                display={['block', 'table-row', 'table-row']}
+                borderBottom={'1px solid #3f4245 !important'}
+            >
                 {props.useCheckbox && props.selectedServiceOfficialPoliciesUids != null && (
                     <Td
+                        display={['block', 'table-cell', 'table-cell']}
                         px={4}
                         py={4}
                         verticalAlign={'middle'}
@@ -60,6 +64,7 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     </Td>
                 )}
                 <Td
+                    display={['block', 'table-cell', 'table-cell']}
                     px={4}
                     py={4}
                     verticalAlign={'middle'}
@@ -69,6 +74,7 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     />
                 </Td>
                 <Td
+                    display={['block', 'table-cell', 'table-cell']}
                     px={4}
                     py={4}
                     verticalAlign={'middle'}
@@ -80,6 +86,7 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     />
                 </Td>
                 <Td
+                    display={['block', 'table-cell', 'table-cell']}
                     px={4}
                     py={4}
                     verticalAlign={'middle'}
@@ -90,6 +97,7 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     />
                 </Td>
                 <Td
+                    display={['block', 'table-cell', 'table-cell']}
                     px={4}
                     py={4}
                     verticalAlign={'middle'}
@@ -99,6 +107,7 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     />
                 </Td>
                 <Td
+                    display={['block', 'table-cell', 'table-cell']}
                     px={4}
                     py={4}
                     verticalAlign={'middle'}
@@ -108,6 +117,7 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
                     />
                 </Td>
                 <Td
+                    display={['block', 'table-cell', 'table-cell']}
                     px={4}
                     py={4}
                     verticalAlign={'middle'}
@@ -120,9 +130,12 @@ export const ServicePolicyRow: React.FC<ServicePolicyRowProps> = (props: Service
             </Tr>
             {opened && (
                 <Tr
+                    display={['block', 'table-row', 'table-row']}
                     backgroundColor={'gray.100'}
+                    borderBottom={'1px solid #3f4245 !important'}
                 >
                     <Td
+                        display={['block', 'table-cell', 'table-cell']}
                         colSpan={colSpan}
                         px={4}
                         py={4}

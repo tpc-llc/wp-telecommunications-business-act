@@ -17,8 +17,8 @@ const ServicePolicyExamples: React.FC<ServicePolicyExamplesProps> = (props: Serv
                 送信情報例
             </Heading>
             <UnorderedList
-                m={0}
-                ml={8}
+                m={'0 !important'}
+                ml={'4 !important'}
             >
                 {props.sendInfoExamples.map((example, index) => (
                     <ListItem

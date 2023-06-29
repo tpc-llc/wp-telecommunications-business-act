@@ -45,11 +45,17 @@ const ServiceSelect: React.FC<ServiceSelectProps> = (props: ServiceSelectProps) 
       spacing={4}
     >
       <Heading as="h3" size="lg">利用サービスを選択</Heading>
-      <Table>
-        <Thead>
+      <Table
+        display={['block', 'table', 'table']}
+      >
+        <Thead
+          display={['block', 'table-header-group', 'table-header-group']}
+        >
           <ServicePolicyHeader useCheckbox={true} />
         </Thead>
-        <Tbody>
+        <Tbody
+          display={['block', 'table-row-group', 'table-row-group']}
+        >
           {Object.values(ServiceOfficialPolicies).map((policy) => (
             <ServicePolicyRow
               key={policy.uid}

@@ -14,9 +14,12 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
   const tableHeader: string = '#EDF2F7 !important;'
   return (
     <>
-      <Tr>
+      <Tr
+        display={['table-row', 'table-row', 'table-row']}
+      >
         {props.useCheckbox && (
           <Th
+            display={['block', 'table-cell', 'table-cell']}
             background={tableHeader}
             px={4}
             py={4}
@@ -32,6 +35,7 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
           </Th>
         )}
         <Th
+          display={['block', 'table-cell', 'table-cell']}
           background={tableHeader}
           px={4}
           py={4}
@@ -39,6 +43,7 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
           verticalAlign={'middle'}
         ><Text>分類</Text></Th>
         <Th
+          display={['block', 'table-cell', 'table-cell']}
           background={tableHeader}
           px={4}
           py={4}
@@ -46,6 +51,7 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
           verticalAlign={'middle'}
         ><Text>企業名</Text></Th>
         <Th
+          display={['block', 'table-cell', 'table-cell']}
           background={tableHeader}
           px={4}
           py={4}
@@ -53,6 +59,7 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
           verticalAlign={'middle'}
         ><Text>サービス名</Text></Th>
         <Th
+          display={['block', 'table-cell', 'table-cell']}
           background={tableHeader}
           px={4}
           py={4}
@@ -60,6 +67,7 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
           verticalAlign={'middle'}
         ><Text>オプトアウト</Text></Th>
         <Th
+          display={['block', 'table-cell', 'table-cell']}
           background={tableHeader}
           px={4}
           py={4}
@@ -67,6 +75,7 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
           verticalAlign={'middle'}
         ><Text>プライバシーポリシー</Text></Th>
         <Th
+          display={['block', 'table-cell', 'table-cell']}
           background={tableHeader}
           px={4}
           py={4}

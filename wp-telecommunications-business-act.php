@@ -37,6 +37,7 @@ use WPTBA\Presentation\Action\UpgraderProcessComplete;
 
 use WPTBA\Presentation\Hook\RegisterUninstallHook;
 
+
 use WPTBA\Container\Container;
 
 // Require autoloader.
@@ -79,9 +80,9 @@ new ActivatedPlugin($container->getPluginStateManagementApplication(), $plugin_b
 new DectivatedPlugin($container->getPluginStateManagementApplication(), $plugin_basename);
 new UpgraderProcessComplete($container->getPluginStateManagementApplication(), $plugin_basename);
 
-// Hook.
-register_uninstall_hook(
-    __FILE__,
-    array(new RegisterUninstallHook($container->getPluginStateManagementApplication()),
-    'registerUninstallHook'
-));
+function wptba_uninstall_hook()
+{
+    $container = new Container();
+    new RegisterUninstallHook($container->getPluginStateManagementApplication());
+}
+register_uninstall_hook(__FILE__, 'WPTBA\wptba_uninstall_hook');

@@ -27,13 +27,6 @@ class RegisterUninstallHook
     public function __construct($plugin_state_management_application)
     {
         $this->plugin_state_management_application = $plugin_state_management_application;
-    }
-
-    /**
-     * RegisterUninstallHook.
-    */
-    public function registerUninstallHook()
-    {
-            $this->plugin_state_management_application->uninstalled();
+        $this->plugin_state_management_application->uninstalled();
     }
 }

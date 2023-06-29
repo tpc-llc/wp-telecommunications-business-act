@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: 電気通信事業法対応プラグイン
+ * Plugin Name: 電気通信事業法対応.jp
  * Plugin URI: https://github.com/tpc-llc/wp-telecommunications-business-act
- * Description: 3分で電気通信事業法に対応しましょう。サイトで使用中のサービスにチェックを入れるだけで対応完了です！
+ * Description: 改正電気通信事業法で定められた外部送信情報を効率的に作成するプラグイン
  * Author: 合同会社TPC
  * Version: 0.1.1
  * Requires at least: 6.0
@@ -16,7 +16,7 @@
 
 namespace WPTBA;
 
-define('WPTBA_VERSION', '0.1.0');
+define('WPTBA_VERSION', '0.1.1');
 define('WPTBA_ENV', 'production');
 
 use WPTBA\Presentation\Filter\AddModuleTypeWithScriptLoaderTag;

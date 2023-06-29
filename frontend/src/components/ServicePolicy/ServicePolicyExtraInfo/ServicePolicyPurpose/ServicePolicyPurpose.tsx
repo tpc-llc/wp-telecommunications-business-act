@@ -10,7 +10,7 @@ const ServicePolicyPurpose: React.FC<ServicePolicyPurposeProps> = (props: Servic
     <Box
     >
       <Heading
-        mb={4}
+        mb={'2 !important'}
         as={'h4'}
         fontSize={'1.2rem'}
       >

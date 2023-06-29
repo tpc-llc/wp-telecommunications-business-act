@@ -20,6 +20,7 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
             background={tableHeader}
             px={4}
             py={4}
+            border={'none'}
             verticalAlign={'middle'}
           >
             <Flex
@@ -34,36 +35,42 @@ export const ServicePolicyHeader: React.FC<ServicePolicyHeaderProps> = (props: S
           background={tableHeader}
           px={4}
           py={4}
+          border={'none'}
           verticalAlign={'middle'}
         ><Text>分類</Text></Th>
         <Th
           background={tableHeader}
           px={4}
           py={4}
+          border={'none'}
           verticalAlign={'middle'}
         ><Text>企業名</Text></Th>
         <Th
           background={tableHeader}
           px={4}
           py={4}
+          border={'none !important'}
           verticalAlign={'middle'}
         ><Text>サービス名</Text></Th>
         <Th
           background={tableHeader}
           px={4}
           py={4}
+          border={'none'}
           verticalAlign={'middle'}
         ><Text>オプトアウト</Text></Th>
         <Th
           background={tableHeader}
           px={4}
           py={4}
+          border={'none'}
           verticalAlign={'middle'}
         ><Text>プライバシーポリシー</Text></Th>
         <Th
           background={tableHeader}
           px={4}
           py={4}
+          border={'none'}
           verticalAlign={'middle'}
         ><Text>外部送信情報など</Text></Th>
       </Tr>

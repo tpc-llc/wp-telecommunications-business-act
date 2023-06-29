@@ -10,7 +10,7 @@ const ServicePolicyExamples: React.FC<ServicePolicyExamplesProps> = (props: Serv
         <Box
         >
             <Heading
-                mb={4}
+                mb={'2 !important'}
                 as={'h4'}
                 fontSize={'1.2rem'}
             >
@@ -29,7 +29,7 @@ const ServicePolicyExamples: React.FC<ServicePolicyExamplesProps> = (props: Serv
                     </ListItem>
                 ))}
             </UnorderedList>
-        </Box>
+        </Box >
   )
 }
 

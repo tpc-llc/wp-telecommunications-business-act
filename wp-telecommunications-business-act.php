@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/tpc-llc/wp-telecommunications-business-act
  * Description: 3分で電気通信事業法に対応しましょう。サイトで使用中のサービスにチェックを入れるだけで対応完了です！
  * Author: 合同会社TPC
- * Version: 0.0.9
+ * Version: 0.1.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author URI: https://tori-piyo.com
@@ -16,7 +16,7 @@
 
 namespace WPTBA;
 
-define('WPTBA_VERSION', '0.0.9');
+define('WPTBA_VERSION', '0.1.0');
 define('WPTBA_ENV', 'production');
 
 use WPTBA\Presentation\Filter\AddModuleTypeWithScriptLoaderTag;

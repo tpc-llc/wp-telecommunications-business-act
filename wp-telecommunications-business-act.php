@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/tpc-llc/wp-telecommunications-business-act
  * Description: 改正電気通信事業法で定められた外部送信情報を効率的に作成するプラグイン
  * Author: 合同会社TPC
- * Version: 0.1.1
+ * Version: 0.1.2
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author URI: https://tori-piyo.com
@@ -16,7 +16,7 @@
 
 namespace WPTBA;
 
-define('WPTBA_VERSION', '0.1.1');
+define('WPTBA_VERSION', '0.1.2');
 define('WPTBA_ENV', 'production');
 
 use WPTBA\Presentation\Filter\AddModuleTypeWithScriptLoaderTag;

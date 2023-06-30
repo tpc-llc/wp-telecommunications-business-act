@@ -1,4 +1,4 @@
-composer update
+composer install --no-dev
 cd frontend
 npm run build
 cd ..

@@ -1,4 +1,5 @@
 === 電気通信事業法.jp ===
+Plugin Name: denki-tsushin-jigyoho.jp
 Contributors: denkitsushinjigyohojp
 Tags: 電気通信事業法,改正電気通信事業法,電気通信事業法.jp,外部送信情報,外部送信規律,三号,3号
 Requires at least: 6.0
@@ -53,11 +54,11 @@ WordPressに管理者のアカウントでログインします。
 
 == Changelog ==
 
-= 0.1.2 =
+= 0.2.0 =
 * 電気通信事業法.jpをリリースしました
  
  
 == Upgrade Notice ==
 
-= 0.1.2 =
+= 0.2.0 =
 * 初回リリースのため無し

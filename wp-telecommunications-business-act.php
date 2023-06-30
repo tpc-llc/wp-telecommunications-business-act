@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: 電気通信事業法対応.jp
+ * Plugin Name: WP Telecommunications Business Act
  * Plugin URI: https://github.com/tpc-llc/wp-telecommunications-business-act
- * Description: 改正電気通信事業法で定められた外部送信情報を効率的に作成するプラグイン
- * Author: 合同会社TPC
+ * Description: This is a plugin that efficiently creates external transmission information specified by the revised Telecommunications Business Act.
+ * Author: TPC LLC
  * Version: 0.2.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
@@ -69,7 +69,7 @@ new PatchEmailOptin($container->getAdminApplication());
 new GetPublicServicePolicies($container->getPublicApplication());
 
 // Page.
-$page_name = '電気通信事業法';
+$page_name = __('Telecommunications Business Act', 'WPTBA');
 $settings_page_slug = 'telecommunications-business-act';
 $js_name = 'AdminPage';
 new AdminPage($page_name, $settings_page_slug, $js_name);

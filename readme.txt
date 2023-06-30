@@ -3,7 +3,7 @@ Contributors: denkitsushinjigyohojp
 Tags: 電気通信事業法,改正電気通信事業法,電気通信事業法.jp,外部送信情報,外部送信規律,三号,3号
 Requires at least: 6.0
 Tested up to: 6.0
-Stable tag: 0.1.2
+Stable tag: 0.2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 7.4

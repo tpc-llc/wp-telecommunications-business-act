@@ -1,12 +1,12 @@
 # Copyright (C) 2023 TPC LLC
-# This file is distributed under the same license as the WP Telecommunications Business Act plugin.
+# This file is distributed under the same license as the Telecommunications Business Act WP plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Telecommunications Business Act 0.2.0\n"
+"Project-Id-Version: Telecommunications Business Act WP 0.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-"
 "telecommunications-business-act\n"
-"POT-Creation-Date: 2023-06-30T10:21:15+00:00\n"
-"PO-Revision-Date: 2023-06-30 19:22+0900\n"
+"POT-Creation-Date: 2023-06-30T10:29:12+00:00\n"
+"PO-Revision-Date: 2023-06-30 19:30+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Domain: WPTBA\n"
 
 #. Plugin Name of the plugin
-msgid "WP Telecommunications Business Act"
+msgid "Telecommunications Business Act WP"
 msgstr "電気通信事業法.jp"
 
 #. Plugin URI of the plugin
@@ -29,7 +29,7 @@ msgid ""
 "This is a plugin that efficiently creates external transmission information "
 "specified by the revised Telecommunications Business Act."
 msgstr ""
-"改正電気通信事業法で定められた外部送信情報を効率的に作成するプラグイン "
+"改正電気通信事業法で定められた外部送信情報を効率的に作成するプラグイン"
 
 #. Author of the plugin
 msgid "TPC LLC"

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WP Telecommunications Business Act
+ * Plugin Name: Telecommunications Business Act WP
  * Plugin URI: https://github.com/tpc-llc/wp-telecommunications-business-act
  * Description: This is a plugin that efficiently creates external transmission information specified by the revised Telecommunications Business Act.
  * Author: TPC LLC

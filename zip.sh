@@ -4,5 +4,36 @@ npm run build
 cd ..
 rm wp-telecommunications-business-act.zip
 zip -r wp-telecommunications-business-act.zip ./\
+    -x ".git/*"\
+    -x ".DS_Store"\
     -x "./frontend/node_modules/*"\
-    -x "./.git/*"\
+    -x "./.github/*"\
+    -x "./.vscode/*"\
+    -x "./.gitignore"\
+    -x "./php.ini"\
+    -x "./api.json"\
+    -x "./Dockerfile"\
+    -x "./docker-compose.yml"\
+    -x "./zip.sh"\
+    -x "./lib/client/.openapi-generator/*"\
+    -x "./lib/client/docs/*"\
+    -x "./lib/client/.gitignore"\
+    -x "./lib/client/.openapi-generator-ignore"\
+    -x "./lib/client/.php-cs-fixer.dist.php"\
+    -x "./lib/client/.travis.yml"\
+    -x "./lib/client/composer.json"\
+    -x "./lib/client/git_push.sh"\
+    -x "./lib/client/phpunit.xml.dist"\
+    -x "./lib/client/README.md"\
+    -x "./frontend/.storybook/*"\
+    -x "./frontend/public/*"\
+    -x "./frontend/src/*"\
+    -x "./frontend/.eslintrc.cjs"\
+    -x "./frontend/.npmrc"\
+    -x "./frontend/orval.config.cjs"\
+    -x "./frontend/package-lock.json"\
+    -x "./frontend/package.json"\
+    -x "./frontend/tsconfig.json"\
+    -x "./frontend/tsconfig.node.json"\
+    -x "./frontend/vite.config.ts"\
+    -x "./frontend/vitest.setup.tsx"\

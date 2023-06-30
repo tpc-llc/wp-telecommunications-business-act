@@ -2,11 +2,11 @@ import React from 'react'
 import { Box, Text, UnorderedList, ListItem, Heading } from '@chakra-ui/react'
 
 export interface ServicePolicyExamplesProps {
-    sendInfoExamples: string[]
+  sendInfoExamples: string[]
 }
 
 const ServicePolicyExamples: React.FC<ServicePolicyExamplesProps> = (props: ServicePolicyExamplesProps) => {
-    return (
+  return (
         <Box
         >
             <Heading
@@ -31,7 +31,7 @@ const ServicePolicyExamples: React.FC<ServicePolicyExamplesProps> = (props: Serv
                 ))}
             </UnorderedList>
         </Box >
-    )
+  )
 }
 
 export default ServicePolicyExamples

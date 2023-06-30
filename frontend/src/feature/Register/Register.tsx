@@ -41,19 +41,18 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
     mode: 'onChange'
   })
 
-  const onSubmit: (formData: RegisterFormValues) => void = (formData: RegisterFormValues) => {
-    setHasRegistrationError(false)
-    const params: PostRegisterRequest = {
-      email: formData.email,
-      email_optin: formData.emailOptin
-    }
-    postAdminRegister(params, axiosBaseConfig).then(() => {
+  const onSubmit: (formData: RegisterFormValues) => Promise<void> = async (formData: RegisterFormValues) => {
+    try {
+      setHasRegistrationError(false)
+      const params: PostRegisterRequest = {
+        email: formData.email,
+        email_optin: formData.emailOptin
+      }
+      await postAdminRegister(params, axiosBaseConfig)
       window.location.reload()
-    }
-    ).catch(() => {
+    } catch (err) {
       setHasRegistrationError(true)
     }
-    )
   }
 
   return (

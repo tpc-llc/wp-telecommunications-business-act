@@ -9,12 +9,17 @@
  * Requires PHP:      7.4
  * Author URI: https://tori-piyo.com
  * Text Domain: WPTBA
- * Domain Path: /languages
+ * Domain Path: /languages/
  *
  * @package WPTBA
  */
 
 namespace WPTBA;
+
+load_plugin_textdomain(
+    'WPTBA',
+    false,
+    plugin_basename( dirname( __FILE__ ) ) . '/languages' );
 
 define('WPTBA_VERSION', '0.2.0');
 define('WPTBA_ENV', 'production');

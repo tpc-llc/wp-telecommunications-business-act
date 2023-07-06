@@ -1,5 +1,5 @@
 *.cache
 node_modules/
-frontend/dist/
+frontend/dist/mockServiceWorker.js
 wp-telecommunications-business-act.zip
 .DS_Store

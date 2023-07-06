@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/tpc-llc/wp-telecommunications-business-act
  * Description: This is a plugin that efficiently creates external transmission information specified by the revised Telecommunications Business Act.
  * Author: TPC LLC
- * Version: 0.2.0
+ * Version: 0.2.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author URI: https://tori-piyo.com
@@ -19,9 +19,10 @@ namespace WPTBA;
 load_plugin_textdomain(
     'WPTBA',
     false,
-    plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+    plugin_basename(dirname(__FILE__)) . '/languages'
+);
 
-define('WPTBA_VERSION', '0.2.0');
+define('WPTBA_VERSION', '0.2.1');
 define('WPTBA_ENV', 'production');
 
 use WPTBA\Presentation\Filter\AddModuleTypeWithScriptLoaderTag;
@@ -49,13 +50,25 @@ use WPTBA\Container\Container;
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require __DIR__ . '/vendor/autoload.php';
 }
-
 require_once __DIR__ . '/lib/require-once.php';
 require_once __DIR__ . '/infrastructure/require-once.php';
 require_once __DIR__ . '/domain/require-once.php';
 require_once __DIR__ . '/application/require-once.php';
 require_once __DIR__ . '/presentation/require-once.php';
 require_once __DIR__ . '/container.php';
+
+//Require updater.
+require 'plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$updateChecker = PucFactory::buildUpdateChecker(
+    'https://github.com/tpc-llc/wp-telecommunications-business-act',
+    __FILE__,
+    'telecommunications-business-act-wp'
+);
+
+//Set the branch that contains the stable release.
+$updateChecker->setBranch('release');
 
 $container = new Container();
 

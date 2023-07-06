@@ -4,6 +4,32 @@ import { type ServicePolicy } from './ServicePolicy'
 import { SendInfoExample } from './SendInfoExample'
 
 export const ServiceOfficialPolicies: Record<string, ServicePolicy> = {
+  'tpc-wpmonetize': {
+    uid: 'tpc-wpmonetize',
+    classification: ServiceClassification.webTool,
+    companyName: '合同会社TPC',
+    verified: true,
+    serviceName: 'WPMonetize',
+    serviceLink: 'https://tori-piyo.com',
+    privacyPolicyLink: 'https://tori-piyo.com/privacy-policy/',
+    purpose: (
+      <Box>
+        <Text>WPMonetizeでは有料コンテンツを安価な手数料で販売することができます。</Text>
+        <Text>WPMonetizeはエンドユーザーの顧客体験最適化のため下記の情報を収集し、または収集する予定です。</Text>
+      </Box>
+    ),
+    sendInfoExamples: [
+      SendInfoExample.ipAddress,
+      SendInfoExample.screenUrl,
+      SendInfoExample.screenTitle,
+      SendInfoExample.previousScreenUrl,
+      SendInfoExample.accessDatetime,
+      SendInfoExample.userAgent,
+      SendInfoExample.screenSize,
+      SendInfoExample.deviceLanguage,
+      SendInfoExample.moviePlayInfo
+    ]
+  },
   'google-analytics': {
     uid: 'google-analytics',
     classification: ServiceClassification.accessAnalysis,

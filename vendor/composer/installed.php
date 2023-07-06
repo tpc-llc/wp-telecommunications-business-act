@@ -3,7 +3,7 @@
         'name' => 'tpc-llc/wp-telecommunications-business-act',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a51b4ce101857d6b490a6ab18f92b62fb558a718',
+        'reference' => 'c475549ed96c691a4eb0fe5160e1f6f7990020d7',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -103,7 +103,7 @@
         'tpc-llc/wp-telecommunications-business-act' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a51b4ce101857d6b490a6ab18f92b62fb558a718',
+            'reference' => 'c475549ed96c691a4eb0fe5160e1f6f7990020d7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

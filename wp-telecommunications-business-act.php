@@ -69,6 +69,8 @@ $updateChecker = PucFactory::buildUpdateChecker(
 
 //Set the branch that contains the stable release.
 $updateChecker->setBranch('release');
+//Get branch only.
+$updateChecker->setAuthentication('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');
 
 $container = new Container();
 
